@@ -4,6 +4,7 @@ package entity;
  * Created by MalindaK on 12/9/2017.
  */
 import javax.persistence.*;
+import javax.persistence.Entity;
 
 import static java.awt.font.TransformAttribute.IDENTITY;
 

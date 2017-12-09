@@ -1,10 +1,12 @@
+package entityManager;
+
+import AppConfig.HibernateUtil;
+import entity.Entity;
 import entity.Stock;
 import entity.Student;
-import entityManager.EntityManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import AppConfig.HibernateUtil;
 
 import java.lang.reflect.Field;
 import java.util.Iterator;
@@ -13,57 +15,24 @@ import java.util.List;
 /**
  * Created by MalindaK on 12/9/2017.
  */
-public class App {
-    public static void main( String[] args )
-    {
-//        listEmployees();
-//        addStock();
-//        delete(1);
-//
-        Student student = new Student();
-        student.setFirstName("Malinda");
-        student.setLastName("Kumarasinghe");
-        EntityManager.add(student);
-    }
-
-    public static void addStock(){
+public class EntityManager {
+    public static void add(Entity entity){
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
-        Stock stock = new Stock();
-
-        stock.setStockCode("22");
-        stock.setStockName("Wasdasd");
-
-        for (Field field : stock.getClass().getDeclaredFields()) {
-            field.setAccessible(true); // You might want to set modifier to public first.
-            Object value = null;
-            try {
-                value = field.get(stock);
-                if (value != null) {
-                    System.out.println(field.getName() + "=" + value);
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-
-
-        session.save(stock);
+        session.save(entity);
         session.getTransaction().commit();
     }
 
     /* Method to DELETE an employee from the records */
-    public static void delete(Integer stockID){
+    public static void delete(Entity entity, int id){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
-            Stock stock = (Stock)session.get(Stock.class, stockID);
-            session.delete(stock);
+            Student student = (Student)session.get(Entity.class, id);
+            session.delete(student);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -73,16 +42,16 @@ public class App {
         }
     }
 
-    public static void updateEmployee(int id, String name ){
+    public static void update(Student student){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
-            Stock stock = (Stock)session.get(Stock.class, id);
-            stock.setStockName( name );
-            session.update(stock);
+            Stock oldStudent = (Stock)session.get(Stock.class, student.getId());
+            session.update(student);
             tx.commit();
+
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
@@ -92,7 +61,7 @@ public class App {
     }
 
     /* Method to  READ all the employees */
-    public static void listEmployees(){
+    public static void getStudent(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
