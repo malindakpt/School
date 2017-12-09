@@ -42,14 +42,13 @@ public class EntityManager {
         }
     }
 
-    public static void update(Student student){
+    public static void update(Entity entity){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
-            Stock oldStudent = (Stock)session.get(Stock.class, student.getId());
-            session.update(student);
+            session.update(entity);
             tx.commit();
 
         } catch (HibernateException e) {
@@ -61,18 +60,18 @@ public class EntityManager {
     }
 
     /* Method to  READ all the employees */
-    public static void getStudent(){
+    public static void getEntities(Class entity){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
-            List employees = session.createQuery("FROM Stock ").list();
-            for (Iterator iterator = employees.iterator(); iterator.hasNext();){
-                Stock stock = (Stock) iterator.next();
+            List entities = session.createQuery("FROM "+entity.getSimpleName()).list();
+            for (Iterator iterator = entities.iterator(); iterator.hasNext();){
+                Student student = (Student) iterator.next();
 
-                System.out.print("First Name: " + stock.getStockCode());
-                System.out.print("  Last Name: " + stock.getStockName());
+                System.out.print("First Name: " + student.getId());
+                System.out.print("  Last Name: " + student.getFirstName());
                 System.out.println("----------");
             }
             tx.commit();

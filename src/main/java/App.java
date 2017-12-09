@@ -24,6 +24,14 @@ public class App {
         student.setFirstName("Malinda");
         student.setLastName("Kumarasinghe");
         EntityManager.add(student);
+
+
+
+        student.setFatherMobile("Premasiri");
+        EntityManager.update(student);
+
+
+        EntityManager.getEntities(Student.class);
     }
 
     public static void addStock(){
@@ -48,9 +56,6 @@ public class App {
             }
 
         }
-
-
-
         session.save(stock);
         session.getTransaction().commit();
     }
