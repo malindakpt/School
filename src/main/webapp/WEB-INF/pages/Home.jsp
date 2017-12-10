@@ -21,7 +21,7 @@
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addStudent()">Add Student</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="addTeacher()">Add Teacher</a>
 </div>
 
 <!-- Page Content -->
@@ -85,7 +85,7 @@
                         <div class="w3-card w3-round w3-white">
                             <div class="w3-container w3-padding" id="home-middle">
             <jsp:include page='widgets/addMember.jsp'/>
-            <%--<jsp:include page='widgets/ListStudents.jsp'/>--%>
+            <%--<jsp:include page='widgets/listStudents.jsp'/>--%>
                             </div>
                         </div>
                     </div>
@@ -180,6 +180,17 @@
 
             }).fail(function (result) {
             $('#home-middle').html(result);
+            }
+        );
+    }
+    function addTeacher(){
+        w3_close();
+        $.post('PageAddTeacher', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function (result) {
+                $('#home-middle').html(result);
             }
         );
     }

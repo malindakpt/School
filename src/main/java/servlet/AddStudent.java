@@ -49,34 +49,6 @@ public class AddStudent extends HttpServlet {
             student.setMotherMobile(request.getParameter("motherMobile"));
             student.setGuardinaName(request.getParameter("guardinaName"));
             student.setGuardianMobile(request.getParameter("guardianMobile"));
-
-
-
-//            try {
-////                location = location.substring(0, 7) + " class=map " + location.substring(7, location.length());
-//            }catch(Exception e){
-//
-//            }
-//            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//            String dateInString = expDate;
-//            Date date=null;
-//            date = formatter.parse(dateInString);
-//
-//            ad.setID(0);
-//            ad.setTopic(topic);
-//            ad.setCreateDate(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-//            ad.setExpDate(new java.sql.Date(date.getTime()));
-//            ad.setCustomer(email);
-//            ad.setPwd(pwd);
-//            ad.setMaxAds(inoVehi);
-//            ad.setLocation(location);
-
-//            if(EntityManager.add(student)){
-//                EmailSender.sendEmail(Constants.EMAIL_AD_CREATED,email);
-//            }else{
-////                out.print(DBLink.errorMsg);
-//            }
-
             EntityManager.add(student);
 
         }catch (Exception e){

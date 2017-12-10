@@ -1,21 +1,46 @@
 package entity;
 
 import javax.persistence.*;
-import java.rmi.MarshalException;
+import java.util.Set;
 
 /**
  * Created by MalindaK on 12/8/2017.
  */
 @javax.persistence.Entity
 @Table(name = "student", catalog = "school", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "id")})
+        @UniqueConstraint(columnNames = "studentId")})
 public class Student extends Member {
+    private int studentId ;
     private String fatherName;
     private String fatherMobile;
     private String motherName;
     private String motherMobile;
     private String guardinaName;
     private String guardianMobile;
+    //New
+    private Set<YearRegistration> yearRegistrations;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "studentId", unique = true, nullable = false)
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+    public Set<YearRegistration> getYearRegistrations() {
+        return yearRegistrations;
+    }
+
+
+    public void setYearRegistrations(Set<YearRegistration> yearRegistrations) {
+        this.yearRegistrations = yearRegistrations;
+    }
 
     @Column(name = "fatherName", nullable = true, length = 20)
     public String getFatherName() {

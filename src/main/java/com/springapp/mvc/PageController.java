@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
+//School Management Starts
 @Controller
 @RequestMapping("/")
 public class PageController {
@@ -21,23 +23,28 @@ public class PageController {
 class HomeController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
-		return "widgets/ListStudents";
+		return "widgets/listStudents";
 	}
 }
 
 @Controller
 @RequestMapping("/PageAddStudent")
-class AddVehicleController {
+class PageAddStudentController {
     @RequestMapping(method = RequestMethod.POST)
     public String printWelcome(ModelMap model) {
         return "widgets/addMember";
     }
-//	@RequestMapping(method = RequestMethod.POST)
-//	public String printWelcome(ModelMap model) {
-//		model.addAttribute("message", "Hello world!");
-//		return "AddVehicle";
-//	}
 }
+@Controller
+@RequestMapping("/PageAddTeacher")
+class PageAddTeacherController {
+    @RequestMapping(method = RequestMethod.POST)
+    public String printWelcome(ModelMap model) {
+        return "widgets/addTeacher";
+    }
+}
+
+//School Management End
 
 @Controller
  @RequestMapping("/CreateAdView")

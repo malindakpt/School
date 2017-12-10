@@ -16,20 +16,12 @@
         <input class="w3-input" type="text" id="address">
         <label>Phone</label>
         <input class="w3-input" type="text" id="phone">
-        <label>Father Name</label>
-        <input class="w3-input" type="text" id="fatherName">
-        <label>Father Mobile</label>
-        <input class="w3-input" type="text" id="fatherMobile">
-        <label>Mother Name</label>
-        <input class="w3-input" type="text" id="motherName">
-        <label>Mother Mobile</label>
-        <input class="w3-input" type="text" id="motherMobile">
-        <label>Guardian Name</label>
-        <input class="w3-input" type="text" id="guardinaName">
-        <label>Guardian Mobile</label>
-        <input class="w3-input" type="text" id="guardianMobile">
 
-        <button onclick="saveStudent()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
+
+        <label>NIC</label>
+        <input class="w3-input" type="text" id="nic">
+
+        <button onclick="saveTeacher()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
              Save
         </button>
     </form>
@@ -37,20 +29,16 @@
 
 
 <script>
-    function saveStudent() {
-        $.post('AddStudent', {
+    function saveTeacher() {
+        $.post('AddTeacher', {
                 firstName: $('#firstName').val(),
                 lastName: $('#lastName').val(),
                 fullName: $('#fullName').val(),
                 birthday: $('#birthday').val(),
                 address: $('#address').val(),
                 phone: $('#phone').val(),
-                fatherName: $('#fatherName').val(),
-                fatherMobile: $('#fatherMobile').val(),
-                motherName: $('#motherName').val(),
-                motherMobile: $('#motherMobile').val(),
-                guardinaName: $('#guardinaName').val(),
-                guardianMobile: $('#guardianMobile').val()
+
+                nic: $('#nic').val()
             },
             function (result) {
                 if (result === "") {
