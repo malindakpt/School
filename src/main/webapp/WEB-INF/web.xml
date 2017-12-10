@@ -31,10 +31,7 @@
 		<url-pattern>/imageDownload</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>CreateAdvertisement</servlet-name>
-		<servlet-class>servlet.CreateAdvertisementServlet</servlet-class>
-	</servlet>
+
 	<servlet>
 		<servlet-name>CreateUserServlet</servlet-name>
 		<servlet-class>servlet.CreateUserServlet</servlet-class>
@@ -80,9 +77,15 @@
 		<servlet-name>CreateUserServlet</servlet-name>
 		<url-pattern>/CreateUser</url-pattern>
 	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AddStudent</servlet-name>
+		<servlet-class>servlet.AddStudent</servlet-class>
+	</servlet>
 	<servlet-mapping>
-		<servlet-name>CreateAdvertisement</servlet-name>
-		<url-pattern>/CreateAdvertisement</url-pattern>
+		<servlet-name>AddStudent</servlet-name>
+		<url-pattern>/AddStudent</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

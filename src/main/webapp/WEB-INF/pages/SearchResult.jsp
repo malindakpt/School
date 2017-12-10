@@ -8,6 +8,7 @@
 <link rel='stylesheet' href="css/font-sans.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel='stylesheet' href="css/custom.css">
+<script src="js/jQuery.js"></script>
 <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 </style>
