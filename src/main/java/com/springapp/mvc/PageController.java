@@ -1,6 +1,5 @@
 package com.springapp.mvc;
 
-import businessLogic.EmailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,18 +10,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
-public class HelloController {
+public class PageController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-        return "SearchResult";
+        return "Home";
 	}
 }
 @Controller
-@RequestMapping("/")
-class SearchResultViewController {
+@RequestMapping("/ListStudents")
+class HomeController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
-		return "SearchResultView";
+		return "widgets/ListStudents";
 	}
 }
 
