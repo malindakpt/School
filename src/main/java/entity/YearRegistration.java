@@ -7,8 +7,8 @@ import java.util.Set;
  * Created by MalindaK on 12/10/2017.
  */
 @javax.persistence.Entity
-@Table(name = "teacher", catalog = "school", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "teacherId")})
+@Table(name = "yearRegistration", catalog = "school", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "yearRegistrationId")})
 public class YearRegistration extends Entity {
     private int yearRegistrationId;
     private int year;
@@ -17,7 +17,7 @@ public class YearRegistration extends Entity {
     private Set<Subject> subjects;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "studentId", nullable = false)
+    @JoinColumn(name = "studentId", nullable = true)
     public Student getStudent() {
         return student;
     }

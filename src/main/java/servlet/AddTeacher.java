@@ -36,7 +36,7 @@ public class AddTeacher extends HttpServlet {
             teacher.setPhone(request.getParameter("phone"));
             teacher.setNic(request.getParameter("nic"));
 
-            EntityManager.add(teacher);
+//            EntityManager.add(teacher);
 
         }catch (Exception e){
             e.printStackTrace();
