@@ -3,7 +3,7 @@
     <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
         <%--<button class="w3-button w3-white w3-xxlarge" >&#9776;</button>--%>
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+        <%--<a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>--%>
 
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
@@ -16,7 +16,7 @@
                 <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
             </div>
         </div>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="img/avatar.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
+        <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account"><img src="img/avatar.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
     </div>
 </div>
 

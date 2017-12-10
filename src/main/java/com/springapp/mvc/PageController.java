@@ -17,7 +17,7 @@ public class PageController {
 	}
 }
 @Controller
-@RequestMapping("/ListStudents")
+@RequestMapping("/PageListStudents")
 class HomeController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
@@ -26,13 +26,17 @@ class HomeController {
 }
 
 @Controller
-@RequestMapping("/AddVehicle")
+@RequestMapping("/PageAddStudent")
 class AddVehicleController {
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Hello world!");
-		return "AddVehicle";
-	}
+    @RequestMapping(method = RequestMethod.POST)
+    public String printWelcome(ModelMap model) {
+        return "widgets/addMember";
+    }
+//	@RequestMapping(method = RequestMethod.POST)
+//	public String printWelcome(ModelMap model) {
+//		model.addAttribute("message", "Hello world!");
+//		return "AddVehicle";
+//	}
 }
 
 @Controller

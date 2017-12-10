@@ -19,8 +19,8 @@
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="addStudent()">Add Student</a>
     <a href="#" class="w3-bar-item w3-button">Link 3</a>
 </div>
 
@@ -142,13 +142,8 @@
     <br>
 
 
-<!-- Footer -->
-<footer class="w3-container w3-theme-d3 w3-padding-16">
-    <h5>Footer</h5>
-</footer>
-
-<footer class="w3-container w3-theme-d5">
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+<footer class="w3-container w3-theme-d5" style="    position: fixed;    bottom: 1px;    width: 100%;    height: 30px;    line-height: 25px;">
+    <span>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></span>
 </footer>
 </div>
 <script>
@@ -177,8 +172,20 @@
         }
     }
 
+    function addStudent() {
+        w3_close();
+        $.post('PageAddStudent', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function (result) {
+            $('#home-middle').html(result);
+            }
+        );
+    }
     function loadStudentList() {
-        $.post('ListStudents', {},
+        w3_close();
+        $.post('PageListStudents', {},
             function (result) {
                 $('#home-middle').html(result);
 
