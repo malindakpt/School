@@ -5,6 +5,44 @@
 
 	<display-name>Spring MVC Application</display-name>
 
+	<!--School Management Start-->
+
+	<servlet>
+		<servlet-name>AddStudent</servlet-name>
+		<servlet-class>servlet.AddStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddStudent</servlet-name>
+		<url-pattern>/AddStudent</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AddTeacher</servlet-name>
+		<servlet-class>servlet.AddTeacher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddTeacher</servlet-name>
+		<url-pattern>/AddTeacher</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AddSubject</servlet-name>
+		<servlet-class>servlet.AddSubject</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSubject</servlet-name>
+		<url-pattern>/AddSubject</url-pattern>
+	</servlet-mapping>
+	<!--School Management End-->
+
+
+
+
+
+
+
+
 	<servlet>
 		<servlet-name>UploadServlet</servlet-name>
 		<servlet-class>servlet.UploadServlet</servlet-class>
@@ -80,27 +118,7 @@
 
 
 
-   <!--School Management Start-->
 
-	<servlet>
-		<servlet-name>AddStudent</servlet-name>
-		<servlet-class>servlet.AddStudent</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddStudent</servlet-name>
-		<url-pattern>/AddStudent</url-pattern>
-	</servlet-mapping>
-
-    <servlet>
-        <servlet-name>AddTeacher</servlet-name>
-        <servlet-class>servlet.AddTeacher</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddTeacher</servlet-name>
-        <url-pattern>/AddTeacher</url-pattern>
-    </servlet-mapping>
-
-    <!--School Management End-->
 
 
 

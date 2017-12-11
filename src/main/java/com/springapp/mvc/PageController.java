@@ -20,13 +20,28 @@ public class PageController {
 }
 @Controller
 @RequestMapping("/PageListStudents")
-class HomeController {
+class ListStudentsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "widgets/listStudents";
 	}
 }
-
+@Controller
+@RequestMapping("/PageListSubjects")
+class ListSubjectsController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/listSubjects";
+	}
+}
+@Controller
+@RequestMapping("/PageListTeachers")
+class ListTeachersController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/listTeachers";
+	}
+}
 @Controller
 @RequestMapping("/PageAddStudent")
 class PageAddStudentController {
@@ -42,6 +57,14 @@ class PageAddTeacherController {
     public String printWelcome(ModelMap model) {
         return "widgets/addTeacher";
     }
+}
+@Controller
+@RequestMapping("/PageAddSubject")
+class PageAddSubjectController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/addSubject";
+	}
 }
 
 //School Management End

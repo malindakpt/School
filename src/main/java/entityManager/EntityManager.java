@@ -12,7 +12,7 @@ import java.util.List;
  * Created by MalindaK on 12/9/2017.
  */
 public class EntityManager {
-    public static void add(Student entity){
+    public static void add(Entity entity){
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();

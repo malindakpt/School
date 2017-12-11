@@ -20,8 +20,11 @@
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Load Teachers</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectList()">Load Subjects</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addStudent()">Add Student</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addTeacher()">Add Teacher</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="addSubject()">Add Subject</a>
 </div>
 
 <!-- Page Content -->
@@ -194,9 +197,42 @@
             }
         );
     }
+    function addSubject(){
+        w3_close();
+        $.post('PageAddSubject', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function (result) {
+                $('#home-middle').html(result);
+            }
+        );
+    }
     function loadStudentList() {
         w3_close();
         $.post('PageListStudents', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
+    function loadTeacherList() {
+        w3_close();
+        $.post('PageListTeachers', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
+    function loadSubjectList() {
+        w3_close();
+        $.post('PageListSubjects', {},
             function (result) {
                 $('#home-middle').html(result);
 

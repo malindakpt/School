@@ -4,7 +4,7 @@ package servlet; /**
 // Import required java libraries
 
 import businessLogic.DBLink;
-import entity.Student;
+import entity.Subject;
 import entity.Teacher;
 import entityManager.EntityManager;
 
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 
-public class AddTeacher extends HttpServlet {
+public class AddSubject extends HttpServlet {
 
 
     public void doPost(HttpServletRequest request,
@@ -25,18 +25,13 @@ public class AddTeacher extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-            Teacher teacher=new Teacher();
-            teacher.setFirstName(request.getParameter("firstName"));
-            teacher.setLastName(request.getParameter("lastName"));
-            teacher.setFullName(request.getParameter("fullName"));
-            teacher.setBirthday(formatter.parse(request.getParameter("birthday")));
-            teacher.setAddress(request.getParameter("address"));
-            teacher.setPhone(request.getParameter("phone"));
-            teacher.setNic(request.getParameter("nic"));
+            Subject subject=new Subject();
+            subject.setCode(request.getParameter("code"));
+            subject.setName(request.getParameter("name"));
 
-            EntityManager.add(teacher);
+            EntityManager.add(subject);
 
         }catch (Exception e){
             e.printStackTrace();
