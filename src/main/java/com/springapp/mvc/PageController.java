@@ -76,36 +76,15 @@ class PageSubjectTeacherController {
 	}
 }
 
+@Controller
+@RequestMapping("/PageAddClassRoom")
+class PageAddClassRoomController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/addClassRoom";
+	}
+}
 //School Management End
-
-@Controller
- @RequestMapping("/CreateAdView")
- class CreateAdViewController {
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Hello world!");
-		return "CreateAd";
-	}
-}
-
-@Controller
-@RequestMapping("/CreateUserView")
-class CreateUserController {
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Hello world!");
-		return "CreateUser";
-	}
-}
-@Controller
-@RequestMapping("/Notification")
-class NotificationController {
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Hello world!");
-		return "Notification";
-	}
-}
 
 @Controller
 @RequestMapping("/loadItem")

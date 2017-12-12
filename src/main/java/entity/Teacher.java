@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by MalindaK on 12/10/2017.
@@ -12,6 +13,7 @@ public class Teacher extends Member {
 
     private int teacherId;
     private String nic;
+    private Set<ClassRoom> classRooms;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,5 +34,24 @@ public class Teacher extends Member {
     public void setNic(String nic) {
         this.nic = nic;
     }
+
+    @OneToMany(mappedBy="classTeacher")
+    public Set<ClassRoom> getClassRooms() {
+        return classRooms;
+    }
+
+    public void setClassRooms(Set<ClassRoom> classRooms) {
+        this.classRooms = classRooms;
+    }
+
+    public static boolean contains(Set<Teacher> teachers, Teacher teacher){
+        for(Teacher teach : teachers){
+            if(teacher.getTeacherId() == teach.getTeacherId()){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

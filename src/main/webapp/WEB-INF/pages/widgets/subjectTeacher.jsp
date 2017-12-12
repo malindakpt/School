@@ -4,33 +4,33 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entityManager.EntityManager" %>
 
-<form id="subjectTeacher" class="w3-container w3-card-4" action="/action_page.php">
+
     <h2>Subscribe Teacher for Subjects</h2>
 
         <% List<Entity> subjects = EntityManager.getEntities(Subject.class);
             for (Entity sub : subjects) {
                 Subject subject = (Subject) sub;
         %>
-            <div><%= subject.getSubjectId()%> - <%=subject.getCode() + " " + subject.getName()%></div>
+<div id="<%="sub"+subject.getSubjectId()%>" class="w3-panel w3-Pale Green w3-card-4">
+<%--<div id="<%="sub"+subject.getSubjectId()%>" class="w3-container w3-card-4">--%>
+            <h3><%= subject.getSubjectId()%> - <%=subject.getCode() + " " + subject.getName()%></h3>
 
 
         <% List<Entity> teachers = EntityManager.getEntities(Teacher.class);
                 for (Entity techr : teachers) {
                     Teacher teacher = (Teacher) techr;
         %>
-                    <input  checked="checked" class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
+                    <input  <% if(Teacher.contains(subject.getTeachers(),teacher)) {%> checked="checked" <% }else{} %> class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
                     <label><%= teacher.getFirstName() + ":" + teacher.getLastName()%> </label>
         <%
                 }
         %>
+        <p>
+            <button id="<%=subject.getSubjectId()%>" class="w3-btn w3-teal" onclick="subjectTeacher(this)">Save</button>
+        </p>
+
+</div>
         <%
             }
         %>
 
-</form>
-<p>
-    <button class="w3-btn w3-teal" onclick="subjectTeacher()">Register</button>
-</p>
-<script>
-
-</script>

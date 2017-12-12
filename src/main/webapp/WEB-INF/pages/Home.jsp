@@ -19,6 +19,7 @@
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Subject Teacher</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Load Teachers</a>
@@ -47,7 +48,7 @@
         <!-- The Grid -->
         <div class="w3-row">
             <!-- Left Column -->
-            <div class="w3-col m3">
+            <div class="w3-col m2">
                 <!-- Profile -->
                 <jsp:include page='widgets/profile.jsp'/>
 
@@ -83,7 +84,7 @@
             </div>
 
             <!-- Middle Column -->
-            <div class="w3-col m7">
+            <div class="w3-col m8">
                 <div class="w3-row-padding">
                     <div class="w3-col m12">
                         <div class="w3-card w3-round w3-white">
@@ -242,6 +243,18 @@
             }
         );
     }
+
+    function addClassRoom() {
+        w3_close();
+        $.post('PageAddClassRoom', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
     function loadSubjectTeacher() {
         w3_close();
         $.post('PageSubjectTeacher', {},
@@ -254,47 +267,45 @@
         );
     }
 
-    function subjectTeacher() {
+    function subjectTeacher(ele) {
 
         var subList = [];
-        $("#subjectTeacher input[type=checkbox]").each(function() {
+        $("#sub"+ele.id+" input[type=checkbox]").each(function() {
             if(this.checked) {
                 subList.push(this.id);
-                console.log(this.id);
             }
-
         });
 
-        $.ajax({
-            url:'AddSubjectTeacher',
-            type:"POST",
-            dataType:'json',
-            data: {
-                subjectId: $('#teacher').val(),
+//        $.ajax({
+//            url:'AddSubjectTeacher',
+//            type:"POST",
+//            dataType:'json',
+//            data: {
+//                subjectId: ele.id,
+//                teacherList:subList
+//            },
+//            success:function(data){
+//               alert("OK");
+//            },
+//            error:function (err) {
+//                alert("Error");
+//            }
+//        });
+        $.post('AddSubjectTeacher', {
+                subjectId: ele.id,
                 teacherList:subList
             },
-            success:function(data){
-               alert("OK");
-            },
-            error:function () {
-                alert("Error");
+            function (result) {
+                if (result === "") {
+                    alert("Success "+result);
+                } else {
+                    console.log("Error response");
+                }
+
+            }).fail(function () {
+                alert("error");
             }
-        });
-//        $.post('AddSubjectTeacher', {
-//                teacher: $('#teacher').val(),
-//                subList: {subList:subList}
-//            },
-//            function (result) {
-//                if (result === "") {
-//                    alert("Success");
-//                } else {
-//                    alert("Error");
-//                }
-//
-//            }).fail(function () {
-//                alert("error");
-//            }
-//        );
+        );
     }
 </script>
 

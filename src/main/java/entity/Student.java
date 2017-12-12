@@ -17,6 +17,7 @@ public class Student extends Member {
     private String motherMobile;
     private String guardinaName;
     private String guardianMobile;
+    private ClassRoom classRoom;
     //New
     private Set<YearRegistration> yearRegistrations;
 
@@ -37,6 +38,15 @@ public class Student extends Member {
         return yearRegistrations;
     }
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "classRoomId", nullable = true)
+    public ClassRoom getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(ClassRoom classRoom) {
+        this.classRoom = classRoom;
+    }
 
     public void setYearRegistrations(Set<YearRegistration> yearRegistrations) {
         this.yearRegistrations = yearRegistrations;

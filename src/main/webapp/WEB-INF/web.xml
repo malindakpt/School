@@ -44,6 +44,16 @@
 		<servlet-name>AddSubjectTeacher</servlet-name>
 		<url-pattern>/AddSubjectTeacher</url-pattern>
 	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AddClassRoom</servlet-name>
+		<servlet-class>servlet.AddClassRoom</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddClassRoom</servlet-name>
+		<url-pattern>/AddClassRoom</url-pattern>
+	</servlet-mapping>
 	<!--School Management End-->
 
 
@@ -53,90 +63,12 @@
 
 
 
+
 	<servlet>
-		<servlet-name>UploadServlet</servlet-name>
-		<servlet-class>servlet.UploadServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>UploadServlet</servlet-name>
-		<url-pattern>/UploadServlet</url-pattern>
-	</servlet-mapping>
-
-    <servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-
-	<servlet>
-		<servlet-name>ImageDownload</servlet-name>
-		<servlet-class>servlet.ImageDownloadServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>ImageDownload</servlet-name>
-		<url-pattern>/imageDownload</url-pattern>
-	</servlet-mapping>
-
-
-	<servlet>
-		<servlet-name>CreateUserServlet</servlet-name>
-		<servlet-class>servlet.CreateUserServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>DeleteVehicleServlet</servlet-name>
-		<servlet-class>servlet.DeleteVehicleServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ValidateUserAdvertisementServlet</servlet-name>
-		<servlet-class>servlet.ValidateUserAdvertisementServlet</servlet-class>
-	</servlet>
-
-
-
-	<servlet>
-		<servlet-name>Photo2UploadServlet</servlet-name>
-		<servlet-class>servlet.Photo2UploadServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>GetAdvertisemeentsServlet</servlet-name>
-		<servlet-class>servlet.GetAdvertisemeentsServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>GetAdvertisemeentsServlet</servlet-name>
-		<url-pattern>/GetAdvertisemeentsServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Photo2UploadServlet</servlet-name>
-		<url-pattern>/Photo2UploadServlet</url-pattern>
-	</servlet-mapping>
-
-
-	<servlet-mapping>
-		<servlet-name>ValidateUserAdvertisementServlet</servlet-name>
-		<url-pattern>/ValidateUserAdvertisement</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>DeleteVehicleServlet</servlet-name>
-		<url-pattern>/DeleteVehicle</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CreateUserServlet</servlet-name>
-		<url-pattern>/CreateUser</url-pattern>
-	</servlet-mapping>
-
-
-
-
-
-
-
-
-
-
-
-
 	<servlet-mapping>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
