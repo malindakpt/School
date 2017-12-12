@@ -4,7 +4,9 @@ package servlet; /**
 // Import required java libraries
 
 import businessLogic.DBLink;
+import entity.ClassRoom;
 import entity.Student;
+import entity.Teacher;
 import entityManager.EntityManager;
 
 import javax.servlet.ServletException;
@@ -23,23 +25,15 @@ public class AddClassRoom extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
+            ClassRoom classRoom=new ClassRoom();
+            classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
+            classRoom.setBatch(Integer.parseInt(request.getParameter("batch")));
+            classRoom.setClassRoomName(request.getParameter("classRoomName"));
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", request.getParameter("classTeacher"));
+            classRoom.setClassTeacher(teacher);
 
-            Student student=new Student();
-            student.setFirstName(request.getParameter("firstName"));
-            student.setLastName(request.getParameter("lastName"));
-            student.setFullName(request.getParameter("fullName"));
-            student.setBirthday(formatter.parse(request.getParameter("birthday")));
-            student.setAddress(request.getParameter("address"));
-            student.setPhone(request.getParameter("phone"));
-            student.setFatherName(request.getParameter("fatherName"));
-            student.setFatherMobile(request.getParameter("fatherMobile"));
-            student.setMotherName(request.getParameter("motherName"));
-            student.setMotherMobile(request.getParameter("motherMobile"));
-            student.setGuardinaName(request.getParameter("guardinaName"));
-            student.setGuardianMobile(request.getParameter("guardianMobile"));
-            EntityManager.add(student);
+            EntityManager.add(classRoom);
 
         }catch (Exception e){
             e.printStackTrace();
