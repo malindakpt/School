@@ -6,33 +6,26 @@
 
 <form id="subjectTeacher" class="w3-container w3-card-4" action="/action_page.php">
     <h2>Subscribe Teacher for Subjects</h2>
-    <select class="w3-select w3-border" name="option" id="teacher">
-        <option value="" disabled selected>Select a teacher</option>
-        <% List<Entity> teachers = EntityManager.getEntities(Teacher.class);
-            for (Entity item : teachers) {
-                Teacher teacher = (Teacher) item;
+
+        <% List<Entity> subjects = EntityManager.getEntities(Subject.class);
+            for (Entity sub : subjects) {
+                Subject subject = (Subject) sub;
         %>
-        <option value="<%= teacher.getTeacherId()%>"><%=teacher.getFirstName() + " " + teacher.getLastName()%>
-        </option>
+            <div><%= subject.getSubjectId()%> - <%=subject.getCode() + " " + subject.getName()%></div>
+
+
+        <% List<Entity> teachers = EntityManager.getEntities(Teacher.class);
+                for (Entity techr : teachers) {
+                    Teacher teacher = (Teacher) techr;
+        %>
+                    <input  checked="checked" class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
+                    <label><%= teacher.getFirstName() + ":" + teacher.getLastName()%> </label>
+        <%
+                }
+        %>
         <%
             }
         %>
-    </select>
-    <p>
-
-    </p>
-    <% List<Entity> subjects = EntityManager.getEntities(Subject.class);
-        for (Entity item : subjects) {
-            Subject subject = (Subject) item;
-    %>
-    <input class="w3-check" type="checkbox" id="<%=subject.getSubjectId()%>">
-    <label><%= subject.getCode() + ":" + subject.getName()%>
-    </label>
-    </option>
-
-    <%
-        }
-    %>
 
 </form>
 <p>

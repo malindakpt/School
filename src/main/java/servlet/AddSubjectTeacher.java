@@ -26,26 +26,16 @@ public class AddSubjectTeacher extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
-
-
-            String id = request.getParameter("teacherId");
-            Teacher teacher=(Teacher) EntityManager.getEntity(Teacher.class,"teacherId",id);
-            String[] subList = request.getParameterValues("subList[]");
-//            Set<Subject> subjects = new HashSet<Subject>();
-            for(String ida : subList){
-                Subject subject=(Subject) EntityManager.getEntity(Subject.class,"subjectId",ida);
-                Set<Teacher> teachers = subject.getTeachers();
+            String id = request.getParameter("subjectId");
+            Subject subject=(Subject) EntityManager.getEntity(Subject.class,"subjectId",id);
+            String[] teacherList = request.getParameterValues("teacherList[]");
+            Set<Teacher> teachers = new HashSet<Teacher>();
+            for(String ida : teacherList){
+                Teacher teacher=(Teacher) EntityManager.getEntity(Teacher.class,"teacherId",ida);
                 teachers.add(teacher);
-                EntityManager.update(subject);
             }
-            String iddd = request.getParameter("teacher");
-//            teacher.setFullName(request.getParameter("fullName"));
-//            teacher.setBirthday(formatter.parse(request.getParameter("birthday")));
-//            teacher.setAddress(request.getParameter("address"));
-//            teacher.setPhone(request.getParameter("phone"));
-//            teacher.setNic(request.getParameter("nic"));
-
-//            EntityManager.add(teacher);
+            subject.setTeachers(teachers);
+            EntityManager.update(subject);
 
         }catch (Exception e){
             e.printStackTrace();
