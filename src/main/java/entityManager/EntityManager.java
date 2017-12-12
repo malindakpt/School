@@ -4,6 +4,7 @@ import AppConfig.HibernateUtil;
 import entity.Entity;
 import entity.Student;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
@@ -55,6 +56,29 @@ public class EntityManager {
         }
     }
 
+    public static Entity getEntity(Class entity,String idCol, String id){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE "+idCol+"= :id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", Integer.parseInt(id));
+            entities = query.list();
+
+            tx.commit();
+            return entities.get(0);
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
     /* Method to  READ all the employees */
     public static List<Entity> getEntities(Class entity){
         List<Entity> entities;// = new ArrayList<Entity>();

@@ -4,6 +4,7 @@ package servlet; /**
 // Import required java libraries
 
 import businessLogic.DBLink;
+import entity.Subject;
 import entity.Teacher;
 import entityManager.EntityManager;
 
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AddSubjectTeacher extends HttpServlet {
 
@@ -24,9 +27,17 @@ public class AddSubjectTeacher extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            Teacher teacher=new Teacher();
-            String id = request.getParameter("teacher");
+
+            String id = request.getParameter("teacherId");
+            Teacher teacher=(Teacher) EntityManager.getEntity(Teacher.class,"teacherId",id);
             String[] subList = request.getParameterValues("subList[]");
+//            Set<Subject> subjects = new HashSet<Subject>();
+            for(String ida : subList){
+                Subject subject=(Subject) EntityManager.getEntity(Subject.class,"subjectId",ida);
+                Set<Teacher> teachers = subject.getTeachers();
+                teachers.add(teacher);
+                EntityManager.update(subject);
+            }
             String iddd = request.getParameter("teacher");
 //            teacher.setFullName(request.getParameter("fullName"));
 //            teacher.setBirthday(formatter.parse(request.getParameter("birthday")));

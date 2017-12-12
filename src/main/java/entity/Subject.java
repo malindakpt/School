@@ -28,7 +28,7 @@ public class Subject extends Entity {
         this.subjectId = subjectId;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "subject_teacher", joinColumns = { @JoinColumn(name = "subjectId") }, inverseJoinColumns = { @JoinColumn(name = "teacherId") })
     public Set<Teacher> getTeachers() {
         return teachers;

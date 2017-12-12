@@ -270,7 +270,7 @@
             type:"POST",
             dataType:'json',
             data: {
-                teacher: $('#teacher').val(),
+                teacherId: $('#teacher').val(),
                 subList:subList
             },
             success:function(data){
