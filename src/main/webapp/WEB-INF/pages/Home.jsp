@@ -19,6 +19,7 @@
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Subject Teacher</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Load Teachers</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectList()">Load Subjects</a>
@@ -240,6 +241,60 @@
                 alert("error");
             }
         );
+    }
+    function loadSubjectTeacher() {
+        w3_close();
+        $.post('PageSubjectTeacher', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
+
+    function subjectTeacher() {
+
+        var subList = [];
+        $("#subjectTeacher input[type=checkbox]").each(function() {
+            if(this.checked) {
+                subList.push(this.id);
+                console.log(this.id);
+            }
+
+        });
+
+        $.ajax({
+            url:'AddSubjectTeacher',
+            type:"POST",
+            dataType:'json',
+            data: {
+                teacher: $('#teacher').val(),
+                subList:subList
+            },
+            success:function(data){
+               alert("OK");
+            },
+            error:function () {
+                alert("Error");
+            }
+        });
+//        $.post('AddSubjectTeacher', {
+//                teacher: $('#teacher').val(),
+//                subList: {subList:subList}
+//            },
+//            function (result) {
+//                if (result === "") {
+//                    alert("Success");
+//                } else {
+//                    alert("Error");
+//                }
+//
+//            }).fail(function () {
+//                alert("error");
+//            }
+//        );
     }
 </script>
 

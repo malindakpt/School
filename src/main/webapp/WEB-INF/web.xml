@@ -34,6 +34,16 @@
 		<servlet-name>AddSubject</servlet-name>
 		<url-pattern>/AddSubject</url-pattern>
 	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AddSubjectTeacher</servlet-name>
+		<servlet-class>servlet.AddSubjectTeacher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSubjectTeacher</servlet-name>
+		<url-pattern>/AddSubjectTeacher</url-pattern>
+	</servlet-mapping>
 	<!--School Management End-->
 
 

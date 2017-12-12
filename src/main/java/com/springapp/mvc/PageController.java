@@ -67,6 +67,15 @@ class PageAddSubjectController {
 	}
 }
 
+@Controller
+@RequestMapping("/PageSubjectTeacher")
+class PageSubjectTeacherController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/subjectTeacher";
+	}
+}
+
 //School Management End
 
 @Controller

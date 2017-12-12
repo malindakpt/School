@@ -1,6 +1,10 @@
+<%@ page import="entity.Entity" %>
+<%@ page import="java.util.List" %>
+<%@ page import="entityManager.EntityManager" %>
+<%@ page import="entity.Subject" %>
 <div>
     <div class="w3-container widget-header">
-        <h4>Register a new Member</h4>
+        <h4>Teacher</h4>
     </div>
     <form class="w3-container">
         <br>
@@ -17,9 +21,10 @@
         <label>Phone</label>
         <input class="w3-input" type="text" id="phone">
 
-
         <label>NIC</label>
         <input class="w3-input" type="text" id="nic">
+
+
 
         <button onclick="saveTeacher()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
              Save
@@ -38,7 +43,8 @@
                 address: $('#address').val(),
                 phone: $('#phone').val(),
 
-                nic: $('#nic').val()
+                nic: $('#nic').val(),
+
             },
             function (result) {
                 if (result === "") {
