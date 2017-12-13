@@ -1,11 +1,9 @@
 package com.springapp.mvc;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -76,6 +74,17 @@ class PageSubjectTeacherController {
 	}
 }
 
+
+
+@Controller
+@RequestMapping("/PageAddMarks")
+class PageAddMarksController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/addMarks";
+	}
+}
+
 @Controller
 @RequestMapping("/PageAddClassRoom")
 class PageAddClassRoomController {
@@ -95,20 +104,47 @@ class PageAddClassStudentsController {
 }
 //School Management End
 
+
 @Controller
-@RequestMapping("/loadItem")
+@RequestMapping("/PageListStudentsMarks")
+class PageListStudentsMarksController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/listStudentsMarks";
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String printWelcome2(ModelMap model) {
+		return "widgets/listStudentsMarks";
+	}
+}
+
+
+@Controller
+@RequestMapping("/PageListStudentsMarks22")
 class LoadItemController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	ModelAndView printWelcomebyParameter(@RequestParam("vID") String id) {
+	ModelAndView printWelcome(@RequestParam("classRoomId") String classRoomId, ModelMap  model) {
 		{
-
 			ModelAndView modelAndview = null;
+
+			model.addAttribute("asd","asd");
 			try {
-				modelAndview = new ModelAndView("ViewVehicle");
+				modelAndview = new ModelAndView("widgets/listStudentsMarks");
+				model.addAttribute("job",classRoomId);
 			} catch (IndexOutOfBoundsException e) {
 			}
 			return modelAndview;
 		}
 	}
+
+//	@RequestMapping("/PageListStudentsMarks/{classRoomId}")
+//	public String editJob(@PathVariable("classRoomId") Integer classRoomId, Model model){
+//		//model.addAttribute("id",jobId); this is wrong
+////		Job job = jobService.getJobById(jobId);
+//		//write method in jobservice to get job by id i.e. getJobById(Integer jobId);
+//		model.addAttribute("job",classRoomId);
+//		return "widgets/listStudentsMarks";
+//	}
 }

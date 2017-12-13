@@ -15,7 +15,9 @@
             </tr>
 
 
-            <% List<Entity> students = EntityManager.getEntities(Student.class);
+            <%
+             String classId = request.getParameter("classRoomId");
+                List<Entity> students = EntityManager.getEntitySubList(Student.class, "classRoom.classRoomId" ,classId);
                 for (Entity item : students) {
                     Student student = (Student) item;
             %>
@@ -37,6 +39,7 @@
         </table>
     </div>
 </div>
+
 
 
 

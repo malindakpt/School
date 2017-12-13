@@ -40,9 +40,9 @@
 </style>
 <body>
 
-<div class="loader" style="display: none" id="busyIcon"></div>
+<div class="loader" id="busyIcon"  style="display: none"></div>
 
-<div class="w3-overlay w3-animate-opacity" style="cursor:pointer" id="myOverlay2"></div>
+<div class="w3-overlay w3-animate-opacity" style="cursor:pointer"  style="display: block" id="myOverlay2"></div>
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
@@ -409,6 +409,11 @@
 
 
     }
+
+
+    $(document).ready(function () {
+//        busyOff();
+    });
 </script>
 
 </body>

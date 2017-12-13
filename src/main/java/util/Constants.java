@@ -7,7 +7,7 @@ public class Constants {
 
 }
 
-class AssignmentType {
+class AssesmentType {
     public final static int TERM_TEST = 0;
     public final static int MONTH_TEST = 1;
     public final static int WEEK_TEST = 2;
