@@ -20,6 +20,7 @@ public class Student extends Member {
     private ClassRoom classRoom;
     //New
     private Set<YearRegistration> yearRegistrations;
+    private Set<Assesment> assesments;
 
 
     @Id
@@ -31,6 +32,15 @@ public class Student extends Member {
 
     public void setStudentId(int studentId) {
         this.studentId = studentId;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+    public Set<Assesment> getAssesments() {
+        return assesments;
+    }
+
+    public void setAssesments(Set<Assesment> assesments) {
+        this.assesments = assesments;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")

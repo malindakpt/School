@@ -4,5 +4,11 @@ package util;
  * Created by MalindaK on 12/9/2017.
  */
 public class Constants {
-//    public final static
+
+}
+
+class AssignmentType {
+    public final static int TERM_TEST = 0;
+    public final static int MONTH_TEST = 1;
+    public final static int WEEK_TEST = 2;
 }

@@ -16,6 +16,7 @@ public class Subject extends Entity {
     private String name;
     private String code;
     private Set<Teacher> teachers;
+    private Set<Assesment> assesments;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +24,6 @@ public class Subject extends Entity {
     public int getSubjectId() {
         return subjectId;
     }
-
     public void setSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
@@ -33,16 +33,22 @@ public class Subject extends Entity {
     public Set<Teacher> getTeachers() {
         return teachers;
     }
-
     public void setTeachers(Set<Teacher> teachers) {
         this.teachers = teachers;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "subject")
+    public Set<Assesment> getAssesments() {
+        return assesments;
+    }
+    public void setAssesments(Set<Assesment> assesments) {
+        this.assesments = assesments;
     }
 
     @Column(name = "name", nullable = true, length = 20)
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -51,7 +57,6 @@ public class Subject extends Entity {
     public String getCode() {
         return code;
     }
-
     public void setCode(String code) {
         this.code = code;
     }
