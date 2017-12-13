@@ -54,6 +54,17 @@
 		<servlet-name>AddClassRoom</servlet-name>
 		<url-pattern>/AddClassRoom</url-pattern>
 	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>AddClassStudent</servlet-name>
+		<servlet-class>servlet.AddClassStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddClassStudent</servlet-name>
+		<url-pattern>/AddClassStudent</url-pattern>
+	</servlet-mapping>
 	<!--School Management End-->
 
 

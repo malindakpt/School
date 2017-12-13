@@ -84,6 +84,15 @@ class PageAddClassRoomController {
 		return "widgets/addClassRoom";
 	}
 }
+
+@Controller
+@RequestMapping("/PageAddClassStudents")
+class PageAddClassStudentsController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/addClassStudents";
+	}
+}
 //School Management End
 
 @Controller

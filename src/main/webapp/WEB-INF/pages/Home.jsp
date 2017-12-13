@@ -19,6 +19,7 @@
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Subject Teacher</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
@@ -255,6 +256,19 @@
             }
         );
     }
+
+    function addClassStudents() {
+        w3_close();
+        $.post('PageAddClassStudents', {},
+            function (result) {
+                $('#home-middle').html(result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
+
     function loadSubjectTeacher() {
         w3_close();
         $.post('PageSubjectTeacher', {},
@@ -276,21 +290,6 @@
             }
         });
 
-//        $.ajax({
-//            url:'AddSubjectTeacher',
-//            type:"POST",
-//            dataType:'json',
-//            data: {
-//                subjectId: ele.id,
-//                teacherList:subList
-//            },
-//            success:function(data){
-//               alert("OK");
-//            },
-//            error:function (err) {
-//                alert("Error");
-//            }
-//        });
         $.post('AddSubjectTeacher', {
                 subjectId: ele.id,
                 teacherList:subList
@@ -306,6 +305,34 @@
                 alert("error");
             }
         );
+
+
+
+    }
+
+    function classStudents() {
+
+        var classArr = [];
+        var studArr = [];
+        $("#classStudents select").each(function() {
+            classArr.push(this.value);
+            studArr.push(this.id);
+        });
+
+        $.post('AddClassStudent', {
+                classArr: classArr,
+                studArr: studArr
+            },
+            function (result) {
+                alert("Success "+result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+
+
+
     }
 </script>
 

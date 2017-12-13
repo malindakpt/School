@@ -14,8 +14,15 @@ public class ClassRoom extends Entity {
     private int batch;
     private String classRoomName;
     private int grade;
+    private boolean isAdmissionClosed;
     private Teacher classTeacher;
     private Set<Student> students;
+
+    public ClassRoom(int id){
+        this.classRoomId = id;
+    }
+    public ClassRoom(){
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +33,15 @@ public class ClassRoom extends Entity {
 
     public void setClassRoomId(int classRoomId) {
         this.classRoomId = classRoomId;
+    }
+
+    @Column(name = "isAdmissionClosed", nullable = true, columnDefinition = "bigint(20) default false" )
+    public boolean isAdmissionClosed() {
+        return isAdmissionClosed;
+    }
+
+    public void setAdmissionClosed(boolean admissionClosed) {
+        isAdmissionClosed = admissionClosed;
     }
 
     @Column(name = "batch", nullable = true, length = 20)
