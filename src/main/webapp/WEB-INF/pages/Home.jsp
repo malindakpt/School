@@ -12,14 +12,42 @@
 <script src="js/jQuery.js"></script>
 <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+    .loader {
+        border: 16px solid #ffffff;
+        border-radius: 50%;
+        border-top: 16px solid #004471;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+
+        z-index: 5;
+        position: absolute;
+        left: 45%;
+        top: 45%;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 </style>
 <body>
 
+<div class="loader" style="display: none" id="busyIcon"></div>
 
+<div class="w3-overlay w3-animate-opacity" style="cursor:pointer" id="myOverlay2"></div>
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="addMarks()">Add Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Subject Teacher</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
@@ -162,6 +190,16 @@
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("myOverlay").style.display = "none";
     }
+
+
+    function busyOn() {
+        document.getElementById("myOverlay2").style.display = "block";
+        document.getElementById("busyIcon").style.display = "block";
+    }
+    function busyOff() {
+        document.getElementById("myOverlay2").style.display = "none";
+        document.getElementById("busyIcon").style.display = "none";
+    }
     // Accordion
     function myFunction(id) {
 
@@ -180,103 +218,140 @@
 
     function addStudent() {
         w3_close();
+        busyOn();
         $.post('PageAddStudent', {},
             function (result) {
                 $('#home-middle').html(result);
-
+                busyOff();
             }).fail(function (result) {
-            $('#home-middle').html(result);
+                $('#home-middle').html(result);
+                busyOff();
             }
         );
     }
     function addTeacher(){
         w3_close();
+        busyOn();
         $.post('PageAddTeacher', {},
             function (result) {
                 $('#home-middle').html(result);
-
+                busyOff();
             }).fail(function (result) {
                 $('#home-middle').html(result);
+                busyOff();
             }
         );
     }
     function addSubject(){
         w3_close();
+        busyOn();
         $.post('PageAddSubject', {},
             function (result) {
                 $('#home-middle').html(result);
+                busyOff();
 
             }).fail(function (result) {
                 $('#home-middle').html(result);
+                busyOff();
             }
         );
     }
     function loadStudentList() {
         w3_close();
+        busyOn();
         $.post('PageListStudents', {},
             function (result) {
                 $('#home-middle').html(result);
+                busyOff();
 
             }).fail(function () {
                 alert("error");
+                busyOff();
             }
         );
     }
     function loadTeacherList() {
         w3_close();
+        busyOn();
         $.post('PageListTeachers', {},
             function (result) {
                 $('#home-middle').html(result);
-
+                busyOff();
             }).fail(function () {
                 alert("error");
+                busyOff();
             }
         );
     }
     function loadSubjectList() {
         w3_close();
+        busyOn();
         $.post('PageListSubjects', {},
             function (result) {
                 $('#home-middle').html(result);
+                busyOff();
 
             }).fail(function () {
                 alert("error");
+                busyOff();
             }
         );
     }
 
     function addClassRoom() {
         w3_close();
+        busyOn();
         $.post('PageAddClassRoom', {},
             function (result) {
                 $('#home-middle').html(result);
-
+                busyOff();
             }).fail(function () {
                 alert("error");
+                busyOff();
             }
         );
     }
 
     function addClassStudents() {
         w3_close();
+        busyOn();
         $.post('PageAddClassStudents', {},
             function (result) {
                 $('#home-middle').html(result);
+                busyOff();
 
             }).fail(function () {
                 alert("error");
+                busyOff();
+            }
+        );
+    }
+
+    function addMarks() {
+        w3_close();
+        busyOn();
+        $.post('PageAddMarks', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+            }).fail(function () {
+                alert("error");
+                busyOff();
             }
         );
     }
 
     function loadSubjectTeacher() {
         w3_close();
+        busyOn();
         $.post('PageSubjectTeacher', {},
             function (result) {
                 $('#home-middle').html(result);
+                busyOff();
 
             }).fail(function () {
                 alert("error");
+                busyOff();
             }
         );
     }
