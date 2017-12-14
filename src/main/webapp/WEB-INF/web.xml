@@ -47,6 +47,16 @@
 
 
 	<servlet>
+		<servlet-name>AddCourseSubjects</servlet-name>
+		<servlet-class>servlet.AddCourseSubjects</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddCourseSubjects</servlet-name>
+		<url-pattern>/AddCourseSubjects</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>AddClassRoom</servlet-name>
 		<servlet-class>servlet.AddClassRoom</servlet-class>
 	</servlet>

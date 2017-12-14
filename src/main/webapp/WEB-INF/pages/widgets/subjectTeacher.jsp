@@ -20,7 +20,8 @@
                 for (Entity techr : teachers) {
                     Teacher teacher = (Teacher) techr;
         %>
-                    <input  <% if(Teacher.contains(subject.getTeachers(),teacher)) {%> checked="checked" <% }else{} %> class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
+                    <input  <% if(Teacher.contains(subject.getTeachers(),teacher)) {%> checked="checked" <% }else{} %>
+                                                                                       class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
                     <label><%= teacher.getFirstName() + ":" + teacher.getLastName()%> </label>
         <%
                 }

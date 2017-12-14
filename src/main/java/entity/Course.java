@@ -14,6 +14,10 @@ public class Course extends Entity {
     private String name;
     private Set<Subject> subjects;
 
+    public Course(){}
+    public Course(String name){
+        this.name = name;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "courseId", unique = true, nullable = false)
@@ -33,7 +37,8 @@ public class Course extends Entity {
         this.name = name;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "course_subject", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = { @JoinColumn(name = "subjectId") })
     public Set<Subject> getSubjects() {
         return subjects;
     }

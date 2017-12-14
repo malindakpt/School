@@ -15,7 +15,6 @@ public class Subject extends Entity {
     private int subjectId;
     private String name;
     private String code;
-    private Course course;
     private Set<Teacher> teachers;
     private Set<Assesment> assesments;
 
@@ -28,19 +27,6 @@ public class Subject extends Entity {
     public void setSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name="courseId")
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-
-
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "subject_teacher", joinColumns = { @JoinColumn(name = "subjectId") }, inverseJoinColumns = { @JoinColumn(name = "teacherId") })

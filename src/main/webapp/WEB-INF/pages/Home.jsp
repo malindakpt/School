@@ -1,3 +1,7 @@
+<%@ page import="entity.Subject" %>
+<%@ page import="entity.Entity" %>
+<%@ page import="entityManager.EntityManager" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -12,7 +16,10 @@
 <script src="js/jQuery.js"></script>
 <script src="js/highCharts.js"></script>
 <style>
-    html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+    html, body, h1, h2, h3, h4, h5 {
+        font-family: "Open Sans", sans-serif
+    }
+
     .loader {
         border: 16px solid #ffffff;
         border-radius: 50%;
@@ -30,20 +37,28 @@
 
     /* Safari */
     @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
     }
 
     @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>
 <body>
 
-<div class="loader" id="busyIcon"  style="display: none"></div>
+<div class="loader" id="busyIcon" style="display: none"></div>
 
-<div class="w3-overlay w3-animate-opacity" style="cursor:pointer"  style="display: block" id="myOverlay2"></div>
+<div class="w3-overlay w3-animate-opacity" style="cursor:pointer" style="display: block" id="myOverlay2"></div>
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
@@ -66,124 +81,127 @@
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 <%--<div>--%>
-    <%--<button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>--%>
+<%--<button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>--%>
 
 <%--</div>--%>
 
 <!-- Page Container -->
 
 
-    <!-- Navbar -->
-    <jsp:include page='widgets/menuBar.jsp'/>
+<!-- Navbar -->
+<jsp:include page='widgets/menuBar.jsp'/>
 
-    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
 
-        <!-- The Grid -->
-        <div class="w3-row">
-            <!-- Left Column -->
-            <div class="w3-col m2">
-                <!-- Profile -->
-                <jsp:include page='widgets/profile.jsp'/>
-
-
+    <!-- The Grid -->
+    <div class="w3-row">
+        <!-- Left Column -->
+        <div class="w3-col m2">
+            <!-- Profile -->
+            <jsp:include page='widgets/profile.jsp'/>
 
 
-                <br>
+            <br>
 
-                <!-- Accordion -->
-                <jsp:include page="widgets/accordion.jsp"/>
+            <!-- Accordion -->
+            <jsp:include page="widgets/accordion.jsp"/>
 
-                <!-- Interests -->
-                <div class="w3-card w3-round w3-white w3-hide-small">
-                    <div class="w3-container">
-                        <p>Interests</p>
-                        <p>
-                            <span class="w3-tag w3-small w3-theme-d5" onclick="loadStudentList()">News</span>
-                            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-                            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+            <!-- Interests -->
+            <div class="w3-card w3-round w3-white w3-hide-small">
+                <div class="w3-container">
+                    <p>Interests</p>
+                    <p>
+                        <span class="w3-tag w3-small w3-theme-d5" onclick="loadStudentList()">News</span>
+                        <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+                        <span class="w3-tag w3-small w3-theme-d3">Labels</span>
 
-                        </p>
-                    </div>
+                    </p>
                 </div>
-                <br>
+            </div>
+            <br>
 
-                <!-- Alert Box -->
-                <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+            <!-- Alert Box -->
+            <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
             <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
               <i class="fa fa-remove"></i>
             </span>
-                    <p><strong>Hey!</strong></p>
-                    <p>People are looking at your profile. Find out who.</p>
-                </div>
-
-                <!-- End Left Column -->
+                <p><strong>Hey!</strong></p>
+                <p>People are looking at your profile. Find out who.</p>
             </div>
 
-            <!-- Middle Column -->
-            <div class="w3-col m8">
-                <div class="w3-row-padding">
-                    <div class="w3-col m12">
-                        <div class="w3-card w3-round w3-white">
-                            <div class="w3-container w3-padding" id="home-middle">
-            <jsp:include page='widgets/addMember.jsp'/>
-            <%--<jsp:include page='widgets/listStudents.jsp'/>--%>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column -->
-            <div class="w3-col m2">
-                <div class="w3-card w3-round w3-white w3-center">
-                    <div class="w3-container">
-                        <p>Upcoming Events:</p>
-                        <img src="img/lights.png" alt="Forest" style="width:100%;">
-                        <p><strong>Holiday</strong></p>
-                        <p>Friday 15:00</p>
-                        <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
-                    </div>
-                </div>
-                <br>
-
-                <div class="w3-card w3-round w3-white w3-center">
-                    <div class="w3-container">
-                        <p>Friend Request</p>
-                        <img src="img/avatar.png" alt="Avatar" style="width:50%"><br>
-                        <span>Jane Doe</span>
-                        <div class="w3-row w3-opacity">
-                            <div class="w3-half">
-                                <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
-                            </div>
-                            <div class="w3-half">
-                                <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-                <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-                    <p>ADS</p>
-                </div>
-                <br>
-
-                <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-                    <p><i class="fa fa-bug w3-xxlarge"></i></p>
-                </div>
-
-                <!-- End Right Column -->
-            </div>
-
-            <!-- End Grid -->
+            <!-- End Left Column -->
         </div>
 
-        <!-- End Page Container -->
+        <!-- Middle Column -->
+        <div class="w3-col m8">
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                    <div class="w3-card w3-round w3-white">
+                        <div class="w3-container w3-padding" id="home-middle">
+                            <jsp:include page='widgets/addMember.jsp'/>
+                            <%--<jsp:include page='widgets/listStudents.jsp'/>--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-col m2">
+            <div class="w3-card w3-round w3-white w3-center">
+                <div class="w3-container">
+                    <p>Upcoming Events:</p>
+                    <img src="img/lights.png" alt="Forest" style="width:100%;">
+                    <p><strong>Holiday</strong></p>
+                    <p>Friday 15:00</p>
+                    <p>
+                        <button class="w3-button w3-block w3-theme-l4">Info</button>
+                    </p>
+                </div>
+            </div>
+            <br>
+
+            <div class="w3-card w3-round w3-white w3-center">
+                <div class="w3-container">
+                    <p>Friend Request</p>
+                    <img src="img/avatar.png" alt="Avatar" style="width:50%"><br>
+                    <span>Jane Doe</span>
+                    <div class="w3-row w3-opacity">
+                        <div class="w3-half">
+                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><i
+                                    class="fa fa-check"></i></button>
+                        </div>
+                        <div class="w3-half">
+                            <button class="w3-button w3-block w3-red w3-section" title="Decline"><i
+                                    class="fa fa-remove"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
+                <p>ADS</p>
+            </div>
+            <br>
+
+            <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+                <p><i class="fa fa-bug w3-xxlarge"></i></p>
+            </div>
+
+            <!-- End Right Column -->
+        </div>
+
+        <!-- End Grid -->
     </div>
-    <br>
+
+    <!-- End Page Container -->
+</div>
+<br>
 
 
-<footer class="w3-container w3-theme-d5" style="    position: fixed;    bottom: 1px;    width: 100%;    height: 30px;    line-height: 25px;">
+<footer class="w3-container w3-theme-d5"
+        style="    position: fixed;    bottom: 1px;    width: 100%;    height: 30px;    line-height: 25px;">
     <span>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></span>
 </footer>
 </div>
@@ -236,7 +254,7 @@
             }
         );
     }
-    function addTeacher(){
+    function addTeacher() {
         w3_close();
         busyOn();
         $.post('PageAddTeacher', {},
@@ -249,7 +267,7 @@
             }
         );
     }
-    function addSubject(){
+    function addSubject() {
         w3_close();
         busyOn();
         $.post('PageAddSubject', {},
@@ -333,7 +351,7 @@
             }
         );
     }
-    function loadRegisterStudent(){
+    function loadRegisterStudent() {
         w3_close();
         busyOn();
         $.post('PageRegisterStudent', {},
@@ -347,7 +365,7 @@
             }
         );
     }
-    function loadAddCourse(){
+    function loadAddCourse() {
         w3_close();
         busyOn();
         $.post('PageAddCourse', {},
@@ -408,18 +426,42 @@
 
     function subjectTeacher(ele) {
         var subList = [];
-        $("#sub"+ele.id+" input[type=checkbox]").each(function() {
-            if(this.checked) {
+        $("#sub" + ele.id + " input[type=checkbox]").each(function () {
+            if (this.checked) {
                 subList.push(this.id);
             }
         });
         $.post('AddSubjectTeacher', {
                 subjectId: ele.id,
-                teacherList:subList
+                teacherList: subList
             },
             function (result) {
                 if (result === "") {
-                    alert("Success "+result);
+                    alert("Success " + result);
+                } else {
+                    console.log("Error response");
+                }
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
+
+    function saveCourse() {
+        var subList = [];
+        $("#addCourseInputs input[type=checkbox]").each(function () {
+            if (this.checked) {
+                subList.push(this.id);
+            }
+        });
+        $.post('AddCourseSubjects', {
+                name: $('#addCourseName').val(),
+                subjectList: subList
+            },
+            function (result) {
+                if (result === "") {
+                    alert("Success " + result);
                 } else {
                     console.log("Error response");
                 }
@@ -433,7 +475,7 @@
     function classStudents() {
         var classArr = [];
         var studArr = [];
-        $("#classStudents select").each(function() {
+        $("#classStudents select").each(function () {
             classArr.push(this.value);
             studArr.push(this.id);
         });
@@ -442,7 +484,7 @@
                 studArr: studArr
             },
             function (result) {
-                alert("Success "+result);
+                alert("Success " + result);
 
             }).fail(function () {
                 alert("error");
@@ -453,7 +495,7 @@
     function addMarks() {
         var marksArr = [];
         var studArr = [];
-        $("#marksClassStudents input").each(function() {
+        $("#marksClassStudents input").each(function () {
             marksArr.push(this.value);
             studArr.push(this.id);
         });
@@ -468,7 +510,7 @@
 
             },
             function (result) {
-                alert("Success "+result);
+                alert("Success " + result);
 
             }).fail(function () {
                 alert("error");
