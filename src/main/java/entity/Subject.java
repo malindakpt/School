@@ -37,7 +37,7 @@ public class Subject extends Entity {
         this.teachers = teachers;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "subject")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "subject")
     public Set<Assesment> getAssesments() {
         return assesments;
     }

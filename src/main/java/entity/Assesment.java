@@ -9,7 +9,7 @@ import java.util.Date;
 @javax.persistence.Entity
 @Table(name = "assesment", catalog = "school", uniqueConstraints = {
         @UniqueConstraint(columnNames = "assesmentId")})
-public class Assesment {
+public class Assesment extends Entity{
 
     private int assesmentId;
     private int marks;
@@ -18,6 +18,17 @@ public class Assesment {
     private Date date;
     private int type;
     private Student student;
+
+    public Assesment(){}
+    public Assesment(int assesmentId,Student student, Subject subject, Teacher teacher, int marks, Date date, int type){
+        this.assesmentId = assesmentId;
+        this.student = student;
+        this.subject = subject;
+        this.teacher = teacher;
+        this.marks = marks;
+        this.date = date;
+        this.type = type;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

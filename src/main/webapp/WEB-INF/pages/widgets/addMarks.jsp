@@ -9,13 +9,23 @@
         <h3>Assesment Marks</h3>
     </div>
     <form class="w3-container">
+
+        <select class="w3-select" name="option" id="assesmentType">
+            <option value="" disabled selected>Select Test Type</option>
+            <option value="0">Term Test</option>
+            <option value="1">Month Test</option>
+            <option value="2">Week Test</option>
+            <option value="3">Instant Quiz</option>
+            <option value="4">Other</option>
+        </select>
+
         <label>Date</label>
-        <input class="w3-input" type="date" id="date">
+        <input class="w3-input" type="date" id="assDate">
         <br>
         <%
             List<Entity> subjectList = EntityManager.getEntities(Subject.class);
         %>
-        <select class="w3-select" name="option" id="addMarks">
+        <select class="w3-select" name="option" id="assSubject">
             <option value="" disabled selected>Select a Subject</option>
             <%
                 for (Entity e1 : subjectList) {
@@ -32,7 +42,7 @@
         <%
             List<Entity> teachertList = EntityManager.getEntities(Teacher.class);
         %>
-        <select class="w3-select" name="option" id="addMarks">
+        <select class="w3-select" name="option" id="assTeacher">
             <option value="" disabled selected>Select a Teacher</option>
             <%
                 for (Entity e2 : teachertList) {
@@ -62,11 +72,11 @@
             %>
         </select>
 
-        <div id="classStudents">
+        <div id="marksClassStudents">
 
         </div>
-        <button onclick="saveStudent()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
-             Save
+        <button onclick="addMarks()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
+             Save Marks
         </button>
     </form>
 </div>
@@ -78,10 +88,10 @@
         busyOn();
         $.post('PageListStudentsMarks?classRoomId='+$('#classSelector').val(), {},
             function (result) {
-                $('#classStudents').html(result);
+                $('#marksClassStudents').html(result);
                 busyOff();
             }).fail(function (result) {
-                $('#classStudents').html(result);
+                $('#marksClassStudents').html(result);
                 busyOff();
             }
         );

@@ -34,7 +34,7 @@ public class Student extends Member {
         this.studentId = studentId;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student")
     public Set<Assesment> getAssesments() {
         return assesments;
     }
@@ -43,7 +43,7 @@ public class Student extends Member {
         this.assesments = assesments;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student")
     public Set<YearRegistration> getYearRegistrations() {
         return yearRegistrations;
     }

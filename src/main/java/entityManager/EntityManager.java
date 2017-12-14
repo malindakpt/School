@@ -14,11 +14,15 @@ import java.util.List;
  */
 public class EntityManager {
     public static void add(Entity entity){
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
 
-        session.beginTransaction();
-        session.save(entity);
-        session.getTransaction().commit();
+            session.beginTransaction();
+            session.save(entity);
+            session.getTransaction().commit();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /* Method to DELETE an employee from the records */

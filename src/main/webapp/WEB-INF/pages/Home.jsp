@@ -47,7 +47,7 @@
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addMarks()">Add Marks</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="addMarksPage()">Add Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Subject Teacher</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
@@ -327,7 +327,7 @@
         );
     }
 
-    function addMarks() {
+    function addMarksPage() {
         w3_close();
         busyOn();
         $.post('PageAddMarks', {},
@@ -357,14 +357,12 @@
     }
 
     function subjectTeacher(ele) {
-
         var subList = [];
         $("#sub"+ele.id+" input[type=checkbox]").each(function() {
             if(this.checked) {
                 subList.push(this.id);
             }
         });
-
         $.post('AddSubjectTeacher', {
                 subjectId: ele.id,
                 teacherList:subList
@@ -380,20 +378,15 @@
                 alert("error");
             }
         );
-
-
-
     }
 
     function classStudents() {
-
         var classArr = [];
         var studArr = [];
         $("#classStudents select").each(function() {
             classArr.push(this.value);
             studArr.push(this.id);
         });
-
         $.post('AddClassStudent', {
                 classArr: classArr,
                 studArr: studArr
@@ -405,15 +398,33 @@
                 alert("error");
             }
         );
-
-
-
     }
 
+    function addMarks() {
+        var marksArr = [];
+        var studArr = [];
+        $("#marksClassStudents input").each(function() {
+            marksArr.push(this.value);
+            studArr.push(this.id);
+        });
+        $.post('AddMarks', {
+                marksArr: marksArr,
+                studArr: studArr,
 
-    $(document).ready(function () {
-//        busyOff();
-    });
+                subjectId: $('#assSubject').val(),
+                teacherId: $('#assTeacher').val(),
+                date: $('#assDate').val(),
+                type: $('#assesmentType').val(),
+
+            },
+            function (result) {
+                alert("Success "+result);
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
 </script>
 
 </body>
