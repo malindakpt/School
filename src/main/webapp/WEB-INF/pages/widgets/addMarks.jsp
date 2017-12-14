@@ -22,21 +22,7 @@
         <label>Date</label>
         <input class="w3-input" type="date" id="assDate">
         <br>
-        <%
-            List<Entity> subjectList = EntityManager.getEntities(Subject.class);
-        %>
-        <select class="w3-select" name="option" id="assSubject">
-            <option value="" disabled selected>Select a Subject</option>
-            <%
-                for (Entity e1 : subjectList) {
-                    Subject subject = (Subject) e1;
-            %>
-            <option value="<%=subject.getSubjectId()%>"><%=subject.getCode() + " " + subject.getName()%>
-            </option>
-            <%
-                }
-            %>
-        </select>
+        <jsp:include page='../components/subjectList.jsp'/>
 
         <br>
         <%

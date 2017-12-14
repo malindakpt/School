@@ -18,7 +18,6 @@ public class Student extends Member {
     private String guardinaName;
     private String guardianMobile;
     private ClassRoom classRoom;
-    //New
     private Set<YearRegistration> yearRegistrations;
     private Set<Assesment> assesments;
 

@@ -13,6 +13,7 @@
             <property name="show_sql">true</property>
             <property name="hibernate.hbm2ddl.auto">update</property>
             <mapping class="entity.Teacher"></mapping>
+            <mapping class="entity.Course"></mapping>
             <mapping class="entity.Assesment"></mapping>
             <mapping class="entity.Student"></mapping>
             <mapping class="entity.ClassRoom"></mapping>

@@ -95,11 +95,49 @@ class PageAddClassRoomController {
 }
 
 @Controller
+@RequestMapping("/PageAddCourse")
+class PageAddCourseController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/addCourse";
+	}
+}
+
+@Controller
 @RequestMapping("/PageAddClassStudents")
 class PageAddClassStudentsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "widgets/addClassStudents";
+	}
+}
+
+@Controller
+@RequestMapping("/CompSubjectList")
+class CompSubjectListController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/subjectList";
+	}
+}
+
+
+@Controller
+@RequestMapping("/PageRegisterStudent")
+class RegisterStudentController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/registerStudent";
+	}
+}
+
+
+@Controller
+@RequestMapping("/CompSubjectCheckList")
+class SubjectCheckListController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/subjectCheckList";
 	}
 }
 //School Management End
@@ -119,6 +157,14 @@ class PageListStudentsMarksController {
 	}
 }
 
+@Controller
+@RequestMapping("/PageStudentView")
+class StudentViewController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/studentView";
+	}
+}
 
 @Controller
 @RequestMapping("/PageListStudentsMarks22")
@@ -139,12 +185,5 @@ class LoadItemController {
 		}
 	}
 
-//	@RequestMapping("/PageListStudentsMarks/{classRoomId}")
-//	public String editJob(@PathVariable("classRoomId") Integer classRoomId, Model model){
-//		//model.addAttribute("id",jobId); this is wrong
-////		Job job = jobService.getJobById(jobId);
-//		//write method in jobservice to get job by id i.e. getJobById(Integer jobId);
-//		model.addAttribute("job",classRoomId);
-//		return "widgets/listStudentsMarks";
-//	}
+
 }

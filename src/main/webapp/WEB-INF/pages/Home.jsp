@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel='stylesheet' href="css/custom.css">
 <script src="js/jQuery.js"></script>
+<script src="js/highCharts.js"></script>
 <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     .loader {
@@ -46,6 +47,9 @@
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadAddCourse()">Add Course</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadRegisterStudent()">Register Student</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Student Information</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addMarksPage()">Add Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
@@ -80,6 +84,9 @@
             <div class="w3-col m2">
                 <!-- Profile -->
                 <jsp:include page='widgets/profile.jsp'/>
+
+
+
 
                 <br>
 
@@ -325,6 +332,49 @@
                 busyOff();
             }
         );
+    }
+    function loadRegisterStudent(){
+        w3_close();
+        busyOn();
+        $.post('PageRegisterStudent', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+    function loadAddCourse(){
+        w3_close();
+        busyOn();
+        $.post('PageAddCourse', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+    function loadStudentDetails() {
+        w3_close();
+        busyOn();
+        $.post('PageStudentView?id=5', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+
     }
 
     function addMarksPage() {

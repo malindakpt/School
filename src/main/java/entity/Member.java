@@ -16,7 +16,7 @@ public class Member extends Entity{
     private String address;
     private String phone;
 
-    @Column(name = "firstName", nullable = true, length = 20)
+    @Column(name = "firstName", nullable = true, length = 100)
     public String getFirstName() {
         return firstName;
     }
@@ -24,7 +24,7 @@ public class Member extends Entity{
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    @Column(name = "lastName", nullable = true, length = 20)
+    @Column(name = "lastName", nullable = true, length = 100)
     public String getLastName() {
         return lastName;
     }
@@ -32,7 +32,7 @@ public class Member extends Entity{
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    @Column(name = "fullName", nullable = true, length = 20)
+    @Column(name = "fullName", nullable = true, length = 100)
     public String getFullName() {
         return fullName;
     }
@@ -40,7 +40,7 @@ public class Member extends Entity{
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
-    @Column(name = "birthday", nullable = true, length = 20)
+    @Column(name = "birthday", nullable = true, length = 100)
     public Date getBirthday() {
         return birthday;
     }
@@ -48,7 +48,7 @@ public class Member extends Entity{
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
-    @Column(name = "address", nullable = true, length = 20)
+    @Column(name = "address", nullable = true, length = 100)
     public String getAddress() {
         return address;
     }
@@ -56,7 +56,7 @@ public class Member extends Entity{
     public void setAddress(String address) {
         this.address = address;
     }
-    @Column(name = "phone", nullable = true, length = 20)
+    @Column(name = "phone", nullable = true, length = 100)
     public String getPhone() {
         return phone;
     }
