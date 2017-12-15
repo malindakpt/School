@@ -5,7 +5,7 @@
 <%@ page import="entity.Course" %><%
     List<Entity> entityList = EntityManager.getEntities(Course.class);
 %>
-<select class="w3-select" name="option" id="assSubject">
+<select class="w3-select" name="option" id="courseSelector">
     <option value="" disabled selected>Select a Course</option>
     <%
         for (Entity entity : entityList) {

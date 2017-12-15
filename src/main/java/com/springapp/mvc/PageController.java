@@ -130,6 +130,15 @@ class CompSubjectListController {
 }
 
 @Controller
+@RequestMapping("/CompSubjectListInRegistration")
+class CompSubjectListInRegistrationController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/subjectListInRegistration";
+	}
+}
+
+@Controller
 @RequestMapping("/CompStudentsInClass")
 class CompStudentsInClassController {
 	@RequestMapping(method = RequestMethod.POST)

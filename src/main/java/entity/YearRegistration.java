@@ -14,9 +14,16 @@ public class YearRegistration extends Entity {
     private int year;
     private float fees;
     private Student student;
-    private Set<Subject> subjects;
+    private Course course;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    public YearRegistration(){}
+    public YearRegistration(int year, Student student, Course course){
+        this.year = year;
+        this.student = student;
+        this.course = course;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "studentId", nullable = true)
     public Student getStudent() {
         return student;
@@ -26,14 +33,14 @@ public class YearRegistration extends Entity {
         this.student = student;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "yearRegistration_subject", joinColumns = { @JoinColumn(name = "yearRegistrationId") }, inverseJoinColumns = { @JoinColumn(name = "subjectId") })
-    public Set<Subject> getSubjects() {
-        return subjects;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "courseId", nullable = true)
+    public Course getCourse() {
+        return course;
     }
 
-    public void setSubjects(Set<Subject> subjects) {
-        this.subjects = subjects;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Id

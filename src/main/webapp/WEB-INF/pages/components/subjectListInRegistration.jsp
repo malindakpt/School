@@ -2,14 +2,17 @@
 <%@ page import="entity.Subject" %>
 <%@ page import="entity.Entity" %>
 <%@ page import="java.util.List" %>
+<%@ page import="entity.YearRegistration" %>
 
 <%
-    List<Entity> entityList = EntityManager.getEntities(Subject.class);
+    String id = request.getParameter("id");
+    YearRegistration yearRegistration = (YearRegistration) EntityManager.getEntity(YearRegistration.class, "yearRegistrationId", id);
+
 %>
-<select class="w3-select" name="option" id="assSubject">
+<select class="w3-select" name="option" id="assSubject" onchange="onSubjectChange()">
     <option value="" disabled selected>Select a Subject</option>
     <%
-        for (Entity subjectEntity : entityList) {
+        for (Entity subjectEntity : yearRegistration.getCourse().getSubjects()) {
             Subject subject = (Subject) subjectEntity;
     %>
     <option value="<%=subject.getSubjectId()%>"><%=subject.getCode() + " " + subject.getName()%>

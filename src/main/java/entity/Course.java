@@ -12,6 +12,7 @@ import java.util.Set;
 public class Course extends Entity {
     private int courseId;
     private String name;
+    private Set<YearRegistration> yearRegistration;
     private Set<Subject> subjects;
 
     public Course(){}
@@ -24,6 +25,20 @@ public class Course extends Entity {
     public int getCourseId() {
         return courseId;
     }
+
+
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
+    public Set<YearRegistration> getYearRegistration() {
+        return yearRegistration;
+    }
+
+    public void setYearRegistration(Set<YearRegistration> yearRegistration) {
+        this.yearRegistration = yearRegistration;
+    }
+
+
+
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;

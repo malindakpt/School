@@ -8,11 +8,32 @@
 <% for(Assesment assesment : student.getAssesments()){%>
      <div><%=assesment.getMarks()   %></div>
 <%}%>
-<jsp:include page='../components/subjectList.jsp'/>
+<jsp:include page="../components/studentYearRegistrations.jsp"/>
+<br>
+<br>
+<div id = "subjectListView"></div>
+<br>
+<br>
 <div id="chartContainer"></div>
 
 <script>
 
+     function onSubjectChange() {
+
+     }
+     function onYearRegistrationChange() {
+         w3_close();
+         busyOn();
+         $.post('CompSubjectListInRegistration?id='+$('#registrationSelector').val(), {},
+             function (result) {
+                 $('#subjectListView').html(result);
+                 busyOff();
+             }).fail(function (result) {
+                 $('#marksClassStudents').html(result);
+                 busyOff();
+             }
+         );
+     }
 
     function onSubjectChange() {
         w3_close();

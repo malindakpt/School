@@ -60,7 +60,7 @@ public class EntityManager {
         }
     }
 
-    public static List<Entity> getEntitySubList(Class entity,String idCol, String id){
+    public static List<Entity> getEntitySubList(Class entity,String idCol, String key){
         List<Entity> entities;// = new ArrayList<Entity>();
         Session session = null;
         Transaction tx = null;
@@ -68,9 +68,9 @@ public class EntityManager {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            String hql = "FROM "+entity.getSimpleName()+" WHERE "+idCol+"= :id";
+            String hql = "FROM "+entity.getSimpleName()+" WHERE "+idCol+"= :key";
             Query query = session.createQuery(hql);
-            query.setParameter("id", Integer.parseInt(id));
+            query.setParameter("key", Integer.parseInt(key));
             entities = query.list();
 
             tx.commit();
