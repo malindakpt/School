@@ -517,6 +517,69 @@
             }
         );
     }
+
+    function drawChart(result) {
+        console.log(result);
+        var marks = result.split(",")
+        var marksInt = [];
+        for(var mark in marks){
+            if(marks.hasOwnProperty(mark)){
+                marksInt.push(Number(mark));
+                console.log(Number(mark));
+            }
+        }
+        Highcharts.chart('chartContainer', {
+
+            title: {
+                text: 'Solar Employment Growth by Sector, 2010-2016'
+            },
+
+            subtitle: {
+                text: 'Source: thesolarfoundation.com'
+            },
+
+            yAxis: {
+                title: {
+                    text: 'Number of Employees'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                    pointStart: 1
+                }
+            },
+
+            series: [{
+                name: 'Marks %',
+                data: marksInt
+            }],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+
+        });
+    }
 </script>
 
 </body>

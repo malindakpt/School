@@ -3,7 +3,7 @@ package servlet; /**
  */
 // Import required java libraries
 
-import businessLogic.DBLink;
+
 import entity.ClassRoom;
 import entity.Course;
 import entity.Student;
@@ -48,7 +48,6 @@ public class RegisterStudents extends HttpServlet {
 
         }catch (Exception e){
             e.printStackTrace();
-            out.print("Unexpected error :"+DBLink.errorMsg);
         }
     }
 

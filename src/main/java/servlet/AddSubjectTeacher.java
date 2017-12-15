@@ -3,7 +3,6 @@ package servlet; /**
  */
 // Import required java libraries
 
-import businessLogic.DBLink;
 import entity.Subject;
 import entity.Teacher;
 import entityManager.EntityManager;
@@ -40,7 +39,6 @@ public class AddSubjectTeacher extends HttpServlet {
 
         }catch (Exception e){
             e.printStackTrace();
-            out.print("Unexpected error :"+DBLink.errorMsg);
         }
     }
 

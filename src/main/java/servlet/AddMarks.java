@@ -3,7 +3,6 @@ package servlet; /**
  */
 // Import required java libraries
 
-import businessLogic.DBLink;
 import entity.*;
 import entityManager.EntityManager;
 
@@ -46,7 +45,6 @@ public class AddMarks extends HttpServlet {
 
         }catch (Exception e){
             e.printStackTrace();
-            out.print("Unexpected error :"+DBLink.errorMsg);
         }
     }
 

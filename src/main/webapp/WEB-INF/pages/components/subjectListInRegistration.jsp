@@ -9,7 +9,7 @@
     YearRegistration yearRegistration = (YearRegistration) EntityManager.getEntity(YearRegistration.class, "yearRegistrationId", id);
 
 %>
-<select class="w3-select" name="option" id="assSubject" onchange="onSubjectChange()">
+<select class="w3-select" name="option" id="subjectSelector" onchange="onSubjectChange()">
     <option value="" disabled selected>Select a Subject</option>
     <%
         for (Entity subjectEntity : yearRegistration.getCourse().getSubjects()) {

@@ -95,6 +95,18 @@
 		<servlet-name>AddClassStudent</servlet-name>
 		<url-pattern>/AddClassStudent</url-pattern>
 	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>GetMarksForAssessment</servlet-name>
+		<servlet-class>servlet.GetMarksForAssessment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetMarksForAssessment</servlet-name>
+		<url-pattern>/GetMarksForAssessment</url-pattern>
+	</servlet-mapping>
 	<!--School Management End-->
 
 

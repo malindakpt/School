@@ -3,8 +3,9 @@ package servlet; /**
  */
 // Import required java libraries
 
-import entity.ClassRoom;
+import entity.Assesment;
 import entity.Student;
+import entity.Subject;
 import entity.Teacher;
 import entityManager.EntityManager;
 
@@ -14,9 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
 
-public class AddClassRoom extends HttpServlet {
+public class GetMarksForAssessment extends HttpServlet {
 
 
     public void doPost(HttpServletRequest request,
@@ -24,15 +26,18 @@ public class AddClassRoom extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
-            ClassRoom classRoom=new ClassRoom();
-            classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
-            classRoom.setBatch(Integer.parseInt(request.getParameter("batch")));
-            classRoom.setClassRoomName(request.getParameter("classRoomName"));
+            String studentId = request.getParameter("studentId");
+            String subjectId = request.getParameter("subjectId");
+            String regId = request.getParameter("regId");
 
-            Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", request.getParameter("classTeacher"));
-            classRoom.setClassTeacher(teacher);
-
-            EntityManager.add(classRoom);
+            Student student = (Student) EntityManager.getEntity(Student.class,"studentId", studentId);
+            String marks="";
+            for(Assesment assesment :student.getAssesments()){
+                if(assesment.getSubject().getSubjectId()==Integer.parseInt(subjectId)){
+                    marks = marks +","+assesment.getMarks();
+                }
+            }
+            out.print("23,44,55,33,22,66,55");
 
         }catch (Exception e){
             e.printStackTrace();

@@ -3,7 +3,7 @@ package servlet; /**
  */
 // Import required java libraries
 
-import businessLogic.*;
+
 import entity.Student;
 import entityManager.EntityManager;
 import org.apache.commons.fileupload.FileItem;
@@ -53,7 +53,6 @@ public class AddStudent extends HttpServlet {
 
         }catch (Exception e){
             e.printStackTrace();
-            out.print("Unexpected error :"+DBLink.errorMsg);
         }
     }
 
