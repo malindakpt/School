@@ -8,3 +8,8 @@
 .button-ok{
     margin:3px;
 }
+
+
+.checked {
+    color: orange;
+}

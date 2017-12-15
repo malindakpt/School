@@ -4,8 +4,18 @@
 </div>
 
 <div class="w3-row">
-    <div class="w3-green w3-container w3-twothird">
+    <div class="w3-container w3-twothird">
+        <span class="w3-badge w3-large w3-padding w3-red">3rd</span>
+        <span>place of last term test</span>
 
+        <span style="float: right;">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <div class="w3-tooltip">Teacher's Rating<span class="w3-text">(<em>avg. of 100 teachers</em>)</span></div>
+        </span>
 
     </div>
     <div class="w3-container w3-third">
