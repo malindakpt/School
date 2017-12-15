@@ -5,4 +5,6 @@
     <option value="2015" >2015</option>
 </select>
 
-<jsp:include page="../components/subjectCheckList.jsp"/>
+<jsp:include page="../components/courseList.jsp"/>
+
+<jsp:include page="../components/listStudentsWithClassFilter.jsp"/>

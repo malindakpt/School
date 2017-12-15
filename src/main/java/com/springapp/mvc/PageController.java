@@ -33,6 +33,14 @@ class ListSubjectsController {
 	}
 }
 @Controller
+@RequestMapping("/listStudentsWithClassFilter")
+class CompListStudentsWithClassFilterController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/listStudentsWithClassFilter";
+	}
+}
+@Controller
 @RequestMapping("/PageListTeachers")
 class ListTeachersController {
 	@RequestMapping(method = RequestMethod.POST)
@@ -121,6 +129,24 @@ class CompSubjectListController {
 	}
 }
 
+@Controller
+@RequestMapping("/CompStudentsInClass")
+class CompStudentsInClassController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/studentsInClass";
+	}
+}
+
+@Controller
+@RequestMapping("/CompCourseList")
+class CompCourseListController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/courseList";
+	}
+}
+
 
 @Controller
 @RequestMapping("/PageRegisterStudent")
@@ -166,24 +192,24 @@ class StudentViewController {
 	}
 }
 
-@Controller
-@RequestMapping("/PageListStudentsMarks22")
-class LoadItemController {
-	@RequestMapping(method = RequestMethod.GET)
-	@ResponseBody
-	ModelAndView printWelcome(@RequestParam("classRoomId") String classRoomId, ModelMap  model) {
-		{
-			ModelAndView modelAndview = null;
-
-			model.addAttribute("asd","asd");
-			try {
-				modelAndview = new ModelAndView("widgets/listStudentsMarks");
-				model.addAttribute("job",classRoomId);
-			} catch (IndexOutOfBoundsException e) {
-			}
-			return modelAndview;
-		}
-	}
-
-
-}
+//@Controller
+//@RequestMapping("/PageListStudentsMarks22")
+//class LoadItemController {
+//	@RequestMapping(method = RequestMethod.GET)
+//	@ResponseBody
+//	ModelAndView printWelcome(@RequestParam("classRoomId") String classRoomId, ModelMap  model) {
+//		{
+//			ModelAndView modelAndview = null;
+//
+//			model.addAttribute("asd","asd");
+//			try {
+//				modelAndview = new ModelAndView("widgets/listStudentsMarks");
+//				model.addAttribute("job",classRoomId);
+//			} catch (IndexOutOfBoundsException e) {
+//			}
+//			return modelAndview;
+//		}
+//	}
+//
+//
+//}
