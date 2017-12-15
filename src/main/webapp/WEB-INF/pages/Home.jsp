@@ -60,53 +60,7 @@
 
 <div class="w3-overlay w3-animate-opacity" style="cursor:pointer" style="display: block" id="myOverlay2"></div>
 <!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px; background: #263137;color:white;" id="mySidebar">
-    <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-
-    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Student Information</a>
-
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">View People<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
-        <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Load Teachers</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectList()">Load Subjects</a>
-        </div>
-    </div>
-
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">Add People<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
-        <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="addStudent()">Add Student</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="addTeacher()">Add Teacher</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="addSubject()">Add Subject</a>
-        </div>
-    </div>
-
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">Class Room<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
-        <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="addMarksPage()">Add Marks</a>
-        </div>
-    </div>
-
-
-
-
-
-
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">Academic Year<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
-        <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="loadRegisterStudent()">Register Student</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="loadAddCourse()">Add Course</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Change Subjects of Teachers</a>
-        </div>
-    </div>
-</div>
-
+<jsp:include page="components/sideMenu.jsp"/>
 <!-- Page Content -->
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
@@ -133,22 +87,12 @@
 
             <br>
 
+
+
             <!-- Accordion -->
             <jsp:include page="widgets/accordion.jsp"/>
 
-            <!-- Interests -->
-            <div class="w3-card w3-round w3-white w3-hide-small">
-                <div class="w3-container">
-                    <p>Interests</p>
-                    <p>
-                        <span class="w3-tag w3-small w3-theme-d5" onclick="loadStudentList()">News</span>
-                        <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-                        <span class="w3-tag w3-small w3-theme-d3">Labels</span>
 
-                    </p>
-                </div>
-            </div>
-            <br>
 
             <!-- Alert Box -->
             <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
@@ -178,14 +122,18 @@
 
         <!-- Right Column -->
         <div class="w3-col m2">
+
+            <!-- Interests -->
+            <jsp:include page="components/interests.jsp"/>
+
             <div class="w3-card w3-round w3-white w3-center">
                 <div class="w3-container">
                     <p>Upcoming Events:</p>
                     <img src="img/sportmeet.jpg" alt="Forest" style="width:100%;">
-                    <p><strong>Sports Meet 2018</strong></p>
-                    <p>await!</p>
+                    <%--<p><strong>Sports Meet 2018</strong></p>--%>
+                    <%--<p>await!</p>--%>
                     <p>
-                        <button class="w3-button w3-block w3-theme-l4">Info</button>
+                        <button class="w3-button w3-block w3-theme-l4"><strong>Sports Meet 2018</strong></button>
                     </p>
                 </div>
             </div>
@@ -209,14 +157,16 @@
             </div>
             <br>
 
-            <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-                <p>ADS</p>
-            </div>
-            <br>
+            <%--Removing adds--%>
+            <%--<div class="w3-card w3-round w3-white w3-padding-16 w3-center">--%>
+                <%--<p>ADS</p>--%>
+            <%--</div>--%>
+            <%--<br>--%>
 
-            <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-                <p><i class="fa fa-bug w3-xxlarge"></i></p>
-            </div>
+            <%--Removing Empty box--%>
+            <%--<div class="w3-card w3-round w3-white w3-padding-32 w3-center">--%>
+                <%--<p><i class="fa fa-bug w3-xxlarge"></i></p>--%>
+            <%--</div>--%>
 
             <!-- End Right Column -->
         </div>
@@ -235,7 +185,6 @@
 </footer>
 </div>
 <script>
-
     function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
         document.getElementById("myOverlay").style.display = "block";
@@ -244,8 +193,6 @@
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("myOverlay").style.display = "none";
     }
-
-
     function busyOn() {
         document.getElementById("myOverlay2").style.display = "block";
         document.getElementById("busyIcon").style.display = "block";
@@ -269,190 +216,6 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
-
-    function addStudent() {
-        w3_close();
-        busyOn();
-        $.post('PageAddStudent', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }).fail(function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }
-        );
-    }
-    function addTeacher() {
-        w3_close();
-        busyOn();
-        $.post('PageAddTeacher', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }).fail(function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }
-        );
-    }
-    function addSubject() {
-        w3_close();
-        busyOn();
-        $.post('PageAddSubject', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }
-        );
-    }
-    function loadStudentList() {
-        w3_close();
-        busyOn();
-        $.post('PageListStudents', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-    function loadTeacherList() {
-        w3_close();
-        busyOn();
-        $.post('PageListTeachers', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-    function loadSubjectList() {
-        w3_close();
-        busyOn();
-        $.post('PageListSubjects', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-
-    function addClassRoom() {
-        w3_close();
-        busyOn();
-        $.post('PageAddClassRoom', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-
-    function addClassStudents() {
-        w3_close();
-        busyOn();
-        $.post('PageAddClassStudents', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-    function loadRegisterStudent() {
-        w3_close();
-        busyOn();
-        $.post('PageRegisterStudent', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-    function loadAddCourse() {
-        w3_close();
-        busyOn();
-        $.post('PageAddCourse', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-    function loadStudentDetails() {
-        w3_close();
-        busyOn();
-        $.post('PageStudentView?id=5', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-
-    }
-
-    function addMarksPage() {
-        w3_close();
-        busyOn();
-        $.post('PageAddMarks', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-
-    function loadSubjectTeacher() {
-        w3_close();
-        busyOn();
-        $.post('PageSubjectTeacher', {},
-            function (result) {
-                $('#home-middle').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
-
     function subjectTeacher(ele) {
         var subList = [];
         $("#sub" + ele.id + " input[type=checkbox]").each(function () {
@@ -476,7 +239,6 @@
             }
         );
     }
-
     function saveCourse() {
         var subList = [];
         $("#addCourseInputs input[type=checkbox]").each(function () {
@@ -500,7 +262,6 @@
             }
         );
     }
-
     function classStudents() {
         var classArr = [];
         var studArr = [];
@@ -520,7 +281,6 @@
             }
         );
     }
-
     function addMarks() {
         var marksArr = [];
         var studArr = [];
@@ -545,69 +305,6 @@
                 alert("error");
             }
         );
-    }
-
-    function drawChart(result) {
-        console.log(result);
-        var marks = result.split(",")
-        var marksInt = [];
-        for(var mark in marks){
-            if(marks.hasOwnProperty(mark)){
-                marksInt.push(Number(mark));
-                console.log(Number(mark));
-            }
-        }
-        Highcharts.chart('chartContainer', {
-
-            title: {
-                text: 'Solar Employment Growth by Sector, 2010-2016'
-            },
-
-            subtitle: {
-                text: 'Source: thesolarfoundation.com'
-            },
-
-            yAxis: {
-                title: {
-                    text: 'Number of Employees'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
-                    },
-                    pointStart: 1
-                }
-            },
-
-            series: [{
-                name: 'Marks %',
-                data: marksInt
-            }],
-
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
-            }
-
-        });
     }
 </script>
 

@@ -1,4 +1,23 @@
-<div id="chartContainer2"></div>
+<div class="w3-panel w3-blue w3-card-4">
+    <p>London is the most populous city in the United Kingdom,
+        with a metropolitan area of over 9 million inhabitants.</p>
+</div>
+
+<div class="w3-row">
+    <div class="w3-green w3-container w3-twothird">
+
+
+    </div>
+    <div class="w3-container w3-third">
+        <div id="chartContainer2" style="display: block"></div>
+    </div>
+</div>
+
+
+<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+    <p>London is the most populous city in the United Kingdom,
+        with a metropolitan area of over 9 million inhabitants.</p>
+</div>
 
 <script>
     function drawChart() {
