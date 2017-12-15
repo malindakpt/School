@@ -60,21 +60,51 @@
 
 <div class="w3-overlay w3-animate-opacity" style="cursor:pointer" style="display: block" id="myOverlay2"></div>
 <!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px;" id="mySidebar">
+<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px; background: #263137;color:white;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-    <a href="#" class="w3-bar-item w3-button" onclick="loadAddCourse()">Add Course</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="loadRegisterStudent()">Register Student</a>
+
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Student Information</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addMarksPage()">Add Marks</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Subject Teacher</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Load Teachers</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectList()">Load Subjects</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addStudent()">Add Student</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addTeacher()">Add Teacher</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="addSubject()">Add Subject</a>
+
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">View People<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Load Students</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Load Teachers</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectList()">Load Subjects</a>
+        </div>
+    </div>
+
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Add People<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button" onclick="addStudent()">Add Student</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="addTeacher()">Add Teacher</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="addSubject()">Add Subject</a>
+        </div>
+    </div>
+
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Class Room<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button" onclick="addClassStudents()">Add Class Students</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="addMarksPage()">Add Marks</a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Academic Year<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button" onclick="loadRegisterStudent()">Register Student</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="loadAddCourse()">Add Course</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="addClassRoom()">Add Class Room</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectTeacher()">Change Subjects of Teachers</a>
+        </div>
+    </div>
 </div>
 
 <!-- Page Content -->
@@ -138,7 +168,7 @@
                 <div class="w3-col m12">
                     <div class="w3-card w3-round w3-white">
                         <div class="w3-container w3-padding" id="home-middle">
-                            <jsp:include page='widgets/addMember.jsp'/>
+                            <jsp:include page='widgets/dashBoad.jsp'/>
                             <%--<jsp:include page='widgets/listStudents.jsp'/>--%>
                         </div>
                     </div>
@@ -151,9 +181,9 @@
             <div class="w3-card w3-round w3-white w3-center">
                 <div class="w3-container">
                     <p>Upcoming Events:</p>
-                    <img src="img/lights.png" alt="Forest" style="width:100%;">
-                    <p><strong>Holiday</strong></p>
-                    <p>Friday 15:00</p>
+                    <img src="img/sportmeet.jpg" alt="Forest" style="width:100%;">
+                    <p><strong>Sports Meet 2018</strong></p>
+                    <p>await!</p>
                     <p>
                         <button class="w3-button w3-block w3-theme-l4">Info</button>
                     </p>
@@ -163,18 +193,17 @@
 
             <div class="w3-card w3-round w3-white w3-center">
                 <div class="w3-container">
-                    <p>Friend Request</p>
-                    <img src="img/avatar.png" alt="Avatar" style="width:50%"><br>
-                    <span>Jane Doe</span>
+                    <p>Class Teacher</p>
+                    <img src="img/teacher.PNG" alt="Avatar" style="width:50%"><br>
+
                     <div class="w3-row w3-opacity">
-                        <div class="w3-half">
-                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><i
-                                    class="fa fa-check"></i></button>
+                        <div class="w3-full">
+                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><span>Nadeeka Senanayake</span></button>
                         </div>
-                        <div class="w3-half">
-                            <button class="w3-button w3-block w3-red w3-section" title="Decline"><i
-                                    class="fa fa-remove"></i></button>
-                        </div>
+                        <%--<div class="w3-half">--%>
+                            <%--<button class="w3-button w3-block w3-red w3-section" title="Decline"><i--%>
+                                    <%--class="fa fa-remove"></i></button>--%>
+                        <%--</div>--%>
                     </div>
                 </div>
             </div>
