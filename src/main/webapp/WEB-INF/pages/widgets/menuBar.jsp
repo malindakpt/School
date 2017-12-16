@@ -17,6 +17,9 @@
             </div>
         </div>
         <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account"><img src="img/avatar.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
+        <%--<div style="    margin-top: 10px;    margin-left: 100px;">--%>
+            <%--SUCCEX COLLEGE KULIYAPITIYA--%>
+        <%--</div>--%>
     </div>
 </div>
 

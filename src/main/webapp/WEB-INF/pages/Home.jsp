@@ -146,7 +146,7 @@
 
                     <div class="w3-row w3-opacity">
                         <div class="w3-full">
-                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><span>Nadeeka Senanayake</span></button>
+                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><span style="color: black">Nadeeka Senanayake</span></button>
                         </div>
                         <%--<div class="w3-half">--%>
                             <%--<button class="w3-button w3-block w3-red w3-section" title="Decline"><i--%>
@@ -179,10 +179,10 @@
 <br>
 
 
-<footer class="w3-container w3-theme-d5"
-        style="    position: fixed;    bottom: 1px;    width: 100%;    height: 30px;    line-height: 25px;">
-    <span>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></span>
-</footer>
+<%--<footer class="w3-container w3-theme-d5"--%>
+        <%--style="    position: fixed;    bottom: 1px;    width: 100%;    height: 30px;    line-height: 25px;">--%>
+    <%--<span>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></span>--%>
+<%--</footer>--%>
 </div>
 <script>
     function w3_open() {

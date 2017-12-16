@@ -4,7 +4,11 @@
 </div>
 
 <div class="w3-row">
-    <div class="w3-container w3-twothird">
+
+    <div class="w3-container w3-half">
+        <div id="chartContainer2" style="display: block"></div>
+    </div>
+    <div class="w3-container w3-half">
         <span class="w3-badge w3-large w3-padding w3-red">3rd</span>
         <span>place of last term test</span>
 
@@ -16,10 +20,49 @@
             <span class="fa fa-star"></span>
             <div class="w3-tooltip">Teacher's Rating<span class="w3-text">(<em>avg. of 100 teachers</em>)</span></div>
         </span>
+        <div class="w3-container">
+            <h2>Avatar List</h2>
+            <p>You can combine w3-ul and the w3-bar classes to create an avatar list:</p>
+            <ul class="w3-ul w3-card-4">
+                <li class="w3-bar">
+                    <%--<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>--%>
+                    <div style="width:20%">
+                        <img src="img/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small"
+                             style="width:100%;height: 100%">
+                    </div>
 
-    </div>
-    <div class="w3-container w3-third">
-        <div id="chartContainer2" style="display: block"></div>
+                    <div style="width:80%" class="w3-rest w3-bar-item">
+                        <span class="w3-large">Bad Class Participation</span><br>
+                        <span>continues absent for last 3 sports practice sessions</span>
+                    </div>
+                </li>
+
+                <li class="w3-bar">
+                    <%--<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>--%>
+                    <div style="width:20%">
+                        <img src="img/img_avatar5.png" class="w3-bar-item w3-circle w3-hide-small"
+                             style="width:100%;height: 100%">
+                    </div>
+                    <div style="width:80%" class="w3-bar-item">
+                        <span class="w3-large">Outstanding performance</span><br>
+                        <span>Did a great job in monthly test for Maths</span>
+                    </div>
+                </li>
+
+                <li class="w3-bar">
+                    <%--<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>--%>
+                    <div style="width:20%">
+                        <img src="img/img_avatar6.png" class="w3-bar-item w3-circle w3-hide-small"
+                             style="width:100%;height: 100%">
+                    </div>
+                    <div style="width:80%" class="w3-bar-item">
+                        <span class="w3-large">Need more improvement</span><br>
+                        <span>Homeworks are incomplete for 3 days</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </div>
 
@@ -43,13 +86,13 @@
         var marksInt1 = [];
         var marksInt2 = [];
         var marksInt3 = [];
-        marks1.forEach(function(element) {
+        marks1.forEach(function (element) {
             marksInt1.push(Number(element));
         });
-        marks2.forEach(function(element) {
+        marks2.forEach(function (element) {
             marksInt2.push(Number(element));
         });
-        marks3.forEach(function(element) {
+        marks3.forEach(function (element) {
             marksInt3.push(Number(element));
         });
 
@@ -68,7 +111,7 @@
                     text: 'Marks for the assessment out of hundred'
                 },
                 min: 0,
-                max:100
+                max: 100
             },
             legend: {
                 layout: 'vertical',
@@ -89,14 +132,14 @@
             },
 
             series: [{
-                    name: 'English',
-                    data: marksInt1
-                },
+                name: 'English',
+                data: marksInt1
+            },
                 {
                     name: 'Maths',
                     data: marksInt2,
                     color: '#FF0000'
-                },{
+                }, {
                     name: 'Science',
                     data: marksInt3
                 }],
