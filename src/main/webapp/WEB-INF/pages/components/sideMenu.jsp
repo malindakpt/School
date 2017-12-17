@@ -2,6 +2,7 @@
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
 
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Student Information</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadRateStudent()">Rate Student</a>
 
     <div class="w3-dropdown-hover">
         <button class="w3-button">Show Members<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
@@ -177,6 +178,20 @@
         w3_close();
         busyOn();
         $.post('PageAddCourse', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+    function loadRateStudent() {
+        w3_close();
+        busyOn();
+        $.post('PageRateStudent', {},
             function (result) {
                 $('#home-middle').html(result);
                 busyOff();

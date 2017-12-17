@@ -9,7 +9,7 @@
 
         %>
         <h4 class="w3-center"><%=student.getFirstName()+" "+student.getLastName()%></h4>
-        <p class="w3-center"><img src="img/boy.jpg" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+        <p class="w3-center"><img src="img/boy.jpg" class="w3-circle" style="height:100%;width:100%" alt="Avatar"></p>
         <hr>
         <p><i class="fa fa-university fa-fw w3-margin-right w3-text-theme"></i> Grade 5-B</p>
         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Student</p>

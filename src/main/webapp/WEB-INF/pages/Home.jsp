@@ -73,7 +73,7 @@
 
 
 <!-- Navbar -->
-<jsp:include page='widgets/menuBar.jsp'/>
+<jsp:include page='components/menuBar.jsp'/>
 
 <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
 
@@ -90,7 +90,9 @@
 
 
             <!-- Accordion -->
-            <jsp:include page="widgets/accordion.jsp"/>
+            <div class=" w3-hide-small">
+            <jsp:include page="components/accordion.jsp"/>
+            </div>
 
 
 
@@ -146,7 +148,7 @@
 
                     <div class="w3-row w3-opacity">
                         <div class="w3-full">
-                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><span style="color: black">Nadeeka Senanayake</span></button>
+                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><span style="color: black">Nadeeka Herath</span></button>
                         </div>
                         <%--<div class="w3-half">--%>
                             <%--<button class="w3-button w3-block w3-red w3-section" title="Decline"><i--%>

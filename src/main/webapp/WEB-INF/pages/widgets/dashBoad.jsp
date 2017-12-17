@@ -1,6 +1,5 @@
-<div class="w3-panel w3-blue w3-card-4">
-    <p>London is the most populous city in the United Kingdom,
-        with a metropolitan area of over 9 million inhabitants.</p>
+<div class="w3-panel w3-green w3-card-4">
+    <p>Observe the 3 subjects chart and find where you need more improvement</p>
 </div>
 
 <div class="w3-row">
@@ -21,46 +20,55 @@
             <div class="w3-tooltip">Teacher's Rating<span class="w3-text">(<em>avg. of 100 teachers</em>)</span></div>
         </span>
         <div class="w3-container">
-            <h2>Avatar List</h2>
-            <p>You can combine w3-ul and the w3-bar classes to create an avatar list:</p>
-            <ul class="w3-ul w3-card-4">
-                <li class="w3-bar">
-                    <%--<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>--%>
-                    <div style="width:20%">
-                        <img src="img/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small"
-                             style="width:100%;height: 100%">
-                    </div>
+            <%--<h2>Avatar List</h2>--%>
+            <p>Recent comments from teachers</p>
+                <div class="w3-panel w3-blue w3-card-4">
+                    <p>continues absent for last 3 sports practice sessions</p>
+                </div>
+                <div class="w3-panel w3-green w3-card-4">
+                    <p>Class Highscore for monthly test for Maths</p>
+                </div>
+                <div class="w3-panel w3-red w3-card-4">
+                    <p>Homeworks are incomplete for 3 days</p>
+                </div>
+            <%--<ul class="w3-ul w3-card-4">--%>
+                <%--<li class="w3-bar">--%>
+                    <%--&lt;%&ndash;<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>&ndash;%&gt;--%>
+                    <%--<div style="width:20%">--%>
+                        <%--<img src="img/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small"--%>
+                             <%--style="width:100%;height: 100%">--%>
+                    <%--</div>--%>
 
-                    <div style="width:80%" class="w3-rest w3-bar-item">
-                        <span class="w3-large">Bad Class Participation</span><br>
-                        <span>continues absent for last 3 sports practice sessions</span>
-                    </div>
-                </li>
+                    <%--<div style="width:80%" class="w3-rest w3-bar-item">--%>
+                        <%--<span class="w3-large">Bad Class Participation</span><br>--%>
+                        <%--<span>continues absent for last 3 sports practice sessions</span>--%>
+                    <%--</div>--%>
+                <%--</li>--%>
 
-                <li class="w3-bar">
-                    <%--<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>--%>
-                    <div style="width:20%">
-                        <img src="img/img_avatar5.png" class="w3-bar-item w3-circle w3-hide-small"
-                             style="width:100%;height: 100%">
-                    </div>
-                    <div style="width:80%" class="w3-bar-item">
-                        <span class="w3-large">Outstanding performance</span><br>
-                        <span>Did a great job in monthly test for Maths</span>
-                    </div>
-                </li>
+                <%--<li class="w3-bar">--%>
+                    <%--&lt;%&ndash;<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>&ndash;%&gt;--%>
+                    <%--<div style="width:20%">--%>
+                        <%--<img src="img/img_avatar5.png" class="w3-bar-item w3-circle w3-hide-small"--%>
+                             <%--style="width:100%;height: 100%">--%>
+                    <%--</div>--%>
+                    <%--<div style="width:80%" class="w3-bar-item">--%>
+                        <%--<span class="w3-large">Outstanding performance</span><br>--%>
+                        <%--<span>Class Highscore for monthly test for Maths</span>--%>
+                    <%--</div>--%>
+                <%--</li>--%>
 
-                <li class="w3-bar">
-                    <%--<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>--%>
-                    <div style="width:20%">
-                        <img src="img/img_avatar6.png" class="w3-bar-item w3-circle w3-hide-small"
-                             style="width:100%;height: 100%">
-                    </div>
-                    <div style="width:80%" class="w3-bar-item">
-                        <span class="w3-large">Need more improvement</span><br>
-                        <span>Homeworks are incomplete for 3 days</span>
-                    </div>
-                </li>
-            </ul>
+                <%--<li class="w3-bar">--%>
+                    <%--&lt;%&ndash;<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>&ndash;%&gt;--%>
+                    <%--<div style="width:20%">--%>
+                        <%--<img src="img/img_avatar6.png" class="w3-bar-item w3-circle w3-hide-small"--%>
+                             <%--style="width:100%;height: 100%">--%>
+                    <%--</div>--%>
+                    <%--<div style="width:80%" class="w3-bar-item">--%>
+                        <%--<span class="w3-large">Need more improvement</span><br>--%>
+                        <%--<span>Homeworks are incomplete for 3 days</span>--%>
+                    <%--</div>--%>
+                <%--</li>--%>
+            <%--</ul>--%>
         </div>
 
     </div>
@@ -68,8 +76,7 @@
 
 
 <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-    <p>London is the most populous city in the United Kingdom,
-        with a metropolitan area of over 9 million inhabitants.</p>
+    <p>Observe the chart 3 subjects chart to decide where need the improvement and where you are playing well</p>
 </div>
 
 <script>

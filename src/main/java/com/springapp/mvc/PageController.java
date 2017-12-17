@@ -93,6 +93,17 @@ class PageAddMarksController {
 	}
 }
 
+
+@Controller
+@RequestMapping("/PageRateStudent")
+class PageRateStudentController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/rateStudent";
+	}
+}
+
+
 @Controller
 @RequestMapping("/PageAddClassRoom")
 class PageAddClassRoomController {
