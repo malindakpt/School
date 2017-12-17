@@ -98,6 +98,17 @@
 
 
 
+	<servlet>
+		<servlet-name>AddExam</servlet-name>
+		<servlet-class>servlet.AddExam</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddExam</servlet-name>
+		<url-pattern>/AddExam</url-pattern>
+	</servlet-mapping>
+
+
+
 
 	<servlet>
 		<servlet-name>GetMarksForAssessment</servlet-name>

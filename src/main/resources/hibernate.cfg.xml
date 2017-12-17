@@ -19,5 +19,6 @@
             <mapping class="entity.ClassRoom"></mapping>
             <mapping class="entity.YearRegistration"></mapping>
             <mapping class="entity.Subject"></mapping>
+            <mapping class="entity.Exam"></mapping>
     </session-factory>
 </hibernate-configuration>

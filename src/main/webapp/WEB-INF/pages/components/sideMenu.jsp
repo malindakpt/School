@@ -1,7 +1,9 @@
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px; background: #263137;color:white;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
 
-    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Student Information</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadAddExam()">Add Exam</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadReportCard()">Report Card</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Subject Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadRateStudent()">Rate Student</a>
 
     <div class="w3-dropdown-hover">
@@ -192,6 +194,35 @@
         w3_close();
         busyOn();
         $.post('PageRateStudent', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+
+    function loadAddExam() {
+        w3_close();
+        busyOn();
+        $.post('PageAddExam', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+    function loadReportCard() {
+        w3_close();
+        busyOn();
+        $.post('PageReportCard?id=5&', {},
             function (result) {
                 $('#home-middle').html(result);
                 busyOff();

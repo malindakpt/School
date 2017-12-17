@@ -20,6 +20,6 @@
 <jsp:include page="../components/listStudentsWithClassFilter.jsp"/>
 
 
-<button onclick="save()" type="button" style="float: right;" class="w3-button w3-theme button-ok">
+<button onclick="save()" type="button" style="float: right;" class="w3-button w3-blue">
      Add Comment
 </button>

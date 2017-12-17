@@ -18,6 +18,7 @@ public class Assesment extends Entity{
     private Date date;
     private int type;
     private Student student;
+    private Exam exam;
 
     public Assesment(){}
     public Assesment(int assesmentId,Student student, Subject subject, Teacher teacher, int marks, Date date, int type){
@@ -89,5 +90,15 @@ public class Assesment extends Entity{
     }
     public void setType(int type) {
         this.type = type;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "examId", nullable = true)
+    public Exam getExam() {
+        return exam;
+    }
+
+    public void setExam(Exam exam) {
+        this.exam = exam;
     }
 }

@@ -1,6 +1,6 @@
-<div class="w3-panel w3-green w3-card-4">
-    <p>Observe the 3 subjects chart and find where you need more improvement</p>
-</div>
+<%--<div class="w3-panel w3-green w3-card-4">--%>
+    <%--<p>Observe the 3 subjects chart and find where you need more improvement</p>--%>
+<%--</div>--%>
 
 <div class="w3-row">
 
