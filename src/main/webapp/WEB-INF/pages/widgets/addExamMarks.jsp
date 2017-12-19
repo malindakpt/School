@@ -1,9 +1,7 @@
 
 <jsp:include page="../components/examSelector.jsp"/>
 
-<div id="classSelector"></div>
-<%--<jsp:include page="../components/CompClassRoomSelectorForCourse.jsp"/>--%>
-
+<div id="classSelectContainer"></div>
 
 <h3>Get teacher id from logged in teacher</h3>
 
@@ -24,7 +22,8 @@
 
 <script>
     function onExamChange() {
-        getAndSetPage('CompClassRoomSelectorForCourse?','classSelector');
+        getAndSetPage('CompClassRoomSelectorForCourse?examId='+$('#examSelector').val(),'classSelectContainer');
+        getAndSetPage('CompSubjectSelector4Course?examId='+$('#examSelector').val(),'subjectList');
     }
     function addExamSaveMarks() {
         var marksArr = [];
@@ -58,35 +57,7 @@
 
     }
     function onClassRoomChange(){
-        w3_close();
-        busyOn();
-        var classId = $('#classSelector').val();
-        $.post('CompStudentsInClassWithInput?classId='+classId, {
-            },
-            function (result) {
-                $('#studentList').html(result);
-                busyOff();
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
+        getAndSetPage('CompStudentsInClassWithInput?classId='+$('#classSelector').val(),'studentList');
     }
-//    function onExamChange() {
-//        w3_close();
-//        busyOn();
-//        var examId = $('#examSelector').val();
-//        $.post('CompSubjectSelector4Course?examId='+examId, {
-//            },
-//            function (result) {
-//                $('#subjectList').html(result);
-//                busyOff();
-//
-//            }).fail(function () {
-//                alert("error");
-//                busyOff();
-//            }
-//        );
-//    }
 
 </script>
