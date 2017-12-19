@@ -151,6 +151,15 @@ class PageAddClassStudentsController {
 }
 
 @Controller
+@RequestMapping("/PageAddExamMarks")
+class PageAddExamMarksController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/addExamMarks";
+	}
+}
+
+@Controller
 @RequestMapping("/CompSubjectList")
 class CompSubjectListController {
 	@RequestMapping(method = RequestMethod.POST)
@@ -169,11 +178,30 @@ class CompSubjectListInRegistrationController {
 }
 
 @Controller
+@RequestMapping("/CompSubjectSelector4Course")
+class CompSubjectSelector4CourseController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/subjectSelector4Course";
+	}
+}
+
+
+@Controller
 @RequestMapping("/CompStudentsInClass")
 class CompStudentsInClassController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "components/studentsInClass";
+	}
+}
+
+@Controller
+@RequestMapping("/CompStudentsInClassWithInput")
+class CompStudentsInClassWithInputController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/studentsInClassWithInput";
 	}
 }
 

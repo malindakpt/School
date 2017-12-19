@@ -16,6 +16,9 @@ public class ClassRoom extends Entity {
     private int grade;
     private boolean isAdmissionClosed;
     private Teacher classTeacher;
+
+
+    //For Mapping
     private Set<Student> students;
 
     public ClassRoom(int id){

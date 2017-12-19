@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "assesment", catalog = "school", uniqueConstraints = {
         @UniqueConstraint(columnNames = "assesmentId")})
 public class Assesment extends Entity{
-
+//    Students may have many assesments, But some of them are only for exams. so stoudent have assesments and Some assesments only have exam
     private int assesmentId;
     private int marks;
     private Subject subject;
@@ -21,14 +21,12 @@ public class Assesment extends Entity{
     private Exam exam;
 
     public Assesment(){}
-    public Assesment(int assesmentId,Student student, Subject subject, Teacher teacher, int marks, Date date, int type){
-        this.assesmentId = assesmentId;
+    public Assesment(Student student, Subject subject, Teacher teacher, int marks, Date date){
         this.student = student;
         this.subject = subject;
         this.teacher = teacher;
         this.marks = marks;
         this.date = date;
-        this.type = type;
     }
 
     @Id

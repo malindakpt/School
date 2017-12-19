@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 public class AddMarks extends HttpServlet {
 
@@ -28,20 +28,48 @@ public class AddMarks extends HttpServlet {
             String[] marksArr = request.getParameterValues("marksArr[]");
             String[] studArr = request.getParameterValues("studArr[]");
             String subjectId = request.getParameter("subjectId");
+            String examId = request.getParameter("examId");
             String teacherId = request.getParameter("teacherId");
-            Date date = formatter.parse(request.getParameter("date"));
-            String type = request.getParameter("type");
+            Date date = formatter.parse(request.getParameter("assDate"));
 
-            Subject subject = (Subject) EntityManager.getEntity(Subject.class, "subjectId", subjectId);
-            Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", teacherId);
+            Subject subject= (Subject) EntityManager.getEntity(Subject.class, "subjectId", subjectId);
+            Teacher teacher= (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", teacherId);
+            Exam exam= (Exam) EntityManager.getEntity(Exam.class, "examId", examId);
 
             for(int i=0;i<studArr.length; i++){
                 Student student= (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
-                Assesment assesment = new Assesment(student.getStudentId(),student, subject, teacher, Integer.parseInt(marksArr[i]), date, Integer.parseInt(type));
+                Set<Assesment> assesments = student.getAssesments();
+                Assesment assesment = new Assesment(student, subject, teacher, Integer.parseInt(marksArr[i]), date);
+                assesment.setExam(exam);
                 EntityManager.add(assesment);
-                student.getAssesments().add(assesment);
-                EntityManager.update(student);
+
+               if(student.getAssesments().size()>0){
+                   assesments.add(assesment);
+               }else{
+                   Set<Assesment> assesmentSet = new HashSet<Assesment>();
+                   assesmentSet.add(assesment);
+                   student.setAssesments(assesmentSet);
+               }
+               EntityManager.update(student);
+
+
+
+//
+//                Assesment assesment = new Assesment(student.getStudentId(),student, subject, teacher, Integer.parseInt(marksArr[i]), date, Integer.parseInt(type));
+//                EntityManager.add(assesment);
+//                student.getAssesments().add(assesment);
+//                EntityManager.update(student);
             }
+
+//
+//            String teacherId = request.getParameter("teacherId");
+//
+//            String type = request.getParameter("type");
+//
+//            Subject subject = (Subject) EntityManager.getEntity(Subject.class, "subjectId", subjectId);
+//            Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", teacherId);
+
+
 
         }catch (Exception e){
             e.printStackTrace();

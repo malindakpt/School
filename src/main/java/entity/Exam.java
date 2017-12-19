@@ -14,6 +14,7 @@ public class Exam extends Entity {
     private int examId;
     private int year;
     private String name;
+    private Course course;
     private Set<Assesment> assesment;
 
     @Id
@@ -24,6 +25,15 @@ public class Exam extends Entity {
     }
     public void setExamId(int examId) {
         this.examId = examId;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "courseId", nullable = false)
+    public Course getCourse() {
+        return course;
+    }
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Column(name = "name", nullable = false, length = 40)

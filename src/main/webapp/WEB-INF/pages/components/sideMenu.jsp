@@ -2,6 +2,7 @@
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
 
     <a href="#" class="w3-bar-item w3-button" onclick="loadAddExam()">Add Exam</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadAddExamMarks()">Add Exam Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadReportCard()">Report Card</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Subject Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadRateStudent()">Rate Student</a>
@@ -209,6 +210,20 @@
         w3_close();
         busyOn();
         $.post('PageAddExam', {},
+            function (result) {
+                $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+    function loadAddExamMarks() {
+        w3_close();
+        busyOn();
+        $.post('PageAddExamMarks', {},
             function (result) {
                 $('#home-middle').html(result);
                 busyOff();

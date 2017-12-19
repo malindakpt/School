@@ -1,12 +1,16 @@
+<label>Year</label>
+<input class="w3-input" type="text" id="examYear">
+<br>
 <label>Exam Name</label>
 <input class="w3-input" type="text" id="examName">
 
 <br>
+<jsp:include page="../components/courseSelector.jsp"/>
+<br><br>
 <br>
-<label>Year</label>
-<input class="w3-input" type="text" id="examYear">
+
 <br>
-<br>
+
 
 <button class="w3-button w3-black" style="float: right" onclick="addExam()">Add Exam</button>
 
@@ -16,10 +20,12 @@
     function addExam() {
         var name = $('#examName').val();
         var year = $('#examYear').val();
+        var courseId = $('#courseSelector').val();
 
         $.post('AddExam', {
                 name: name,
-                year: year
+                year: year,
+                courseId: courseId
             },
             function (result) {
                 alert("Success " + result);

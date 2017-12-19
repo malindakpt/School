@@ -4,6 +4,7 @@ package servlet; /**
 // Import required java libraries
 
 import entity.ClassRoom;
+import entity.Course;
 import entity.Exam;
 import entity.Teacher;
 import entityManager.EntityManager;
@@ -26,6 +27,8 @@ public class AddExam extends HttpServlet {
             Exam exam=new Exam();
             exam.setName(request.getParameter("name"));
             exam.setYear(Integer.parseInt(request.getParameter("year")));
+            Course course = (Course) EntityManager.getEntity(Course.class,"courseId", request.getParameter("courseId"));
+            exam.setCourse(course);
 
             EntityManager.add(exam);
 
@@ -44,3 +47,4 @@ public class AddExam extends HttpServlet {
 
 
 }
+
