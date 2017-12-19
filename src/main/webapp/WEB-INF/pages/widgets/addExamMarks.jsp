@@ -19,29 +19,34 @@
 <button class="w3-button w3-red"  onclick="addExamSaveMarks()">Save Marks</button>
 
 <script>
-//    function addExamSaveMarks() {
-//        var subList = [];
-//        $("#sub" + ele.id + " input[type=checkbox]").each(function () {
-//            if (this.checked) {
-//                subList.push(this.id);
-//            }
-//        });
-//        $.post('AddSubjectTeacher', {
-//                subjectId: ele.id,
-//                teacherList: subList
-//            },
-//            function (result) {
-//                if (result === "") {
-//                    alert("Success " + result);
-//                } else {
-//                    console.log("Error response");
-//                }
-//
-//            }).fail(function () {
-//                alert("error");
-//            }
-//        );
-//    }
+    function addExamSaveMarks() {
+        var marksArr = [];
+        var studArr = [];
+        $("#studentList input[type=number]").each(function () {
+            marksArr.push(this.value);
+            studArr.push(this.id);
+        });
+
+        $.post('AddMarks', {
+                marksArr: marksArr,
+                studArr: studArr,
+                examId: $('#examSelector').val(),
+                subjectId: $('#subjectSelector').val(),
+                teacherId: 1,//$('#teacherSelector').val(),
+                assDate: $('#assDate').val(),
+            },
+            function (result) {
+                if (result === "") {
+                    alert("Success " + result);
+                } else {
+                    console.log("Error response");
+                }
+
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
     function onSubjectChange () {
 
     }

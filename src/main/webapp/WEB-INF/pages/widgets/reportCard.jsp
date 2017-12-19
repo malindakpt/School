@@ -1,16 +1,35 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MalindaK
-  Date: 12/17/2017
-  Time: 9:39 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page import="entity.Student" %>
+<%@ page import="entityManager.EntityManager" %>
+<%@ page import="entity.Assesment" %>
+<h3>Student Report Card</h3>
 
-</body>
-</html>
+<table class="w3-table-all">
+
+<tr>
+    <th>Subject</th>
+    <th>Marks</th>
+</tr>
+
+<%
+    String examId = "3";
+    String studentId = "1";
+    Student student = (Student) EntityManager.getEntity(Student.class,"studentId",studentId);
+
+    for(Assesment assesment : student.getAssesments()){
+        if(assesment.getExam().getExamId() == Integer.parseInt(examId)){
+%>
+       <tr>
+           <td>
+               <%=assesment.getSubject().getName()%>
+           </td>
+           <td>
+               <%=assesment.getMarks()%>
+           </td>
+       </tr>
+<%
+        }
+    }
+%>
+
+
+</table>

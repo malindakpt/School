@@ -283,35 +283,7 @@
             }
         );
     }
-    function addExamSaveMarks() {
-        var marksArr = [];
-        var studArr = [];
-        $("#studentList input[type=number]").each(function () {
-            marksArr.push(this.value);
-            studArr.push(this.id);
-        });
 
-        console.log("Students added");
-        $.post('AddMarks', {
-                marksArr: marksArr,
-                studArr: studArr,
-                examId: $('#examSelector').val(),
-                subjectId: $('#subjectSelector').val(),
-                teacherId: 1,//$('#teacherSelector').val(),
-                assDate: $('#assDate').val(),
-            },
-            function (result) {
-                if (result === "") {
-                    alert("Success " + result);
-                } else {
-                    console.log("Error response");
-                }
-
-            }).fail(function () {
-                alert("error");
-            }
-        );
-    }
     function addMarks() {
         var marksArr = [];
         var studArr = [];
