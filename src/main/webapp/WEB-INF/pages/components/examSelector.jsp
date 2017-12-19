@@ -10,7 +10,7 @@
         for (Entity exa : entityList) {
             Exam exam = (Exam) exa;
     %>
-    <option value="<%=exam.getExamId()%>"><%=exam.getYear() + " " + exam.getName()%>
+    <option value="<%=exam.getExamId()%>"><%=exam.getYear() + " " + exam.getName()+" "+exam.getCourse().getName()%>
     </option>
     <%
         }

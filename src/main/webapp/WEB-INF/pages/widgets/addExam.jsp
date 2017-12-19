@@ -6,10 +6,11 @@
 
 <br>
 <jsp:include page="../components/courseSelector.jsp"/>
-<br><br>
 <br>
+<br>
+<div id="classSelector">
 
-<br>
+</div>
 
 
 <button class="w3-button w3-black" style="float: right" onclick="addExam()">Add Exam</button>
@@ -17,6 +18,9 @@
 
 
 <script>
+    function onCourseChange() {
+        //getAndSetPage('', 'classSelector');
+    }
     function addExam() {
         var name = $('#examName').val();
         var year = $('#examYear').val();

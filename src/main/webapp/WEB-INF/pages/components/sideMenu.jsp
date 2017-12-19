@@ -1,7 +1,7 @@
 <div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5; top: 0px; background: #263137;color:white;" id="mySidebar">
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
 
-    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExam')">Add Exam</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExam')">Add Exam for Course</a>
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExamMarks')">Add Exam Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListStudents')">Show Students</a>
 
@@ -29,7 +29,7 @@
     <div class="w3-dropdown-hover">
         <button class="w3-button">Academic Year<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Register Student</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Set Class For Course</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddCourse')">Add Course</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom')">Add Class Room</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>

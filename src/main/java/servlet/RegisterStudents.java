@@ -27,24 +27,40 @@ public class RegisterStudents extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
-            String[] studArr = request.getParameterValues("studArr[]");
-            int year = Integer.parseInt(request.getParameter("year"));
-            Course course = (Course) EntityManager.getEntity(Course.class,"courseId",request.getParameter("course"));
-            Set<YearRegistration> yearRegistrations;
 
-            for(int i=0;i<studArr.length; i++){
-                Student student= (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
-                if(student.getYearRegistrations().size()>0){
-                    yearRegistrations = student.getYearRegistrations();
-                }else{
-                    yearRegistrations = new HashSet<YearRegistration>();
-                }
-                YearRegistration yearRegistration = new YearRegistration(year, student, course);
-                EntityManager.add(yearRegistration);
-                yearRegistrations.add(yearRegistration);
-                student.setYearRegistrations(yearRegistrations);
-                EntityManager.update(student);
+//            int year = Integer.parseInt(request.getParameter("year"));
+            String courseId = request.getParameter("courseId");
+            String classId = request.getParameter("classId");
+
+            ClassRoom classRoom = (ClassRoom) EntityManager.getEntity(ClassRoom.class,"classRoomId",classId);
+            Course course = (Course) EntityManager.getEntity(Course.class,"courseId",courseId);
+
+            if(classRoom.getCourses().size()>0){
+                classRoom.getCourses().add(course);
+            }else{
+                Set<Course> courseSet = new HashSet<Course>();
+                courseSet.add(course);
+                classRoom.setCourses(courseSet);
             }
+
+            EntityManager.update(classRoom);
+
+//            Course course = (Course) EntityManager.getEntity(Course.class,"courseId",request.getParameter("course"));
+//            Set<YearRegistration> yearRegistrations;
+//
+//            for(int i=0;i<studArr.length; i++){
+//                Student student= (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
+//                if(student.getYearRegistrations().size()>0){
+//                    yearRegistrations = student.getYearRegistrations();
+//                }else{
+//                    yearRegistrations = new HashSet<YearRegistration>();
+//                }
+//                YearRegistration yearRegistration = new YearRegistration(year, student, course);
+//                EntityManager.add(yearRegistration);
+//                yearRegistrations.add(yearRegistration);
+//                student.setYearRegistrations(yearRegistrations);
+//                EntityManager.update(student);
+//            }
 
         }catch (Exception e){
             e.printStackTrace();

@@ -18,7 +18,7 @@ public class Student extends Member {
     private String guardinaName;
     private String guardianMobile;
     private ClassRoom classRoom;
-    private Set<YearRegistration> yearRegistrations;
+//    private Set<YearRegistration> yearRegistrations;
     private Set<Assesment> assesments;
 
 
@@ -42,10 +42,10 @@ public class Student extends Member {
         this.assesments = assesments;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student")
-    public Set<YearRegistration> getYearRegistrations() {
-        return yearRegistrations;
-    }
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student")
+//    public Set<YearRegistration> getYearRegistrations() {
+//        return yearRegistrations;
+//    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "classRoomId", nullable = true)
@@ -57,9 +57,9 @@ public class Student extends Member {
         this.classRoom = classRoom;
     }
 
-    public void setYearRegistrations(Set<YearRegistration> yearRegistrations) {
-        this.yearRegistrations = yearRegistrations;
-    }
+//    public void setYearRegistrations(Set<YearRegistration> yearRegistrations) {
+//        this.yearRegistrations = yearRegistrations;
+//    }
 
     @Column(name = "fatherName", nullable = true, length = 20)
     public String getFatherName() {

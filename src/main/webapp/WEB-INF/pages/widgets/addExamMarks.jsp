@@ -1,5 +1,9 @@
-<jsp:include page="../components/classRoomSelector.jsp"/>
+
 <jsp:include page="../components/examSelector.jsp"/>
+
+<div id="classSelector"></div>
+<%--<jsp:include page="../components/CompClassRoomSelectorForCourse.jsp"/>--%>
+
 
 <h3>Get teacher id from logged in teacher</h3>
 
@@ -19,6 +23,9 @@
 <button class="w3-button w3-red"  onclick="addExamSaveMarks()">Save Marks</button>
 
 <script>
+    function onExamChange() {
+        getAndSetPage('CompClassRoomSelectorForCourse?','classSelector');
+    }
     function addExamSaveMarks() {
         var marksArr = [];
         var studArr = [];
@@ -65,21 +72,21 @@
             }
         );
     }
-    function onExamChange() {
-        w3_close();
-        busyOn();
-        var examId = $('#examSelector').val();
-        $.post('CompSubjectSelector4Course?examId='+examId, {
-            },
-            function (result) {
-                $('#subjectList').html(result);
-                busyOff();
-
-            }).fail(function () {
-                alert("error");
-                busyOff();
-            }
-        );
-    }
+//    function onExamChange() {
+//        w3_close();
+//        busyOn();
+//        var examId = $('#examSelector').val();
+//        $.post('CompSubjectSelector4Course?examId='+examId, {
+//            },
+//            function (result) {
+//                $('#subjectList').html(result);
+//                busyOff();
+//
+//            }).fail(function () {
+//                alert("error");
+//                busyOff();
+//            }
+//        );
+//    }
 
 </script>

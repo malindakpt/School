@@ -14,8 +14,9 @@ public class ClassRoom extends Entity {
     private int batch;
     private String classRoomName;
     private int grade;
-    private boolean isAdmissionClosed;
+    private boolean isAdmissionClosed; // No need
     private Teacher classTeacher;
+    private Set<Course> courses;
 
 
     //For Mapping
@@ -36,6 +37,16 @@ public class ClassRoom extends Entity {
 
     public void setClassRoomId(int classRoomId) {
         this.classRoomId = classRoomId;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "classRoom_course", joinColumns = { @JoinColumn(name = "classRoomId") }, inverseJoinColumns = { @JoinColumn(name = "courseId") })
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 
     @Column(name = "isAdmissionClosed", nullable = true, columnDefinition = "bigint(20) default false" )

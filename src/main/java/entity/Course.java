@@ -14,6 +14,7 @@ public class Course extends Entity {
     private String name;
     private Set<YearRegistration> yearRegistration;
     private Set<Subject> subjects;
+    private Set<ClassRoom> classRooms;
 
     public Course(){}
     public Course(String name){
@@ -26,7 +27,13 @@ public class Course extends Entity {
         return courseId;
     }
 
-
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "courses")
+    public Set<ClassRoom> getClassRooms() {
+        return classRooms;
+    }
+    public void setClassRooms(Set<ClassRoom> classRooms) {
+        this.classRooms = classRooms;
+    }
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
     public Set<YearRegistration> getYearRegistration() {

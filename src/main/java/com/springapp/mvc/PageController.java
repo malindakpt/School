@@ -87,7 +87,7 @@ class PageSubjectTeacherController {
 class PageAddMarksController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
-		return "widgets/addMarks";
+		return "widgets/ZZaddMarks";
 	}
 }
 
@@ -209,6 +209,15 @@ class CompStudentsInClassController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "components/studentsInClass";
+	}
+}
+
+@Controller
+@RequestMapping("/CompClassRoomSelectorForCourse")
+class CompClassRoomSelectorForCourseController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/classRoomSelectorForCourse";
 	}
 }
 

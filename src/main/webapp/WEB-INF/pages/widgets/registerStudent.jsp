@@ -1,14 +1,14 @@
-<select class="w3-select" name="option" id="yearSelector">
-    <option value="" disabled selected>Select a Year</option>
-    <option value="2017" >2017</option>
-    <option value="2016" >2016</option>
-    <option value="2015" >2015</option>
-</select>
+<%--<select class="w3-select" name="option" id="yearSelector">--%>
+    <%--<option value="" disabled selected>Select a Year</option>--%>
+    <%--<option value="2017" >2017</option>--%>
+    <%--<option value="2016" >2016</option>--%>
+    <%--<option value="2015" >2015</option>--%>
+<%--</select>--%>
 
-<jsp:include page="../components/courseList.jsp"/>
+<jsp:include page="../components/courseSelector.jsp"/>
 
 <div id="studentSelector">
-<jsp:include page="../components/listStudentsWithClassFilter.jsp"/>
+<jsp:include page="../components/classRoomSelector.jsp"/>
 </div>
 
 <br><br>
@@ -20,16 +20,17 @@
 <script>
     function onRegisterClick() {
         var studArr = [];
-        $("#studentSelector input[type=checkbox]").each(function () {
-            if (this.checked) {
-                studArr.push(this.id);
-            }
-        });
+//        $("#studentSelector input[type=checkbox]").each(function () {
+//            if (this.checked) {
+//                studArr.push(this.id);
+//            }
+//        });
 
         $.post('RegisterStudents', {
-                studArr: studArr,
-                year: $('#yearSelector').val(),
-                course: $('#courseSelector').val()
+//                studArr: studArr,
+//                year: $('#yearSelector').val(),
+                courseId: $('#courseSelector').val(),
+                classId: $('#classSelector').val()
             },
             function (result) {
                 if (result === "") {
@@ -44,4 +45,10 @@
         );
     }
 
+    function onCourseChange () {
+        
+    }
+    function onClassRoomChange() {
+        
+    }
 </script>

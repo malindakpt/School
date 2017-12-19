@@ -98,7 +98,13 @@ public class EntityManager {
             entities = query.list();
 
             tx.commit();
-            return entities.get(0);
+
+            if(entities.size()>0){
+                return entities.get(0);
+            }else{
+                return null;
+            }
+
         } catch (Exception e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
