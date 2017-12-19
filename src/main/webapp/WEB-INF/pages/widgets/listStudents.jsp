@@ -4,8 +4,6 @@
 <%@ page import="entity.Entity" %>
 
 <div class="w3-container">
-
-    <h3>Enter Marks of the students</h3>
     <div class="w3-responsive">
         <table class="w3-table-all">
             <tr>
@@ -26,7 +24,7 @@
                     %>
                 </td>
                 <td>
-                    <input class="w3-input" type="number" id="<%=student.getStudentId()%>">
+                    <button class="w3-button" onclick="getAndSetPage('PageReportCardSelector?studentId=<%=student.getStudentId()%>')">Report Cards</button>
                 </td>
             </tr>
             <%
@@ -37,6 +35,10 @@
         </table>
     </div>
 </div>
+<script>
+    function showReportCards() {
 
+    }
+</script>
 
 

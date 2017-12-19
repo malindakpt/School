@@ -3,6 +3,7 @@
 
     <a href="#" class="w3-bar-item w3-button" onclick="loadAddExam()">Add Exam</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadAddExamMarks()">Add Exam Marks</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Show Students</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadReportCard()">Report Card</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadStudentDetails()">Subject Marks</a>
     <a href="#" class="w3-bar-item w3-button" onclick="loadRateStudent()">Rate Student</a>
@@ -10,7 +11,7 @@
     <div class="w3-dropdown-hover">
         <button class="w3-button">Show Members<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="loadStudentList()">Students</a>
+
             <a href="#" class="w3-bar-item w3-button" onclick="loadTeacherList()">Teachers</a>
             <a href="#" class="w3-bar-item w3-button" onclick="loadSubjectList()">Subjects</a>
         </div>
@@ -100,6 +101,26 @@
         $.post('PageListStudents', {},
             function (result) {
                 $('#home-middle').html(result);
+                busyOff();
+
+            }).fail(function () {
+                alert("error");
+                busyOff();
+            }
+        );
+    }
+
+    function getAndSetPage(page, to) {
+        w3_close();
+        busyOn();
+        $.post(page, {},
+            function (result) {
+                if(to){
+                    $('#'+to+'').html(result);
+                }else{
+                    $('#home-middle').html(result);
+                }
+
                 busyOff();
 
             }).fail(function () {
@@ -237,7 +258,7 @@
     function loadReportCard() {
         w3_close();
         busyOn();
-        $.post('PageReportCard?id=5&', {},
+        $.post('PageReportCard?studentId=1&examId=3', {},
             function (result) {
                 $('#home-middle').html(result);
                 busyOff();

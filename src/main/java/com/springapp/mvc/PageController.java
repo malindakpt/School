@@ -1,10 +1,8 @@
 package com.springapp.mvc;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 
 //School Management Starts
@@ -113,6 +111,15 @@ class PageReportCaardController {
 	}
 }
 
+@Controller
+@RequestMapping("/PageReportCardSelector")
+class PageReportCaardSelectorController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/reportCardSelector";
+	}
+}
+
 
 @Controller
 @RequestMapping("/PageAddClassRoom")
@@ -140,6 +147,15 @@ class PageAddExam {
 		return "widgets/addExam";
 	}
 }
+
+//@Controller
+//@RequestMapping("/PageReportCard")
+//class PageReporController {
+//	@RequestMapping(method = RequestMethod.POST)
+//	public String printWelcome(ModelMap model) {
+//		return "widgets/reportCard";
+//	}
+//}
 
 @Controller
 @RequestMapping("/PageAddClassStudents")
