@@ -3,7 +3,7 @@
 <%@ page import="entity.Student" %>
 <%@ page import="java.util.List" %>
 
-<jsp:include page="classRoomList.jsp"/>
+<jsp:include page="classRoomSelector.jsp"/>
 <br><br>
 <div id="filterStud"></div>
 

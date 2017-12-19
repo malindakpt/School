@@ -2,7 +2,7 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="entity.Assesment" %>
 <h3>Student Report Card</h3>
-
+<input type="text" id="studentId"/>
 <table class="w3-table-all">
 
 <tr>

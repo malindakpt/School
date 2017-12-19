@@ -56,6 +56,10 @@
 </style>
 <body>
 
+<%
+    int userId = 1;
+%>
+
 <div class="loader" id="busyIcon" style="display: none"></div>
 
 <div class="w3-overlay w3-animate-opacity" style="cursor:pointer" style="display: block" id="myOverlay2"></div>
@@ -258,25 +262,6 @@
                 } else {
                     console.log("Error response");
                 }
-
-            }).fail(function () {
-                alert("error");
-            }
-        );
-    }
-    function classStudents() {
-        var classArr = [];
-        var studArr = [];
-        $("#classStudents select").each(function () {
-            classArr.push(this.value);
-            studArr.push(this.id);
-        });
-        $.post('AddClassStudent', {
-                classArr: classArr,
-                studArr: studArr
-            },
-            function (result) {
-                alert("Success " + result);
 
             }).fail(function () {
                 alert("error");

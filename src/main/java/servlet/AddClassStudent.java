@@ -22,24 +22,16 @@ public class AddClassStudent extends HttpServlet {
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+
         try {
-            String[] classArr = request.getParameterValues("classArr[]");
+            String classRoomId = request.getParameter("classRoom");
+            ClassRoom classRoom = (ClassRoom) EntityManager.getEntity(ClassRoom.class,"classRoomId",classRoomId);
             String[] studArr = request.getParameterValues("studArr[]");
             for(int i=0;i<studArr.length; i++){
                 Student student= (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
-                student.setClassRoom(new ClassRoom(Integer.parseInt(classArr[i])));
+                student.setClassRoom(classRoom);
                 EntityManager.update(student);
             }
-//            ClassRoom classRoom=new ClassRoom();
-//            classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
-//            classRoom.setBatch(Integer.parseInt(request.getParameter("batch")));
-//            classRoom.setClassRoomName(request.getParameter("classRoomName"));
-//
-//            Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", request.getParameter("classTeacher"));
-//            classRoom.setClassTeacher(teacher);
-//
-//            EntityManager.add(classRoom);
 
         }catch (Exception e){
             e.printStackTrace();

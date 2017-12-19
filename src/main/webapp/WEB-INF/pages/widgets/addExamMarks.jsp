@@ -1,4 +1,4 @@
-<jsp:include page="../components/classRoomList.jsp"/>
+<jsp:include page="../components/classRoomSelector.jsp"/>
 <jsp:include page="../components/examSelector.jsp"/>
 
 <h3>Get teacher id from logged in teacher</h3>
