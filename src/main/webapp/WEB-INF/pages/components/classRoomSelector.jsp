@@ -9,7 +9,7 @@
         for (Entity e1 : classRooms) {
             ClassRoom classRoom = (ClassRoom) e1;
     %>
-    <option value="<%=classRoom.getClassRoomId()%>"><%=classRoom.getClassRoomName()%></option>
+    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+classRoom.getGrade()+"-"+classRoom.getClassRoomName()+"  "+classRoom.getBatch()%></option>
     <%
         }
     %>

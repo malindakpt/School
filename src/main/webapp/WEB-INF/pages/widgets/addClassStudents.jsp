@@ -4,11 +4,11 @@
 <%@ page import="entity.Entity" %>
 <%@ page import="entity.ClassRoom" %>
 
-
+<div id="addStudContainer">
 <div class="w3-container">
 
     <h3>Add Students to class</h3>
-
+    <button class="w3-button w3-red btn-right" onclick="loadAllStud()">Show All Students</button>
 
     <br><br>
     <div class="w3-responsive" id="classStudents">
@@ -18,11 +18,12 @@
                 <th>Should change the Class</th>
             </tr>
             <%
+                boolean showAll = Boolean.parseBoolean(request.getParameter("showAll"));
                 List<Entity> students = EntityManager.getEntities(Student.class);
                 for (Entity item : students) {
                     Student student = (Student) item;
 
-                    if(student.getClassRoom()!=null)
+                    if(student.getClassRoom()!=null && !showAll)
                         continue;
 
             %>
@@ -51,12 +52,16 @@
     </button>
 </div>
 </div>
-
+</div>
 
 <script>
 
     function onClassRoomChange () {
 
+    }
+
+    function loadAllStud() {
+        getAndSetPage("PageAddClassStudents?showAll=true","addStudContainer");
     }
 
     function classStudentsSave() {

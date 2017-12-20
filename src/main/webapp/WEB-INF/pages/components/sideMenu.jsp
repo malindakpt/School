@@ -7,7 +7,7 @@
 
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageStudentView?id=5')">Subject Marks Graph</a>
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRateStudent')">Rate Student</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents')">Assign Students to class</a>
+
 
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddStudent')">Add Student</a>
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddTeacher')">Add Teacher</a>
@@ -44,8 +44,9 @@
         <button class="w3-button">School Management<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
 
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom')">Create Class room/Batch</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Set Course for Class</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom')">Create New Class</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents')">Assign Students to class</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Assign New Course to Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>
 
         </div>

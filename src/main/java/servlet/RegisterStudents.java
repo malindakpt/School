@@ -42,6 +42,7 @@ public class RegisterStudents extends HttpServlet {
                 courseSet.add(course);
                 classRoom.setCourses(courseSet);
             }
+            classRoom.setGrade(Integer.parseInt(courseId));
 
             EntityManager.update(classRoom);
 

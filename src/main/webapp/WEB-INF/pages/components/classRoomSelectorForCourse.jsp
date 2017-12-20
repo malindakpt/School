@@ -13,7 +13,7 @@
     <%
         for (ClassRoom classRoom : course.getClassRooms()) {
     %>
-    <option value="<%=classRoom.getClassRoomId()%>"><%=classRoom.getClassRoomName()%></option>
+    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+classRoom.getGrade()+"-"+classRoom.getClassRoomName()+"-"+classRoom.getBatch()%></option>
     <%
         }
     %>
