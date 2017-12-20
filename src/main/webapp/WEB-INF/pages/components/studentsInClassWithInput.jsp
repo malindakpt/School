@@ -13,7 +13,6 @@
     for (Entity item : students) {
         Student student = (Student) item;
 %>
-
 <tr>
     <td>
         <%= student.getFirstName() + " " + student.getLastName()%>
@@ -22,8 +21,6 @@
         <input  class="w3-input" type="number" id="<%=student.getStudentId()%>">
     </td>
 </tr>
-
-
 <%
     }
 %>

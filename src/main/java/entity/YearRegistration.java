@@ -14,7 +14,7 @@ public class YearRegistration extends Entity {
     private int year;
     private float fees;
     private Student student;
-    private Course course;
+    private Course course;          //This class should be removed
 
     public YearRegistration(){}
     public YearRegistration(int year, Student student, Course course){

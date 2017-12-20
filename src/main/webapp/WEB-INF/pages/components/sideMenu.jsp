@@ -7,7 +7,7 @@
 
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageStudentView?id=5')">Subject Marks Graph</a>
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRateStudent')">Rate Student</a>
-
+    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents')">Assign Students to class</a>
     <div class="w3-dropdown-hover">
         <button class="w3-button">Show Members<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
@@ -27,18 +27,16 @@
     </div>
 
     <div class="w3-dropdown-hover">
-        <button class="w3-button">Academic Year<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <button class="w3-button">School Management<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Set Class For Course</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddCourse')">Add Course</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddCourse')">Change Subject of Grade</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom')">Add Class Room</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Set Course for Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents')">Class Assign Students</a>
+
         </div>
     </div>
 </div>
-
-
 
 <script>
     function getAndSetPage(page, to) {

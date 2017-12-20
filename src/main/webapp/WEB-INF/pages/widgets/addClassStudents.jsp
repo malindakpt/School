@@ -21,6 +21,10 @@
                 List<Entity> students = EntityManager.getEntities(Student.class);
                 for (Entity item : students) {
                     Student student = (Student) item;
+
+                    if(student.getClassRoom()!=null)
+                        continue;
+
             %>
             <tr>
                 <td>
