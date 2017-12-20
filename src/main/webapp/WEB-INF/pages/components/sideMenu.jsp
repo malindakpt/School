@@ -46,7 +46,7 @@
 
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom')">Create New Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents')">Assign Students to class</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Assign New Course to Class</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Change Grade of Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>
 
         </div>
