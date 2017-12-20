@@ -13,6 +13,28 @@
 
 
 <script>
+    function saveCourse() {
+        var subList = [];
+        $("#addCourseInputs input[type=checkbox]").each(function () {
+            if (this.checked) {
+                subList.push(this.id);
+            }
+        });
+        $.post('AddCourseSubjects', {
+                name: $('#addCourseName').val(),
+                subjectList: subList
+            },
+            function (result) {
+                if (result === "") {
+                    alert("Success " + result);
+                } else {
+                    console.log("Error response");
+                }
 
+            }).fail(function () {
+                alert("error");
+            }
+        );
+    }
 
 </script>

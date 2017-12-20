@@ -12,7 +12,7 @@ import java.util.Set;
 public class Course extends Entity {
     private int courseId;
     private String name;
-    private Set<YearRegistration> yearRegistration;
+//    private Set<YearRegistration> yearRegistration;
     private Set<Subject> subjects;
     private Set<ClassRoom> classRooms;
 
@@ -35,14 +35,14 @@ public class Course extends Entity {
         this.classRooms = classRooms;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
-    public Set<YearRegistration> getYearRegistration() {
-        return yearRegistration;
-    }
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
+//    public Set<YearRegistration> getYearRegistration() {
+//        return yearRegistration;
+//    }
 
-    public void setYearRegistration(Set<YearRegistration> yearRegistration) {
-        this.yearRegistration = yearRegistration;
-    }
+//    public void setYearRegistration(Set<YearRegistration> yearRegistration) {
+//        this.yearRegistration = yearRegistration;
+//    }
 
 
 

@@ -1,3 +1,6 @@
+
+ <button class="w3-button w3-red btn-right" onclick="save()">Add Batch</button>
+
 // Class definition
 @javax.persistence.Entity
 @Table(name = "student", catalog = "school", uniqueConstraints = {

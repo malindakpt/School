@@ -25,17 +25,28 @@ public class AddCourseSubjects extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
+
+            String courseId = request.getParameter("courseId");
             String name = request.getParameter("name");
             String[] subjectList = request.getParameterValues("subjectList[]");
-
-            Course course = new Course(name);
+            subjectList = subjectList == null ? new String[0] : subjectList;
             Set<Subject> subjects = new HashSet<Subject>();
             for(String sub1 : subjectList){
                 Subject subject=(Subject) EntityManager.getEntity(Subject.class,"subjectId",sub1);
                 subjects.add(subject);
             }
-            course.setSubjects(subjects);
-            EntityManager.add(course);
+
+            Course course;
+            if(courseId != null){
+                course = (Course) EntityManager.getEntity(Course.class,"courseId",courseId);
+                course.setSubjects(subjects);
+                EntityManager.update(course);
+            }else {
+                course = new Course(name);
+                course.setSubjects(subjects);
+                EntityManager.add(course);
+            }
+
 
         }catch (Exception e){
             e.printStackTrace();

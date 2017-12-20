@@ -5,7 +5,7 @@
 <%@ page import="entity.Entity" %>
 <div>
     <div class="w3-container widget-header">
-        <h4>Add nSubject</h4>
+        <h4>Add Class Batch/Room</h4>
     </div>
     <form class="w3-container">
         <br>
@@ -13,10 +13,8 @@
         <input class="w3-input" type="text" id="batch">
         <label>Grade</label>
         <input class="w3-input" type="text" id="grade">
-        <label>Class Name</label>
+        <label>Class Name/ (A,B...)</label>
         <input class="w3-input" type="text" id="classRoomName">
-        <%--<label>Class Teacher</label>--%>
-        <%--<input class="w3-input" type="text" id="teacher">--%>
 
         <br>
         <select class="w3-select" name="option" id="classTeacher">
@@ -30,9 +28,8 @@
 
          <%}%>
         </select>
-        <button onclick="save()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
-             Add
-        </button>
+
+        <button class="w3-button w3-red btn-right" onclick="save()">Add Batch</button>
     </form>
 </div>
 

@@ -3,7 +3,10 @@
     background: #4d636f;
 }
 
-
+.btn-right{
+    float: right;
+    margin: 20px;
+}
 
 .button-ok{
     margin:3px;
