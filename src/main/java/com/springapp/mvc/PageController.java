@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 //School Management Starts
 @Controller
-@RequestMapping("/")
+@RequestMapping("/Home")
 public class PageController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
         return "Home";
 	}
 }
+
 @Controller
 @RequestMapping("/PageListStudents")
 class ListStudentsController {
@@ -22,6 +23,17 @@ class ListStudentsController {
 		return "widgets/listStudents";
 	}
 }
+
+@Controller
+@RequestMapping("/")
+class PageLoginController {
+	@RequestMapping(method = RequestMethod.GET)
+	public String printWelcome(ModelMap model) {
+		return "widgets/loginWindow";
+	}
+}
+
+
 @Controller
 @RequestMapping("/PageListSubjects")
 class ListSubjectsController {

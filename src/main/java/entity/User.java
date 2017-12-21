@@ -16,6 +16,9 @@ public class User extends Entity {
     private String password;
     private int role;
 
+
+    private String sessionId;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId", unique = true, nullable = false)
@@ -57,8 +60,17 @@ public class User extends Entity {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Column(name = "sessionId", nullable = true, length = 40)
+    public String getSessionId() {
+        return sessionId;
+    }
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+
 }

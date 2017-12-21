@@ -2,6 +2,7 @@
 <%@ page import="entity.Entity" %>
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.util.List" %>
+<%@ page import="entity.User" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -57,7 +58,12 @@
 <body>
 
 <%
-    int userId = 1;
+    String sessionId = request.getParameter("54");
+    User user = (User) EntityManager.getEntity1(User.class,"sessionId",sessionId);
+
+    if(user==null) {
+        response.sendRedirect("");
+    }else{
 %>
 
 <div class="loader" id="busyIcon" style="display: none"></div>
@@ -85,8 +91,11 @@
     <div class="w3-row">
         <!-- Left Column -->
         <div class="w3-col m2">
+            Logged as : <%=user.getName()%>
             <!-- Profile -->
-            <jsp:include page='widgets/profile.jsp'/>
+            <jsp:include page='widgets/profile.jsp'>
+                <jsp:param name="id" value="<%=user.getUserId()%>" />
+            </jsp:include>
 
 
             <br>
@@ -274,5 +283,7 @@
     }
 </script>
 
+
+<% } %>
 </body>
 </html>

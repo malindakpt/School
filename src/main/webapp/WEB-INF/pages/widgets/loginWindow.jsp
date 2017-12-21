@@ -1,3 +1,10 @@
+<html>
+<head>
+    <script src="js/jQuery.js"></script>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -54,7 +61,7 @@
 
     /* The Modal (background) */
     .modal {
-        display: none; /* Hidden by default */
+        /*display: none; !* Hidden by default *!*/
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
         left: 0;
@@ -119,45 +126,85 @@
     }
 </style>
 
+</head>
+<body>
 
-<h2>Modal Login Form</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+
+
+<%--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>--%>
 
 <div id="id01" class="modal">
 
-    <form class="modal-content animate" action="/action_page.php">
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <div class="modal-content animate" style="max-width: 388px;">
+        <div>
+            <img src="img/avatar.png" style="
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            padding: 20px;
+            margin-top: 44px;
+            margin: auto;
+            display: block;">
         </div>
 
         <div class="container">
             <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input id="userName" type="text" placeholder="Enter Username" name="uname" required>
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-            <button type="submit">Login</button>
+            <button onclick="loginUser()">Login</button>
             <input type="checkbox" checked="checked"> Remember me
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
-    </form>
+    </div>
 </div>
 
 <script>
-    // Get the modal
-    var modal = document.getElementById('id01');
+    function loginUser() {
+        $.post('Login', {
+                userName: $('#userName').val(),
+                password: $('#password').val()
+            },
+            function (result) {
+                console.log(result)
+                var resArr = result.split(",");
+                if(resArr[0]==="OK"){
+//                    window.location.replace("Home?sessionId="+resArr[1]);
+                    window.location.href = "Home?54="+resArr[1];
+                }else{
+                    Alert("Invalid Username or Password")
+                }
+//                if (result === "") {
+//                    alert("Success");
+//                } else {
+//                    alert("Error");
+//                }
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+            }).fail(function () {
+                alert("error");
+            }
+        );
     }
+//    // Get the modal
+//    var modal = document.getElementById('id01');
+//
+//    // When the user clicks anywhere outside of the modal, close it
+//    window.onclick = function(event) {
+//        if (event.target == modal) {
+//            modal.style.display = "none";
+//        }
+//    }
 </script>
+
+
+</body>
+
+</html>

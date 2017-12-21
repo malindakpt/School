@@ -95,6 +95,66 @@ public class EntityManager {
             String hql = "FROM "+entity.getSimpleName()+" WHERE "+idCol+"= :id";
             Query query = session.createQuery(hql);
             query.setParameter("id", Integer.parseInt(id));
+
+            entities = query.list();
+
+            tx.commit();
+
+            if(entities.size()>0){
+                return entities.get(0);
+            }else{
+                return null;
+            }
+
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+    public static Entity getEntity1(Class entity,String col1, String val1){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE "+col1+"= :val1";
+            Query query = session.createQuery(hql);
+            query.setParameter("val1", val1);
+            entities = query.list();
+
+            tx.commit();
+
+            if(entities.size()>0){
+                return entities.get(0);
+            }else{
+                return null;
+            }
+
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+    public static Entity getEntity2(Class entity,String col1, String val1, String col2, String val2){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE "+col1+"= :val1 AND " +col2+"= :val2";
+            Query query = session.createQuery(hql);
+            query.setParameter("val1", val1);
+            query.setParameter("val2", val2);
             entities = query.list();
 
             tx.commit();
