@@ -4,10 +4,10 @@
 
 <div class="w3-row">
 
-    <div class="w3-container w3-half">
+    <div class="w3-container w3-twothird">
         <div id="chartContainer2" style="display: block"></div>
     </div>
-    <div class="w3-container w3-half">
+    <div class="w3-container w3-third">
         <span class="w3-badge w3-large w3-padding w3-red">3rd</span>
         <span>place of last term test</span>
 
@@ -22,13 +22,13 @@
         <div class="w3-container">
             <%--<h2>Avatar List</h2>--%>
             <p>Recent comments from teachers</p>
-                <div class="w3-panel w3-blue w3-card-4">
+                <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
                     <p>continues absent for last 3 sports practice sessions</p>
                 </div>
-                <div class="w3-panel w3-green w3-card-4">
+                <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
                     <p>Class Highscore for monthly test for Maths</p>
                 </div>
-                <div class="w3-panel w3-red w3-card-4">
+                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
                     <p>Homeworks are incomplete for 3 days</p>
                 </div>
             <%--<ul class="w3-ul w3-card-4">--%>
@@ -75,9 +75,9 @@
 </div>
 
 
-<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-    <p>Observe the chart 3 subjects chart to decide where need the improvement and where you are playing well</p>
-</div>
+<%--<div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border">--%>
+    <%--<p>Observe the chart 3 subjects chart to decide where need the improvement and where you are playing well</p>--%>
+<%--</div>--%>
 
 <script>
     function drawChart() {

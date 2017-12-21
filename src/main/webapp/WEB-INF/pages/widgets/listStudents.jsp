@@ -8,7 +8,7 @@
         <table class="w3-table-all">
             <tr>
                 <th>Student Name</th>
-                <th>Marks</th>
+                <th></th>
 
             </tr>
 

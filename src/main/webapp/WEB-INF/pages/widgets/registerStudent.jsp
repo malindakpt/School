@@ -5,9 +5,11 @@
 <jsp:include page="../components/classRoomSelector.jsp"/>
 </div>
 <jsp:include page="../components/courseSelector.jsp"/>
-<br><br>
+<br>
+<jsp:include page="../components/teacherSelector.jsp"/>
+<br>
 <div>
-    <button onclick="onRegisterClick()" type="button" class="w3-btn w3-teal">Register</button>
+    <button onclick="onRegisterClick()" type="button" class="w3-button w3-green btn-right">Change Class Room</button>
 </div>
 
 

@@ -3,6 +3,8 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.User" %>
+<%@ page import="util.Constants" %>
+<%@ page import="util.UserRoles" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -91,17 +93,13 @@
     <div class="w3-row">
         <!-- Left Column -->
         <div class="w3-col m2">
-            Logged as : <%=user.getName()%>
+
             <!-- Profile -->
             <jsp:include page='widgets/profile.jsp'>
                 <jsp:param name="id" value="<%=user.getUserId()%>" />
             </jsp:include>
 
-
             <br>
-
-
-
             <!-- Accordion -->
             <div class=" w3-hide-small">
             <jsp:include page="components/accordion.jsp"/>
@@ -127,7 +125,17 @@
                 <div class="w3-col m12">
                     <div class="w3-card w3-round w3-white">
                         <div class="w3-container w3-padding" id="home-middle">
+                            <%
+                                if(user.getRole() == UserRoles.TEACHER){
+                            %>
+                            <jsp:include page='widgets/dashBoardTeacher.jsp'/>
+                            <%
+                                }else if(user.getRole() == UserRoles.STUDENT){
+                            %>
                             <jsp:include page='widgets/dashBoad.jsp'/>
+                            <%
+                            }
+                            %>
                             <%--<jsp:include page='widgets/listStudents.jsp'/>--%>
                         </div>
                     </div>
@@ -139,7 +147,16 @@
         <div class="w3-col m2">
 
             <!-- Interests -->
-            <jsp:include page="components/interests.jsp"/>
+            <div class="w3-card w3-round w3-white w3-hide-small">
+                <div class="w3-container">
+                    <p>Logged as : <%=user.getName()%></p>
+                </div>
+            </div>
+            <br>
+
+           <jsp:include page="widgets/searchBox.jsp"/>
+            <br>
+            <%--<jsp:include page="components/interests.jsp"/>--%>
 
             <div class="w3-card w3-round w3-white w3-center">
                 <div class="w3-container">
