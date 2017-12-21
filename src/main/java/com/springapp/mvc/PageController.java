@@ -215,14 +215,7 @@ class PageCoursesListController {
 	}
 }
 
-@Controller
-@RequestMapping("/CompSubjectListInRegistration")
-class CompSubjectListInRegistrationController {
-	@RequestMapping(method = RequestMethod.POST)
-	public String printWelcome(ModelMap model) {
-		return "components/subjectListInRegistration";
-	}
-}
+
 
 @Controller
 @RequestMapping("/CompSubjectSelector4Course")

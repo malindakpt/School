@@ -16,9 +16,20 @@ public class Exam extends Entity {
     private String name;
     private Course course;
 
-
     // Reverse mapping
     private Set<Assesment> assesment;
+
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

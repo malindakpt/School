@@ -22,6 +22,18 @@ public class ClassRoom extends Entity {
     //For Mapping
     private Set<Student> students;
 
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
+
     public ClassRoom(int id){
         this.classRoomId = id;
     }

@@ -60,13 +60,19 @@
 <body>
 
 <%
-    String sessionId = request.getParameter("54");
+    String sessionId = request.getParameter("t56");
+
     User user = (User) EntityManager.getEntity1(User.class,"sessionId",sessionId);
 
     if(user==null) {
         response.sendRedirect("");
     }else{
 %>
+
+<script>
+    var sessionId = <%=sessionId%>;
+</script>
+
 
 <div class="loader" id="busyIcon" style="display: none"></div>
 

@@ -17,7 +17,6 @@
             <mapping class="entity.Assesment"></mapping>
             <mapping class="entity.Student"></mapping>
             <mapping class="entity.ClassRoom"></mapping>
-            <mapping class="entity.YearRegistration"></mapping>
             <mapping class="entity.Subject"></mapping>
             <mapping class="entity.Exam"></mapping>
             <mapping class="entity.School"></mapping>

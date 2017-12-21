@@ -18,6 +18,18 @@ public class Subject extends Entity {
     private Set<Teacher> teachers;
     private Set<Assesment> assesments;
 
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "subjectId", unique = true, nullable = false)

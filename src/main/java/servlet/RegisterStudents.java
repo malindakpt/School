@@ -6,8 +6,6 @@ package servlet; /**
 
 import entity.ClassRoom;
 import entity.Course;
-import entity.Student;
-import entity.YearRegistration;
 import entityManager.EntityManager;
 
 import javax.servlet.ServletException;

@@ -20,6 +20,19 @@ public class Assesment extends Entity{
     private Student student;
     private Exam exam;
 
+
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
+
     public Assesment(){}
     public Assesment(Student student, Subject subject, Teacher teacher, int marks, Date date){
         this.student = student;

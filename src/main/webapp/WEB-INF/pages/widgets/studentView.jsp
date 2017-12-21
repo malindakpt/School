@@ -2,7 +2,7 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="entity.Assesment" %>
 <h3>Student ID = <%=request.getParameter("id")%></h3>
-<jsp:include page="../components/studentYearRegistrations.jsp"/>
+
 <br>
 <br>
 <div id = "subjectListView"></div>
@@ -13,19 +13,7 @@
 <script>
 
 
-     function onYearRegistrationChange() {
-         w3_close();
-         busyOn();
-         $.post('CompSubjectListInRegistration?id='+$('#registrationSelector').val(), {},
-             function (result) {
-                 $('#subjectListView').html(result);
-                 busyOff();
-             }).fail(function (result) {
-                 $('#marksClassStudents').html(result);
-                 busyOff();
-             }
-         );
-     }
+
 
     function onSubjectChange() {
         w3_close();

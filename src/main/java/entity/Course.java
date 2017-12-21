@@ -12,9 +12,22 @@ import java.util.Set;
 public class Course extends Entity {
     private int courseId;
     private String name;
-//    private Set<YearRegistration> yearRegistration;
     private Set<Subject> subjects;
     private Set<ClassRoom> classRooms;
+
+
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
+
 
     public Course(){}
     public Course(String name){

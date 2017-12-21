@@ -3,7 +3,7 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Course" %>
-<%@ page import="util.Util" %>
+<%@ page import="util.Helper" %>
 
 <div id="addCourseInputs">
 <%
@@ -18,7 +18,7 @@
         Subject subject = (Subject) subjectEntity;
 %>
 <div style="width: 30%; float: left;">
-    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"  <%=Util.isCourseHaveSubject(course,subject)?"checked":""%>/>
+    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"  <%=Helper.isCourseHaveSubject(course,subject)?"checked":""%>/>
     <label><%= subject.getCode() + " " + subject.getName()%>
     </label>
 </div>

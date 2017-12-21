@@ -3,9 +3,14 @@ package servlet; /**
  */
 // Import required java libraries
 
+import entity.School;
 import entity.Student;
 import entity.Teacher;
+import entity.User;
 import entityManager.EntityManager;
+import util.Constants;
+import util.Helper;
+import util.UserRoles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,21 +29,29 @@ public class AddTeacher extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            User user = new Helper().getUser(request);
 
-            Teacher teacher=new Teacher();
-            teacher.setFirstName(request.getParameter("firstName"));
-            teacher.setLastName(request.getParameter("lastName"));
-            teacher.setFullName(request.getParameter("fullName"));
-            teacher.setBirthday(formatter.parse(request.getParameter("birthday")));
-            teacher.setAddress(request.getParameter("address"));
-            teacher.setPhone(request.getParameter("phone"));
-            teacher.setNic(request.getParameter("nic"));
+            if(user != null && user.getRole() >= UserRoles.TEACHER) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-            EntityManager.add(teacher);
+                Teacher teacher = new Teacher();
+                teacher.setFirstName(request.getParameter("firstName"));
+                teacher.setLastName(request.getParameter("lastName"));
+                teacher.setFullName(request.getParameter("fullName"));
+                teacher.setBirthday(formatter.parse(request.getParameter("birthday")));
+                teacher.setAddress(request.getParameter("address"));
+                teacher.setPhone(request.getParameter("phone"));
+                teacher.setNic(request.getParameter("nic"));
+
+                //Mandatory
+                teacher.setSchool(user.getSchool());
+                EntityManager.add(teacher);
+            }else{
+                out.write("NO##"+"Unauthorized Access");
+            }
 
         }catch (Exception e){
-            e.printStackTrace();
+            out.write("NO##"+e.getMessage());
         }
     }
 

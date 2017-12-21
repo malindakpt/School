@@ -18,8 +18,19 @@ public class Student extends Member {
     private String guardinaName;
     private String guardianMobile;
     private ClassRoom classRoom;
-//    private Set<YearRegistration> yearRegistrations;
     private Set<Assesment> assesments;
+
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
 
 
     @Id

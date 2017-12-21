@@ -1,7 +1,3 @@
-<%@ page import="entity.Entity" %>
-<%@ page import="java.util.List" %>
-<%@ page import="entityManager.EntityManager" %>
-<%@ page import="entity.Subject" %>
 <div>
     <div class="w3-container widget-header">
         <h4>Teacher</h4>
@@ -42,19 +38,20 @@
                 birthday: $('#birthday').val(),
                 address: $('#address').val(),
                 phone: $('#phone').val(),
-
                 nic: $('#nic').val(),
+                t56: sessionId,
 
             },
             function (result) {
-                if (result === "") {
+                var resArr = result.split("##");
+                if (resArr[0] === "OK") {
                     alert("Success");
                 } else {
-                    alert("Error");
+                    alert(resArr[1]);
                 }
 
-            }).fail(function () {
-                alert("error");
+            }).fail(function (msg) {
+
             }
         );
     }

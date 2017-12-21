@@ -178,7 +178,7 @@
                 var resArr = result.split(",");
                 if(resArr[0]==="OK"){
 //                    window.location.replace("Home?sessionId="+resArr[1]);
-                    window.location.href = "Home?54="+resArr[1];
+                    window.location.href = "Home?t56="+resArr[1];
                 }else{
                     Alert("Invalid Username or Password")
                 }
@@ -188,8 +188,8 @@
 //                    alert("Error");
 //                }
 
-            }).fail(function () {
-                alert("error");
+            }).fail(function (msg) {
+                alert(msg);
             }
         );
     }

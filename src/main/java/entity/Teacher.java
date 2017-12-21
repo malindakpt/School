@@ -15,6 +15,18 @@ public class Teacher extends Member {
     private String nic;
     private Set<ClassRoom> classRooms;
 
+    // School Mapping start
+    private School school;
+    @ManyToOne(optional = false)
+    @JoinColumn(name="schoolId")
+    public School getSchool() {
+        return school;
+    }
+    public void setSchool(School school) {
+        this.school = school;
+    }
+    // School Mapping end
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "teacherId", unique = true, nullable = false)
