@@ -61,7 +61,6 @@
 
 <%
     String sessionId = request.getParameter("t56");
-
     User user = (User) EntityManager.getEntity1(User.class,"sessionId",sessionId);
 
     if(user==null) {

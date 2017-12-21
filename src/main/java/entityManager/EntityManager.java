@@ -2,7 +2,9 @@ package entityManager;
 
 import AppConfig.HibernateUtil;
 import entity.Entity;
+import entity.School;
 import entity.Student;
+import entity.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -194,5 +196,29 @@ public class EntityManager {
         }
         return null;
     }
+    public static List<Entity> getEntities(Class entity, School school){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
 
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE schoolId = :schoolId";
+            Query query = session.createQuery(hql);
+            query.setParameter("schoolId", school.getSchoolId());
+            entities = query.list();
+
+//            entities = session.createQuery("FROM "+entity.getSimpleName() +" WHERE schoolId = :schoolId").list();
+
+            tx.commit();
+            return entities;
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
 }

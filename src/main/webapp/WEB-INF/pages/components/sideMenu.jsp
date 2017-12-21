@@ -18,7 +18,7 @@
         <button class="w3-button">Show Members<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
 
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListTeachers')">Teachers</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListTeachers?t56='+sessionId)">Teachers</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListSubjects')">Subjects</a>
         </div>
     </div>

@@ -44,7 +44,7 @@
             },
             function (result) {
                 var resArr = result.split("##");
-                if (resArr[0] === "OK") {
+                if (resArr[0] === "") {
                     alert("Success");
                 } else {
                     alert(resArr[1]);

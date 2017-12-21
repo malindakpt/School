@@ -1,3 +1,4 @@
+<%@ page import="util.Helper" %>
 <div class="w3-top">
 
     <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
@@ -21,10 +22,16 @@
                 <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
             </div>
         </div>
-        <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" style="width:10%;margin-right: 10px"><img
+        <a href="/" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" style="width:10%;margin-right: 10px"><img
                 src="img/logo-school.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
 
-            <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" style="width: 40%;"><b>Succex Colege Kuliyapitiya</b></a>
+            <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account" style="width: 40%;"><b>
+
+                <%=
+                    new Helper().getUser(request).getSchool().getName()
+                %>
+            </b>
+            </a>
         <%--<div style="    margin-top: 10px;    margin-left: 100px;">--%>
         <%--SUCCEX COLLEGE KULIYAPITIYA--%>
         <%--</div>--%>
