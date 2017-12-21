@@ -6,7 +6,10 @@ package servlet; /**
 import entity.ClassRoom;
 import entity.Student;
 import entity.Teacher;
+import entity.User;
 import entityManager.EntityManager;
+import util.Helper;
+import util.UserRoles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,15 +27,24 @@ public class AddClassRoom extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
-            ClassRoom classRoom=new ClassRoom();
-            classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
-            classRoom.setBatch(Integer.parseInt(request.getParameter("batch")));
-            classRoom.setClassRoomName(request.getParameter("classRoomName"));
 
-            Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", request.getParameter("classTeacher"));
-            classRoom.setClassTeacher(teacher);
+            User user = new Helper().getUser(request);
 
-            EntityManager.add(classRoom);
+            if(user!=null && user.getRole()>= UserRoles.TEACHER) {
+                ClassRoom classRoom = new ClassRoom();
+                classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
+                classRoom.setBatch(Integer.parseInt(request.getParameter("batch")));
+                classRoom.setClassRoomName(request.getParameter("classRoomName"));
+
+                Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", request.getParameter("classTeacher"));
+                classRoom.setClassTeacher(teacher);
+
+
+                classRoom.setSchool(user.getSchool());
+                EntityManager.add(classRoom);
+            }else{
+                out.write("NO##Unautherized Access");
+            }
 
         }catch (Exception e){
             e.printStackTrace();

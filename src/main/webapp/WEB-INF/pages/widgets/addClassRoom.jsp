@@ -3,11 +3,14 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Entity" %>
+<%@ page import="entity.User" %>
+<%@ page import="util.Helper" %>
 <div>
-    <div class="w3-container widget-header">
-        <h4>Add Class Batch/Room</h4>
+
+      <div class="w3-container widget-header">
+        <h4>Add Class Room batch</h4>
     </div>
-    <form class="w3-container">
+    <div class="w3-container">
         <br>
         <label>Batch</label>
         <input class="w3-input" type="text" id="batch">
@@ -17,10 +20,13 @@
         <input class="w3-input" type="text" id="classRoomName">
 
         <br>
-        <jsp:include page="../components/teacherSelector.jsp"/>
-
+        <%
+            String session4 = request.getParameter("t56");
+        %>
+        <jsp:include page="../components/teacherSelector.jsp?t56=<%=session4%>"/>
+        <%--<jsp:include page="../components/teacherSelector.jsp?t56=<%=request.getParameter("t56")%>"/>--%>
         <button class="w3-button w3-red btn-right" onclick="save()">Add Batch</button>
-    </form>
+    </div>
 </div>
 
 
@@ -31,12 +37,13 @@
                 grade: $('#grade').val(),
                 classRoomName: $('#classRoomName').val(),
                 classTeacher: $('#classTeacher').val(),
+                t56:t56
             },
             function (result) {
                 if (result === "") {
                     alert("Success");
                 } else {
-                    alert("Error");
+                    alert("Error"+result);
                 }
 
             }).fail(function () {

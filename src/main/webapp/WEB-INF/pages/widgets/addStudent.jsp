@@ -1,6 +1,6 @@
 <div>
     <div class="w3-container widget-header">
-        <h4>Register a new Member</h4>
+        <h4>Register a new Student</h4>
     </div>
     <form class="w3-container">
         <br>
@@ -50,17 +50,20 @@
                 motherName: $('#motherName').val(),
                 motherMobile: $('#motherMobile').val(),
                 guardinaName: $('#guardinaName').val(),
-                guardianMobile: $('#guardianMobile').val()
+                guardianMobile: $('#guardianMobile').val(),
+
+                t56: t56
             },
             function (result) {
-                if (result === "") {
+                var resArr = result.split("##");
+                if (resArr[0] === "") {
                     alert("Success");
                 } else {
-                    alert("Error");
+                    alert(resArr[1]);
                 }
 
             }).fail(function () {
-                alert("error");
+                alert("Error");
             }
         );
     }

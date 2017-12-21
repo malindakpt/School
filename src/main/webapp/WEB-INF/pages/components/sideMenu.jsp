@@ -2,23 +2,40 @@
     <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
 
 
-    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListStudents')">Show Students</a>
+
 
 
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageStudentView?id=5')">Subject Marks Graph</a>
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRateStudent')">Rate Student</a>
 
 
-    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddStudent')">Add Student</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddTeacher')">Add Teacher</a>
+
+
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddSubject')">Add Subject</a>
+
+
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Students<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddStudent')">Add Student</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListStudents?t56='+t56)">Show Students</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents?t56='+t56)">Assign Students to class</a>
+        </div>
+    </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Teachers<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddTeacher')">Add Teachers</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListTeachers?t56='+t56)">Show Teachers</a>
+        </div>
+    </div>
 
 
     <div class="w3-dropdown-hover">
         <button class="w3-button">Show Members<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
 
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListTeachers?t56='+sessionId)">Teachers</a>
+
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListSubjects')">Subjects</a>
         </div>
     </div>
@@ -43,9 +60,7 @@
     <div class="w3-dropdown-hover">
         <button class="w3-button">School Management<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
-
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom')">Create New Class</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents')">Assign Students to class</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom?t56='+t56)">Create New Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRegisterStudent')">Change Grade/Teacher of Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>
 

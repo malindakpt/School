@@ -39,7 +39,7 @@
                 address: $('#address').val(),
                 phone: $('#phone').val(),
                 nic: $('#nic').val(),
-                t56: sessionId,
+                t56: t56,
 
             },
             function (result) {
@@ -50,8 +50,8 @@
                     alert(resArr[1]);
                 }
 
-            }).fail(function (msg) {
-
+            }).fail(function () {
+                alert("Error");
             }
         );
     }

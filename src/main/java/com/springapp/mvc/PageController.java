@@ -63,7 +63,7 @@ class ListTeachersController {
 class PageAddStudentController {
     @RequestMapping(method = RequestMethod.POST)
     public String printWelcome(ModelMap model) {
-        return "widgets/addMember";
+        return "widgets/addStudent";
     }
 }
 @Controller

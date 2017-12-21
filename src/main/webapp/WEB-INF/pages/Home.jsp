@@ -69,7 +69,7 @@
 %>
 
 <script>
-    var sessionId = <%=sessionId%>;
+    var t56 = <%=sessionId%>;
 </script>
 
 

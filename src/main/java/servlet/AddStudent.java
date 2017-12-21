@@ -5,11 +5,14 @@ package servlet; /**
 
 
 import entity.Student;
+import entity.User;
 import entityManager.EntityManager;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.output.DeferredFileOutputStream;
+import util.Helper;
+import util.UserRoles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,22 +37,30 @@ public class AddStudent extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            User user = new Helper().getUser(request);
 
-            Student student=new Student();
-            student.setFirstName(request.getParameter("firstName"));
-            student.setLastName(request.getParameter("lastName"));
-            student.setFullName(request.getParameter("fullName"));
-            student.setBirthday(formatter.parse(request.getParameter("birthday")));
-            student.setAddress(request.getParameter("address"));
-            student.setPhone(request.getParameter("phone"));
-            student.setFatherName(request.getParameter("fatherName"));
-            student.setFatherMobile(request.getParameter("fatherMobile"));
-            student.setMotherName(request.getParameter("motherName"));
-            student.setMotherMobile(request.getParameter("motherMobile"));
-            student.setGuardinaName(request.getParameter("guardinaName"));
-            student.setGuardianMobile(request.getParameter("guardianMobile"));
-            EntityManager.add(student);
+            if(user!=null && user.getRole() >= UserRoles.TEACHER) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+                Student student = new Student();
+                student.setFirstName(request.getParameter("firstName"));
+                student.setLastName(request.getParameter("lastName"));
+                student.setFullName(request.getParameter("fullName"));
+                student.setBirthday(formatter.parse(request.getParameter("birthday")));
+                student.setAddress(request.getParameter("address"));
+                student.setPhone(request.getParameter("phone"));
+                student.setFatherName(request.getParameter("fatherName"));
+                student.setFatherMobile(request.getParameter("fatherMobile"));
+                student.setMotherName(request.getParameter("motherName"));
+                student.setMotherMobile(request.getParameter("motherMobile"));
+                student.setGuardinaName(request.getParameter("guardinaName"));
+                student.setGuardianMobile(request.getParameter("guardianMobile"));
+
+                student.setSchool(user.getSchool());
+                EntityManager.add(student);
+            }else{
+                out.write("NO##Unauthorized Access");
+            }
 
         }catch (Exception e){
             e.printStackTrace();

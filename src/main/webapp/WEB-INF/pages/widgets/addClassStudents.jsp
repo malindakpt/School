@@ -3,6 +3,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Entity" %>
 <%@ page import="entity.ClassRoom" %>
+<%@ page import="entity.User" %>
+<%@ page import="util.Helper" %>
 
 <div id="addStudContainer">
 <div class="w3-container">
@@ -11,6 +13,10 @@
     <button class="w3-button w3-red btn-right" onclick="loadAllStud()">Show All Students</button>
 
     <br><br>
+
+    <%
+        User user = new Helper().getUser(request);
+    %>
     <div class="w3-responsive" id="classStudents">
         <table class="w3-table-all">
             <tr>
@@ -19,7 +25,7 @@
             </tr>
             <%
                 boolean showAll = Boolean.parseBoolean(request.getParameter("showAll"));
-                List<Entity> students = EntityManager.getEntities(Student.class);
+                List<Entity> students = EntityManager.getEntities(Student.class, user.getSchool());
                 for (Entity item : students) {
                     Student student = (Student) item;
 
@@ -61,7 +67,7 @@
     }
 
     function loadAllStud() {
-        getAndSetPage("PageAddClassStudents?showAll=true","addStudContainer");
+        getAndSetPage("PageAddClassStudents?t56="+t56+"&showAll=true","addStudContainer");
     }
 
     function classStudentsSave() {
