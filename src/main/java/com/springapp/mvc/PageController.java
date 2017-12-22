@@ -265,11 +265,11 @@ class CompCourseListController {
 
 
 @Controller
-@RequestMapping("/PageRegisterStudent")
-class RegisterStudentController {
+@RequestMapping("/PageEditClassRoom")
+class PageEditClassRoomController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
-		return "widgets/registerStudent";
+		return "widgets/editClassRoom";
 	}
 }
 

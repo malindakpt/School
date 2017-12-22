@@ -1,12 +1,14 @@
-
+<%
+    String sessionId = request.getParameter("t56");
+%>
 
 
 <div id="studentSelector">
-<jsp:include page="../components/classRoomSelector.jsp"/>
+<jsp:include page="../components/classRoomSelector.jsp?<%=sessionId%>"/>
 </div>
-<jsp:include page="../components/courseSelector.jsp"/>
+<jsp:include page="../components/courseSelector.jsp?<%=sessionId%>"/>
 <br>
-<jsp:include page="../components/teacherSelector.jsp"/>
+<jsp:include page="../components/teacherSelector.jsp?<%=sessionId%>"/>
 <br>
 <div>
     <button onclick="onRegisterClick()" type="button" class="w3-button w3-green btn-right">Change Class Room</button>
@@ -15,16 +17,7 @@
 
 <script>
     function onRegisterClick() {
-        var studArr = [];
-//        $("#studentSelector input[type=checkbox]").each(function () {
-//            if (this.checked) {
-//                studArr.push(this.id);
-//            }
-//        });
-
         $.post('RegisterStudents', {
-//                studArr: studArr,
-//                year: $('#yearSelector').val(),
                 courseId: $('#courseSelector').val(),
                 classId: $('#classSelector').val()
             },

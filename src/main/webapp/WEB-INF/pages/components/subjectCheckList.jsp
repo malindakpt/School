@@ -2,8 +2,11 @@
 <%@ page import="entity.Subject" %>
 <%@ page import="entity.Entity" %>
 <%@ page import="java.util.List" %>
+<%@ page import="entity.User" %>
+<%@ page import="util.Helper" %>
 <%
-    List<Entity> entityList = EntityManager.getEntities(Subject.class);
+    User user = new Helper().getUser(request);
+    List<Entity> entityList = EntityManager.getEntities(Subject.class, user.getSchool());
 %>
 <%
     for (Entity subjectEntity : entityList) {

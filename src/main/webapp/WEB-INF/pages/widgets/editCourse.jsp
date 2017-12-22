@@ -4,21 +4,24 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Course" %>
 <%@ page import="util.Helper" %>
+<%@ page import="entity.User" %>
 
 <div id="addCourseInputs">
 <%
+    Helper helper = new Helper();
+    User user = helper.getUser(request);
     String courseId = request.getParameter("courseId");
     Course course = (Course) EntityManager.getEntity(Course.class,"courseId",courseId);
 
 
-    List<Entity> entityList = EntityManager.getEntities(Subject.class);
+    List<Entity> entityList = EntityManager.getEntities(Subject.class, user.getSchool());
 %>
 <%
     for (Entity subjectEntity : entityList) {
         Subject subject = (Subject) subjectEntity;
 %>
 <div style="width: 30%; float: left;">
-    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"  <%=Helper.isCourseHaveSubject(course,subject)?"checked":""%>/>
+    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"  <%=helper.isCourseHaveSubject(course,subject)?"checked":""%>/>
     <label><%= subject.getCode() + " " + subject.getName()%>
     </label>
 </div>

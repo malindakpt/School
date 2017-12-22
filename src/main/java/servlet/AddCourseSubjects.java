@@ -7,7 +7,10 @@ package servlet; /**
 import entity.Course;
 import entity.Subject;
 import entity.Teacher;
+import entity.User;
 import entityManager.EntityManager;
+import util.Helper;
+import util.UserRoles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,30 +29,39 @@ public class AddCourseSubjects extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            String courseId = request.getParameter("courseId");
-            String name = request.getParameter("name");
-            String[] subjectList = request.getParameterValues("subjectList[]");
-            subjectList = subjectList == null ? new String[0] : subjectList;
-            Set<Subject> subjects = new HashSet<Subject>();
-            for(String sub1 : subjectList){
-                Subject subject=(Subject) EntityManager.getEntity(Subject.class,"subjectId",sub1);
-                subjects.add(subject);
-            }
+            User user = new Helper().getUser(request);
 
-            Course course;
-            if(courseId != null){
-                course = (Course) EntityManager.getEntity(Course.class,"courseId",courseId);
-                course.setSubjects(subjects);
-                EntityManager.update(course);
-            }else {
-                course = new Course(name);
-                course.setSubjects(subjects);
-                EntityManager.add(course);
+            if(user!= null && user.getRole()>= UserRoles.TEACHER) {
+                String courseId = request.getParameter("courseId");
+
+                String name = request.getParameter("name");
+                String[] subjectList = request.getParameterValues("subjectList[]");
+                subjectList = subjectList == null ? new String[0] : subjectList;
+                Set<Subject> subjects = new HashSet<Subject>();
+                for (String sub1 : subjectList) {
+                    Subject subject = (Subject) EntityManager.getEntity(Subject.class, "subjectId", sub1);
+                    subjects.add(subject);
+                }
+
+                Course course;
+                if (courseId != null) {
+                    course = (Course) EntityManager.getEntity(Course.class, "courseId", courseId);
+                    course.setSchool(user.getSchool());
+                    course.setSubjects(subjects);
+                    EntityManager.update(course);
+                } else {
+                    course = new Course(name);
+                    course.setSchool(user.getSchool());
+                    course.setSubjects(subjects);
+                    EntityManager.add(course);
+                }
+
             }
 
 
         }catch (Exception e){
             e.printStackTrace();
+            out.write("NO##Unauthorizes Access");
         }
     }
 

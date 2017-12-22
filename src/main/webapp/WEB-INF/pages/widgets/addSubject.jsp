@@ -21,6 +21,7 @@
         $.post('AddSubject', {
                 code: $('#code').val(),
                 name: $('#name').val(),
+                t56:t56
             },
             function (result) {
                 if (result === "") {

@@ -5,7 +5,9 @@ package servlet; /**
 
 import entity.Subject;
 import entity.Teacher;
+import entity.User;
 import entityManager.EntityManager;
+import util.Helper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,11 +26,12 @@ public class AddSubject extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-//            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            User user = new Helper().getUser(request);
 
             Subject subject=new Subject();
             subject.setCode(request.getParameter("code"));
             subject.setName(request.getParameter("name"));
+            subject.setSchool(user.getSchool());
 
             EntityManager.add(subject);
 

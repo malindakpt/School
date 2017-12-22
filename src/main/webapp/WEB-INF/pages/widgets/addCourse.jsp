@@ -4,7 +4,10 @@
 <h3>Subject List</h3>
 <br>
 <div id="addCourseInputs">
-    <jsp:include page="../components/subjectCheckList.jsp"/>
+    <%
+        String t56 = request.getParameter("t56");
+    %>
+    <jsp:include page="../components/subjectCheckList.jsp?t56=<%=t56%>"/>
 </div>
 <br><br>
 <div>
@@ -22,7 +25,8 @@
         });
         $.post('AddCourseSubjects', {
                 name: $('#addCourseName').val(),
-                subjectList: subList
+                subjectList: subList,
+                t56: t56
             },
             function (result) {
                 if (result === "") {
@@ -30,7 +34,6 @@
                 } else {
                     console.log("Error response");
                 }
-
             }).fail(function () {
                 alert("error");
             }
