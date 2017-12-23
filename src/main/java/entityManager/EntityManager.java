@@ -81,7 +81,42 @@ public class EntityManager {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
         } finally {
-            session.close();
+//            session.close();
+        }
+        return null;
+    }
+
+    public static Session createSession(){
+        return HibernateUtil.getSessionFactory().openSession();
+    }
+
+    public static Entity getEntity(Session session, Class entity,String idCol, String id){
+        List<Entity> entities;// = new ArrayList<Entity>();
+//        Session session = null;
+        Transaction tx = null;
+
+        try {
+//            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE "+idCol+"= :id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", Integer.parseInt(id));
+
+            entities = query.list();
+
+            tx.commit();
+
+            if(entities.size()>0){
+                return entities.get(0);
+            }else{
+                return null;
+            }
+
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+//            session.close();
         }
         return null;
     }
