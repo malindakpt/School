@@ -9,7 +9,7 @@
     User user = new Helper().getUser(request);
 %>
 
-<select class="w3-select" name="option" id="classTeacher">
+<select class="w3-select" name="option" id="teacherSelector">
     <option value="-1">Select a Class Teacher</option>
     <%
         List<Entity> teachers = EntityManager.getEntities(Teacher.class,user.getSchool());

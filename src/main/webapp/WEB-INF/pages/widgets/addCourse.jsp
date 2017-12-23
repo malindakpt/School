@@ -1,6 +1,9 @@
 <label>Course Name</label>
 <input class="w3-input" type="text" id="addCourseName">
-
+<br>
+<label>Course for Grade</label>
+<input class="w3-input" type="number" id="courseGrade">
+<br>
 <h3>Subject List</h3>
 <br>
 <div id="addCourseInputs">
@@ -26,6 +29,7 @@
         $.post('AddCourseSubjects', {
                 name: $('#addCourseName').val(),
                 subjectList: subList,
+                grade: $('#courseGrade').val(),
                 t56: t56
             },
             function (result) {
@@ -41,3 +45,4 @@
     }
 
 </script>
+<p class="wid-id">addCourse</p>

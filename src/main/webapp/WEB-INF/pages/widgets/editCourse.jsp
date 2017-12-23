@@ -12,8 +12,6 @@
     User user = helper.getUser(request);
     String courseId = request.getParameter("courseId");
     Course course = (Course) EntityManager.getEntity(Course.class,"courseId",courseId);
-
-
     List<Entity> entityList = EntityManager.getEntities(Subject.class, user.getSchool());
 %>
 <%
@@ -42,7 +40,8 @@
         $.post('AddCourseSubjects', {
                 name: $('#addCourseName').val(),
                 subjectList: subList,
-                courseId:<%=courseId%>
+                courseId:<%=courseId%>,
+                t56:t56
             },
             function (result) {
                 if (result === "") {
@@ -57,3 +56,7 @@
         );
     }
 </script>
+
+
+
+<p class="wid-id">editCourse</p>

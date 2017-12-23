@@ -173,3 +173,5 @@
     setTimeout(drawChart(), 3000);
 
 </script>
+
+<p class="wid-id">dashBoad</p>

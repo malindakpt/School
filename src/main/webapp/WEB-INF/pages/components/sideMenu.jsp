@@ -35,8 +35,8 @@
     <div class="w3-dropdown-hover">
         <button class="w3-button">Examinations<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExam')">Add Exam for Course</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExamMarks')">Add Exam Marks</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExam?t56='+t56)">Add Exam for Course</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExamMarks?t56='+t56)">Add Exam Marks</a>
         </div>
     </div>
 
@@ -55,8 +55,8 @@
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassRoom?t56='+t56)">Create New Class</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageEditClassRoom?t56='+t56)">Change Class Room</a>
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddSubject')">Add Subject</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListSubjects')">Show Subjects</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddSubject?t56='+t56)">Subject Manage</a>
+            <%--<a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListSubjects')">Show Subjects</a>--%>
         </div>
     </div>
 </div>

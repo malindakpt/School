@@ -1,5 +1,8 @@
 
-<jsp:include page="../components/examSelector.jsp"/>
+<%
+    String t56 = request.getParameter("t56");
+%>
+<jsp:include page="../components/examSelector.jsp?t56=<%=t56%>"/>
 
 <div id="classSelectContainer"></div>
 
@@ -61,3 +64,6 @@
     }
 
 </script>
+
+
+<p class="wid-id">addExamMarks</p>

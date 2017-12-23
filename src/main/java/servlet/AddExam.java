@@ -3,11 +3,10 @@ package servlet; /**
  */
 // Import required java libraries
 
-import entity.ClassRoom;
-import entity.Course;
-import entity.Exam;
-import entity.Teacher;
+import entity.*;
 import entityManager.EntityManager;
+import util.Helper;
+import util.UserRoles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,13 +23,21 @@ public class AddExam extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         try {
-            Exam exam=new Exam();
-            exam.setName(request.getParameter("name"));
-            exam.setYear(Integer.parseInt(request.getParameter("year")));
-            Course course = (Course) EntityManager.getEntity(Course.class,"courseId", request.getParameter("courseId"));
-            exam.setCourse(course);
 
-            EntityManager.add(exam);
+            User user = new Helper().getUser(request);
+
+            if(user!=null && user.getRole() >= UserRoles.TEACHER) {
+                Exam exam = new Exam();
+                exam.setName(request.getParameter("name"));
+                exam.setYear(Integer.parseInt(request.getParameter("year")));
+                Course course = (Course) EntityManager.getEntity(Course.class, "courseId", request.getParameter("courseId"));
+                exam.setCourse(course);
+
+                exam.setSchool(user.getSchool());
+                EntityManager.add(exam);
+            }else{
+                out.write("NO##Unauthorized Access");
+            }
 
         }catch (Exception e){
             e.printStackTrace();

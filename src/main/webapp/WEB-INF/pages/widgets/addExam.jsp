@@ -5,7 +5,10 @@
 <input class="w3-input" type="text" id="examName">
 
 <br>
-<jsp:include page="../components/courseSelector.jsp"/>
+<%
+    String t56 = request.getParameter("t56");
+%>
+<jsp:include page="../components/courseSelector.jsp?t56=<%=t56%>"/>
 <br>
 <br>
 <div id="classSelector">
@@ -29,7 +32,8 @@
         $.post('AddExam', {
                 name: name,
                 year: year,
-                courseId: courseId
+                courseId: courseId,
+                t56:t56
             },
             function (result) {
                 alert("Success " + result);
@@ -40,4 +44,7 @@
         );
     }
 </script>
+
+
+<p class="wid-id">addExam</p>
 

@@ -48,12 +48,12 @@
 
 
 	<servlet>
-		<servlet-name>RegisterStudents</servlet-name>
-		<servlet-class>servlet.RegisterStudents</servlet-class>
+		<servlet-name>ChangeClassRoom</servlet-name>
+		<servlet-class>servlet.ChangeClassRoom</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>RegisterStudents</servlet-name>
-		<url-pattern>/RegisterStudents</url-pattern>
+		<servlet-name>ChangeClassRoom</servlet-name>
+		<url-pattern>/ChangeClassRoom</url-pattern>
 	</servlet-mapping>
 
 

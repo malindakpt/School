@@ -50,9 +50,11 @@ public class AddCourseSubjects extends HttpServlet {
                     course.setSubjects(subjects);
                     EntityManager.update(course);
                 } else {
+                    int grade = Integer.parseInt(request.getParameter("grade"));
                     course = new Course(name);
                     course.setSchool(user.getSchool());
                     course.setSubjects(subjects);
+                    course.setGrade(grade);
                     EntityManager.add(course);
                 }
 

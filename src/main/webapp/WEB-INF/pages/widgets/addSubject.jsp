@@ -15,6 +15,11 @@
     </form>
 </div>
 
+<%
+    String session4 = request.getParameter("t56");
+%>
+<jsp:include page="listSubjects.jsp?t56=<%=session4%>"/>
+
 
 <script>
     function saveSubject() {
@@ -36,4 +41,7 @@
         );
     }
 </script>
+
+
+<p class="wid-id">addSubjects</p>
 

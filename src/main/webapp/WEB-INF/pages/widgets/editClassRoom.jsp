@@ -17,9 +17,11 @@
 
 <script>
     function onRegisterClick() {
-        $.post('RegisterStudents', {
+        $.post('ChangeClassRoom', {
                 courseId: $('#courseSelector').val(),
-                classId: $('#classSelector').val()
+                classId: $('#classSelector').val(),
+                teacherId: $('#teacherSelector').val(),
+                t56: t56
             },
             function (result) {
                 if (result === "") {
@@ -41,3 +43,6 @@
         
     }
 </script>
+
+
+<p class="wid-id">editClassRoom</p>

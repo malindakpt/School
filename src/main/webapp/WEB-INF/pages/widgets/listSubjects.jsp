@@ -3,7 +3,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Entity" %>
 <%@ page import="entity.Subject" %>
+<%@ page import="entity.User" %>
+<%@ page import="util.Helper" %>
 
+
+<%
+    User user = new Helper().getUser(request);
+%>
 <div class="w3-container">
 
     <h2>Subjects</h2>
@@ -16,7 +22,7 @@
             </tr>
 
 
-                <% List<Entity> subjects = EntityManager.getEntities(Subject.class);
+                <% List<Entity> subjects = EntityManager.getEntities(Subject.class,user.getSchool());
                     for(Entity item : subjects){
                         Subject subject = (Subject)item;
                 %>
@@ -40,6 +46,9 @@
         </table>
     </div>
 </div>
+
+
+<p class="wid-id">listSubjects</p>
 
 
 
