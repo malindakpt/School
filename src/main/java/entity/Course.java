@@ -11,6 +11,7 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "courseId")})
 public class Course extends Entity {
     private int courseId;
+    private int grade;
     private String name;
     private Set<Subject> subjects;
     private Set<ClassRoom> classRooms;
@@ -48,18 +49,6 @@ public class Course extends Entity {
         this.classRooms = classRooms;
     }
 
-//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
-//    public Set<YearRegistration> getYearRegistration() {
-//        return yearRegistration;
-//    }
-
-//    public void setYearRegistration(Set<YearRegistration> yearRegistration) {
-//        this.yearRegistration = yearRegistration;
-//    }
-
-
-
-
     public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
@@ -77,8 +66,15 @@ public class Course extends Entity {
     public Set<Subject> getSubjects() {
         return subjects;
     }
-
     public void setSubjects(Set<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    @Column(name = "grade", nullable = true, length = 30)
+    public int getGrade() {
+        return grade;
+    }
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 }
