@@ -24,6 +24,7 @@ class ListStudentsController {
 	}
 }
 
+
 @Controller
 @RequestMapping("/")
 class PageLoginController {
@@ -170,14 +171,15 @@ class PageAddExam {
 	}
 }
 
-//@Controller
-//@RequestMapping("/PageReportCard")
-//class PageReporController {
-//	@RequestMapping(method = RequestMethod.POST)
-//	public String printWelcome(ModelMap model) {
-//		return "widgets/reportCard";
-//	}
-//}
+@Controller
+@RequestMapping("/PageStudentDashBoard")
+class PageDashBoardController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/dashBoad";
+	}
+}
+
 
 @Controller
 @RequestMapping("/PageAddClassStudents")
@@ -233,6 +235,15 @@ class CompStudentsInClassController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "components/studentsInClass";
+	}
+}
+
+@Controller
+@RequestMapping("/CompStudentsInClass2")
+class CompStudentsInClass2Controller {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "components/studentsInClass2";
 	}
 }
 
@@ -307,25 +318,3 @@ class StudentViewController {
 		return "widgets/studentView";
 	}
 }
-
-//@Controller
-//@RequestMapping("/PageListStudentsMarks22")
-//class LoadItemController {
-//	@RequestMapping(method = RequestMethod.GET)
-//	@ResponseBody
-//	ModelAndView printWelcome(@RequestParam("classRoomId") String classRoomId, ModelMap  model) {
-//		{
-//			ModelAndView modelAndview = null;
-//
-//			model.addAttribute("asd","asd");
-//			try {
-//				modelAndview = new ModelAndView("widgets/listStudentsMarks");
-//				model.addAttribute("job",classRoomId);
-//			} catch (IndexOutOfBoundsException e) {
-//			}
-//			return modelAndview;
-//		}
-//	}
-//
-//
-//}

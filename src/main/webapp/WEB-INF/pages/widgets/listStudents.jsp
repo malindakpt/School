@@ -7,32 +7,12 @@
 
 <div class="w3-container">
     <div class="w3-responsive">
+
         <%
-            User user = new Helper().getUser(request);
+            String t56 = request.getParameter("t56");
         %>
-        <table class="w3-table-all">
-            <tr>
-                <th>Student Name</th>
-                <th></th>
-            </tr>
-            <% List<Entity> students = EntityManager.getEntities(Student.class,user.getSchool());
-                for (Entity item : students) {
-                    Student student = (Student) item;
-            %>
-            <tr>
-                <td>
-                    <%=
-                    student.getFirstName() + " " + student.getLastName()
-                    %>
-                </td>
-                <td>
-                    <button class="w3-button" onclick="getAndSetPage('PageReportCardSelector?studentId=<%=student.getStudentId()%>')">Report Cards</button>
-                </td>
-            </tr>
-            <%
-                }
-            %>
-        </table>
+        <jsp:include page="../components/listStudentsWithClassFilter2.jsp?t56=<%=t56%>"/>
+
     </div>
 </div>
 <script>
