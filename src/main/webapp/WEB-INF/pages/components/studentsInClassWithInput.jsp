@@ -2,6 +2,13 @@
 <%@ page import="entity.Student" %>
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.util.List" %>
+<%@ page import="entity.User" %>
+<%@ page import="util.Helper" %>
+
+<%
+    User user = new Helper().getUser(request);
+
+%>
 
 <table class="w3-table-all">
     <tr>
@@ -9,7 +16,7 @@
         <th>Checked</th>
     </tr>
 
-<% List<Entity> students = EntityManager.getEntitySubList(Student.class,"classRoom.classRoomId",request.getParameter("classId"));
+<% List<Entity> students = EntityManager.getEntitySubList(Student.class,"classRoom.classRoomId",request.getParameter("classId"), user.getSchool());
     for (Entity item : students) {
         Student student = (Student) item;
 %>

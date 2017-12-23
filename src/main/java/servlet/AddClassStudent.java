@@ -7,7 +7,10 @@ package servlet; /**
 import entity.ClassRoom;
 import entity.Student;
 import entity.Teacher;
+import entity.User;
 import entityManager.EntityManager;
+import util.Helper;
+import util.UserRoles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,13 +27,17 @@ public class AddClassStudent extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            String classRoomId = request.getParameter("classRoom");
-            ClassRoom classRoom = (ClassRoom) EntityManager.getEntity(ClassRoom.class,"classRoomId",classRoomId);
-            String[] studArr = request.getParameterValues("studArr[]");
-            for(int i=0;i<studArr.length; i++){
-                Student student= (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
-                student.setClassRoom(classRoom);
-                EntityManager.update(student);
+            User user = new Helper().getUser(request);
+
+            if(user!=null && user.getRole()>= UserRoles.TEACHER) {
+                String classRoomId = request.getParameter("classRoom");
+                ClassRoom classRoom = (ClassRoom) EntityManager.getEntity(ClassRoom.class, "classRoomId", classRoomId);
+                String[] studArr = request.getParameterValues("studArr[]");
+                for (int i = 0; i < studArr.length; i++) {
+                    Student student = (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
+                    student.setClassRoom(classRoom);
+                    EntityManager.update(student);
+                }
             }
 
         }catch (Exception e){

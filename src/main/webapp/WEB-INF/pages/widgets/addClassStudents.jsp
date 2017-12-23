@@ -73,10 +73,12 @@
     function classStudentsSave() {
         var classRoom = $('#classSelector').val();
         var studArr = [];
-        $("#classStudents input").each(function () {
-            studArr.push(this.id);
+        $("#classStudents input").each(function (e) {
+            if(this.checked) {
+                studArr.push(this.id);
+            }
         });
-        $.post('AddClassStudent', {
+        $.post('AddClassStudent?t56='+t56, {
                 classRoom: classRoom,
                 studArr: studArr
             },

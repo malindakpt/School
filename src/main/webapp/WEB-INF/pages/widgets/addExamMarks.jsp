@@ -60,7 +60,7 @@
 
     }
     function onClassRoomChange(){
-        getAndSetPage('CompStudentsInClassWithInput?classId='+$('#classSelector').val(),'studentList');
+        getAndSetPage('CompStudentsInClassWithInput?t56='+t56+'&classId='+$('#classSelector').val(),'studentList');
     }
 
 </script>
