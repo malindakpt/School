@@ -1,6 +1,8 @@
-<%--<div class="w3-panel w3-green w3-card-4">--%>
-    <%--<p>Observe the 3 subjects chart and find where you need more improvement</p>--%>
-<%--</div>--%>
+<%
+    String studentId = request.getParameter("studentId");
+    String t56 = request.getParameter("t56");
+%>
+<jsp:include page="../components/courseSelector4Student.jsp?studentId=<%=studentId%>&t56=<%=t56%>"/>
 
 <div class="w3-row">
 
@@ -31,55 +33,20 @@
                 <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
                     <p>Homeworks are incomplete for 3 days</p>
                 </div>
-            <%--<ul class="w3-ul w3-card-4">--%>
-                <%--<li class="w3-bar">--%>
-                    <%--&lt;%&ndash;<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>&ndash;%&gt;--%>
-                    <%--<div style="width:20%">--%>
-                        <%--<img src="img/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small"--%>
-                             <%--style="width:100%;height: 100%">--%>
-                    <%--</div>--%>
-
-                    <%--<div style="width:80%" class="w3-rest w3-bar-item">--%>
-                        <%--<span class="w3-large">Bad Class Participation</span><br>--%>
-                        <%--<span>continues absent for last 3 sports practice sessions</span>--%>
-                    <%--</div>--%>
-                <%--</li>--%>
-
-                <%--<li class="w3-bar">--%>
-                    <%--&lt;%&ndash;<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>&ndash;%&gt;--%>
-                    <%--<div style="width:20%">--%>
-                        <%--<img src="img/img_avatar5.png" class="w3-bar-item w3-circle w3-hide-small"--%>
-                             <%--style="width:100%;height: 100%">--%>
-                    <%--</div>--%>
-                    <%--<div style="width:80%" class="w3-bar-item">--%>
-                        <%--<span class="w3-large">Outstanding performance</span><br>--%>
-                        <%--<span>Class Highscore for monthly test for Maths</span>--%>
-                    <%--</div>--%>
-                <%--</li>--%>
-
-                <%--<li class="w3-bar">--%>
-                    <%--&lt;%&ndash;<span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>&ndash;%&gt;--%>
-                    <%--<div style="width:20%">--%>
-                        <%--<img src="img/img_avatar6.png" class="w3-bar-item w3-circle w3-hide-small"--%>
-                             <%--style="width:100%;height: 100%">--%>
-                    <%--</div>--%>
-                    <%--<div style="width:80%" class="w3-bar-item">--%>
-                        <%--<span class="w3-large">Need more improvement</span><br>--%>
-                        <%--<span>Homeworks are incomplete for 3 days</span>--%>
-                    <%--</div>--%>
-                <%--</li>--%>
-            <%--</ul>--%>
         </div>
 
     </div>
 </div>
 
-
-<%--<div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border">--%>
-    <%--<p>Observe the chart 3 subjects chart to decide where need the improvement and where you are playing well</p>--%>
-<%--</div>--%>
-
 <script>
+
+
+    function onCourseChange() {
+
+    }
+
+
+
     function drawChart() {
 
         var result3 = "94,86,85,80,79,89,90,88,83,86,88,85,94,86,93,94,81,93,76,82,87,88,89,81,96,84,86,88,96,85,98,89,89,87,99,85,84,94,99,93,92";

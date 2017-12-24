@@ -70,6 +70,7 @@
 
 <script>
     var t56 = <%=sessionId%>;
+
 </script>
 
 
@@ -100,10 +101,11 @@
         <div class="w3-col m2">
 
             <!-- Profile -->
-            <jsp:include page='widgets/profile.jsp'>
-                <jsp:param name="id" value="<%=user.getUserId()%>" />
-            </jsp:include>
-
+            <div id="profileContainer">
+                <jsp:include page='widgets/profile.jsp'>
+                    <jsp:param name="id" value="<%=user.getUserId()%>" />
+                </jsp:include>
+            </div>
             <br>
             <!-- Accordion -->
             <div class=" w3-hide-small">
@@ -159,8 +161,8 @@
             </div>
             <br>
 
-           <jsp:include page="widgets/searchBox.jsp"/>
-            <br>
+           <%--<jsp:include page="widgets/searchBox.jsp"/>--%>
+            <%--<br>--%>
             <%--<jsp:include page="components/interests.jsp"/>--%>
 
             <div class="w3-card w3-round w3-white w3-center">

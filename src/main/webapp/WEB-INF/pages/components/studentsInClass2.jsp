@@ -27,7 +27,7 @@
                 <%= student.getFirstName() + " " + student.getLastName()%>
             </td>
             <td>
-                <button class="w3-button" onclick="showStudent()" id="<%=student.getStudentId()%>">View</button>
+                <button class="w3-button" onclick="showStudent(this)" id="<%=student.getStudentId()%>">View</button>
             </td>
         </tr>
 
@@ -41,7 +41,9 @@
 </div>
 
 <script>
-    function showStudent() {
-        getAndSetPage("PageStudentDashBoard");
+    function showStudent(but) {
+        getAndSetPage("Profile?id="+but.id+"&t56="+t56, "profileContainer");
+        getAndSetPage("PageStudentDashBoard?studentId="+but.id+"&t56="+t56);
+
     }
 </script>

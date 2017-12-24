@@ -209,6 +209,15 @@ class CompSubjectListController {
 }
 
 @Controller
+@RequestMapping("/Profile")
+class ProfileController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/profile";
+	}
+}
+
+@Controller
 @RequestMapping("/PageCoursesList")
 class PageCoursesListController {
 	@RequestMapping(method = RequestMethod.POST)
