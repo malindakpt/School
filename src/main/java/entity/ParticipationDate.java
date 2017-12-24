@@ -1,7 +1,8 @@
 package entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
 
 /**
  * Created by MalindaK on 12/24/2017.
@@ -15,6 +16,15 @@ public class ParticipationDate extends Entity {
     private Date date;
     private boolean isParticipated;
     private Student student;
+
+    public ParticipationDate(Date date, boolean isParticipated, School school, Student student){
+        this.date = date;
+        this.isParticipated = isParticipated;
+        this.school = school;
+        this.student = student;
+    }
+    public ParticipationDate(){
+    }
 
     // School Mapping start
     private School school;

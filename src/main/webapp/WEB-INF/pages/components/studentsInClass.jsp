@@ -12,7 +12,7 @@
 <table class="w3-table-all">
     <tr>
         <th>Student Name</th>
-        <th>Checked</th>
+        <th></th>
     </tr>
 
 <% List<Entity> students = EntityManager.getEntitySubList(Student.class,"classRoom.classRoomId",request.getParameter("id"),user.getSchool());
