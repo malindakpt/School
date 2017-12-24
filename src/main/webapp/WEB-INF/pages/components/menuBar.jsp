@@ -9,8 +9,8 @@
 
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i
                 class="fa fa-globe"></i></a>
-        <a href="#" onclick="getAndSetPage('PageListStudents?t56='+t56)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
-           title="Account Settings"><i class="fa fa-user"></i></a>
+        <a href="#" onclick="getAndSetPage('PageTeacherDashBoard?t56='+t56)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+           title="Account Settings"><i class="fa fa-home"></i></a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i
                 class="fa fa-envelope"></i></a>
         <div class="w3-dropdown-hover w3-hide-small">

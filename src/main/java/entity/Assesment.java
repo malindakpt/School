@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name = "assesment", catalog = "school", uniqueConstraints = {
         @UniqueConstraint(columnNames = "assesmentId")})
 public class Assesment extends Entity{
-//    Students may have many assesments, But some of them are only for exams. so stoudent have assesments and Some assesments only have exam
+//    Students may have many assesments, But some of them are only for exams. so stuudent have assesments and Some assesments only have exam
     private int assesmentId;
     private int marks;
     private Subject subject;
