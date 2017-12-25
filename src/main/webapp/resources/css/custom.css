@@ -3,6 +3,11 @@
     background: #4d636f;
 }
 
+.widget-header2{
+    color: white!important;
+    background: #77909e;
+}
+
 .btn-right{
     float: right;
     margin: 20px;

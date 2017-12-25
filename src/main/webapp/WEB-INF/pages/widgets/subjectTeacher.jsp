@@ -4,8 +4,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entityManager.EntityManager" %>
 
+<jsp:include page="../components/header.jsp?header=Add/Remove Subjects for Teachers"/>
 
-    <h2>Subscribe Teacher for Subjects</h2>
 
         <% List<Entity> subjects = EntityManager.getEntities(Subject.class);
             for (Entity sub : subjects) {
@@ -34,4 +34,7 @@
         <%
             }
         %>
+
+
+<p class="wid-id">subjectTeacher</p>
 

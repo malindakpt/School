@@ -1,3 +1,7 @@
+
+<jsp:include page="../components/header.jsp?header=Edit Class Room Details"/>
+
+
 <%
     String sessionId = request.getParameter("t56");
 %>

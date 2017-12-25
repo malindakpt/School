@@ -5,9 +5,8 @@
 <%@ page import="entity.Teacher" %>
 <%@ page import="entity.User" %>
 <%@ page import="util.Helper" %>
-<h3>
-   Teacher Directory
-</h3>
+
+<jsp:include page="../components/header2.jsp?header=Existing Teachers"/>
 
 <div class="w3-container">
 
@@ -33,6 +32,9 @@
                 <td>
                    Available Today
                 </td>
+                <td>
+                    <button id="<%=teacher.getTeacherId()%>" class="w3-button" onclick="editTeacher(this)">edit</button>
+                </td>
             </tr>
             <%
                 }
@@ -40,6 +42,14 @@
         </table>
     </div>
 </div>
+
+<script>
+
+    function editTeacher(btn){
+        getAndSetPage("PageEditTeacher?teacherId="+btn.id);
+    }
+</script>
+<p class="wid-id">listTeachers</p>
 
 
 

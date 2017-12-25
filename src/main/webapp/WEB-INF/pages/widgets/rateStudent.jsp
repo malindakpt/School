@@ -23,3 +23,6 @@
 <button onclick="save()" type="button" style="float: right;" class="w3-button w3-blue">
      Add Comment
 </button>
+
+
+<p class="wid-id">rateStudent</p>

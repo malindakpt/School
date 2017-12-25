@@ -67,6 +67,15 @@ class PageAddStudentController {
         return "widgets/addStudent";
     }
 }
+
+@Controller
+@RequestMapping("/PageEditTeacher")
+class PageEditTeacherController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/editTeacher";
+	}
+}
 @Controller
 @RequestMapping("/PageAddTeacher")
 class PageAddTeacherController {
@@ -91,6 +100,15 @@ class PageAddSubjectController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "widgets/addSubject";
+	}
+}
+
+@Controller
+@RequestMapping("/PageEditSubject")
+class PageEditSubjectController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/editSubject";
 	}
 }
 

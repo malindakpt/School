@@ -1,8 +1,6 @@
 <div>
-    <div class="w3-container widget-header">
-        <h4>Teacher</h4>
-    </div>
-    <form class="w3-container">
+    <jsp:include page="../components/header.jsp?header=Add/Edit Teachers"/>
+    <div class="w3-container">
         <br>
         <label>First Name</label>
         <input class="w3-input" type="text" id="firstName">
@@ -22,10 +20,14 @@
 
 
 
-        <button onclick="saveTeacher()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
-             Save
-        </button>
-    </form>
+        <button onclick="saveTeacher()" type="button" class="w3-button w3-green btn-right">Add Teacher</button>
+
+    </div>
+
+    <%
+        String t56 = request.getParameter("t56");
+    %>
+    <jsp:include page="../widgets/listTeachers.jsp?t56=<%=t56%>"/>
 </div>
 
 

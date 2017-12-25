@@ -12,12 +12,13 @@
 %>
 <div class="w3-container">
 
-    <h2>Subjects</h2>
+    <jsp:include page="../components/header2.jsp?header=Exsiting Subjects"/>
     <div class="w3-responsive">
         <table class="w3-table-all">
             <tr>
-                <th>Points</th>
-                <th>Points</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th></th>
 
             </tr>
 
@@ -37,6 +38,9 @@
                     subject.getName()
                     %>
                 </td>
+                <td>
+                    <button class="w3-button" onclick="onEditClick(this)" id="<%=subject.getSubjectId()%>">edit</button>
+                </td>
             </tr>
                 <%
                     }
@@ -46,6 +50,13 @@
         </table>
     </div>
 </div>
+
+
+<script>
+    function onEditClick(btn){
+        getAndSetPage("PageEditSubject?subjectId="+btn.id);
+    }
+</script>
 
 
 <p class="wid-id">listSubjects</p>
