@@ -2,7 +2,7 @@
     <div class="w3-container widget-header">
         <h4>Register a new Student</h4>
     </div>
-    <form class="w3-container">
+    <div class="w3-container">
         <br>
         <label>First Name</label>
         <input class="w3-input" type="text" id="firstName">
@@ -29,10 +29,12 @@
         <label>Guardian Mobile</label>
         <input class="w3-input" type="text" id="guardianMobile">
 
+       <jsp:include page="../components/imageUploader.jsp"/>
+
         <button onclick="saveStudent()" type="button" class="w3-button w3-theme button-ok"><i class="fa fa-pencil"></i>
              Save
         </button>
-    </form>
+    </div>
 </div>
 
 
@@ -51,6 +53,7 @@
                 motherMobile: $('#motherMobile').val(),
                 guardinaName: $('#guardinaName').val(),
                 guardianMobile: $('#guardianMobile').val(),
+                image: $('#imgPreview').attr('src'),
 
                 t56: t56
             },

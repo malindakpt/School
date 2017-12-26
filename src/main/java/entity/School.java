@@ -13,6 +13,7 @@ public class School extends Entity {
 
         private int schoolId;
         private String name;
+        private String image;
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +21,6 @@ public class School extends Entity {
         public int getSchoolId() {
             return schoolId;
         }
-
         public void setSchoolId(int schoolId) {
             this.schoolId = schoolId;
         }
@@ -29,8 +29,15 @@ public class School extends Entity {
         public String getName() {
             return name;
         }
-
         public void setName(String name) {
             this.name = name;
         }
+
+        @Column(name = "image", nullable = true, length = 40)
+        public String getImage() {
+            return image;
+        }
+        public void setImage(String image) {
+        this.image = image;
+    }
 }

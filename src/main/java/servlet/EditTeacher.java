@@ -40,6 +40,7 @@ public class EditTeacher extends HttpServlet {
                 teacher.setAddress(request.getParameter("address"));
                 teacher.setPhone(request.getParameter("phone"));
                 teacher.setNic(request.getParameter("nic"));
+                teacher.setImage(request.getParameter("image"));
 
                 //Mandatory
 //                teacher.setSchool(user.getSchool());

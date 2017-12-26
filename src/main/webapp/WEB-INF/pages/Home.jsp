@@ -101,10 +101,23 @@
         <div class="w3-col m2">
 
             <!-- Profile -->
-            <div id="profileContainer">
+            <div id="profileContainer"  class=" w3-hide-small">
+                <%
+                    if(user.getRole() == UserRoles.TEACHER){
+                %>
                 <jsp:include page='widgets/profile.jsp'>
                     <jsp:param name="id" value="<%=user.getUserId()%>" />
                 </jsp:include>
+                <%
+                }else if(user.getRole() == UserRoles.STUDENT){
+                %>
+                <jsp:include page='widgets/profile.jsp'>
+                    <jsp:param name="id" value="<%=user.getUserId()%>" />
+                </jsp:include>
+                <%
+                    }
+                %>
+
             </div>
             <br>
             <!-- Accordion -->
@@ -138,8 +151,11 @@
                             <jsp:include page='widgets/dashBoardTeacher.jsp'/>
                             <%
                                 }else if(user.getRole() == UserRoles.STUDENT){
+                                    String memId = user.getMemberId()+"";
                             %>
-                            <jsp:include page='widgets/dashBoad.jsp'/>
+                            <jsp:include page="widgets/dashBoad.jsp">
+                                <jsp:param name="studentId" value="<%=memId%>" />
+                            </jsp:include>
                             <%
                             }
                             %>
@@ -224,6 +240,9 @@
 <%--</footer>--%>
 </div>
 <script>
+
+
+
     function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
         document.getElementById("myOverlay").style.display = "block";

@@ -180,7 +180,7 @@
 //                    window.location.replace("Home?sessionId="+resArr[1]);
                     window.location.href = "Home?t56="+resArr[1];
                 }else{
-                    Alert("Invalid Username or Password")
+                    alert("Invalid Username or Password")
                 }
 //                if (result === "") {
 //                    alert("Success");

@@ -11,8 +11,10 @@
     Student student = (Student) EntityManager.getEntity(Student.class,"studentId",studentId);
 %>
 <select class="w3-select" name="option" id="courseSelector" onchange="onCourseChange()">
+    <% if(student.getClassRoom()!=null && student.getClassRoom().getCourses()!=null ){ %>
     <option value="" selected>All courses</option>
     <%
+
         for (Course course : student.getClassRoom().getCourses()) {
 
     %>
@@ -20,6 +22,11 @@
     </option>
     <%
         }
+    }else{
+        %>
+        <option value="" selected>No courses available for this student</option>
+    <%
+    }
     %>
 
 

@@ -25,7 +25,7 @@
         <label>NIC</label>
         <input class="w3-input" type="text" id="nic" value="<%=teacher.getNic()%>">
 
-
+        <jsp:include page="../components/imageUploader.jsp"/>
 
         <button onclick="editTeacher()" type="button" class="w3-button w3-green btn-right">Edit Teacher</button>
     </div>
@@ -33,6 +33,8 @@
 
 
 <script>
+
+
     var teacherId = "<%=teacher.getTeacherId()%>";
 
     function editTeacher() {
@@ -45,6 +47,7 @@
                 address: $('#address').val(),
                 phone: $('#phone').val(),
                 nic: $('#nic').val(),
+                image: $('#imgPreview').attr('src'),
                 t56: t56,
 
             },

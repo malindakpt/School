@@ -56,8 +56,20 @@ public class AddStudent extends HttpServlet {
                 student.setGuardinaName(request.getParameter("guardinaName"));
                 student.setGuardianMobile(request.getParameter("guardianMobile"));
 
+                student.setImage(request.getParameter("image"));
+
                 student.setSchool(user.getSchool());
                 EntityManager.add(student);
+
+                User user1 = new User();
+                user1.setName(student.getFirstName()+" "+student.getLastName());
+                user1.setRole(UserRoles.STUDENT);
+                user1.setMemberId(student.getStudentId());
+                user1.setUserName(UserRoles.STUDENT+student.getStudentId()+"");
+                user1.setPassword("1");
+                user1.setSchool(user.getSchool());
+                EntityManager.add(user1);
+
             }else{
                 out.write("NO##Unauthorized Access");
             }
