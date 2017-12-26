@@ -112,7 +112,7 @@
                 }else if(user.getRole() == UserRoles.STUDENT){
                 %>
                 <jsp:include page='widgets/profile.jsp'>
-                    <jsp:param name="id" value="<%=user.getUserId()%>" />
+                    <jsp:param name="id" value="<%=user.getMemberId()%>" />
                 </jsp:include>
                 <%
                     }

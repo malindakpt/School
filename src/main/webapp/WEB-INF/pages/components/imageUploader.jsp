@@ -32,10 +32,10 @@
             ctx.clearRect(0,-0,canvas.width,canvas.height);
             if(w>h){
                 gap = (w-h)/2;
-                ctx.drawImage(img, gap, 0, w-2*gap, h, -35, -35, canvas.width, canvas.height);
+                ctx.drawImage(img, gap, 0, w-2*gap, h, 0, 0, canvas.width, canvas.height);
             }else{
                 gap = (h-w)/2;
-                ctx.drawImage(img, 0, gap, w, h-2*gap, -35, -35, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, gap, w, h-2*gap, 0, 0, canvas.width, canvas.height);
             }
             resizedImg = canvas.toDataURL();
             imgPreview.src = resizedImg;
