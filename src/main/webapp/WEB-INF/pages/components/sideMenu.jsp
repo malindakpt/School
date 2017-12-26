@@ -6,7 +6,7 @@
 
 
     <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageStudentView?id=5')">Subject Marks Graph</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRateStudent')">Rate Student</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageRateStudent?t56='+t56)">Rate Student</a>
 
 
 

@@ -8,10 +8,10 @@
         <%--<a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>--%>
 
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i
-                class="fa fa-globe"></i></a>
+                class="fa fa-stack-overflow"></i></a>
         <a href="#" onclick="getAndSetPage('PageTeacherDashBoard?t56='+t56)" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
            title="Account Settings"><i class="fa fa-home"></i></a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Rate Student"><i
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"  onclick="getAndSetPage('PageRateStudent?t56='+t56)" title="Rate Student"><i
                 class="fa fa-star-half-empty "></i></a>
         <div class="w3-dropdown-hover w3-hide-small">
             <button class="w3-button w3-padding-large" title="Settings"><i class="fa fa-gears"></i>
