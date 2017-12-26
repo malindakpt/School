@@ -15,6 +15,15 @@
 		<servlet-name>AddStudent</servlet-name>
 		<url-pattern>/AddStudent</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EditStudent</servlet-name>
+		<servlet-class>servlet.EditStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditStudent</servlet-name>
+		<url-pattern>/EditStudent</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>MarkAttendance</servlet-name>

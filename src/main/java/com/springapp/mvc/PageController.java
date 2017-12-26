@@ -69,6 +69,15 @@ class PageAddStudentController {
 }
 
 @Controller
+@RequestMapping("/PageEditStudent")
+class PageEditStudentController {
+    @RequestMapping(method = RequestMethod.POST)
+    public String printWelcome(ModelMap model) {
+        return "widgets/editStudent";
+    }
+}
+
+@Controller
 @RequestMapping("/PageEditTeacher")
 class PageEditTeacherController {
 	@RequestMapping(method = RequestMethod.POST)

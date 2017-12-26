@@ -1,12 +1,15 @@
 <%@ page import="entity.Student" %>
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="entity.School" %>
 <div class="w3-card w3-round w3-white">
     <div class="w3-container">
         <%
             String id = request.getParameter("id");
-            Student student= (Student) EntityManager.getEntity(Student.class,"studentId", id);
-            if(student!=null){
+            boolean isStudent = Boolean.parseBoolean(request.getParameter("isStudent"));
+
+            if(isStudent){
+                Student student= (Student) EntityManager.getEntity(Student.class,"studentId", id);
         %>
 
 
@@ -21,9 +24,10 @@
 
         <%
             }else{
+                School school= (School) EntityManager.getEntity(School.class,"schoolId", id);
         %>
-            Student Not Found
-
+        <p class="w3-center"><img src="<%=school.getImage()%>" class="w3-circle" style="height:100%;width:100%" alt="Avatar"></p>
+        <h3><%=school.getName()%></h3>
         <%
             }
         %>

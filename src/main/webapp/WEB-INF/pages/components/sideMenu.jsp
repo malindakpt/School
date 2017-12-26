@@ -23,17 +23,6 @@
         </div>
     </div>
 
-
-    <%--<div class="w3-dropdown-hover">--%>
-        <%--<button class="w3-button">Manage Teachers<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>--%>
-        <%--<div class="w3-dropdown-content w3-bar-block">--%>
-            <%--<a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddTeacher?t56='+t56)">Add Teachers</a>--%>
-            <%--<a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageListTeachers?t56='+t56)">Show Teachers</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-
-
-
     <div class="w3-dropdown-hover">
         <button class="w3-button">Examinations<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
