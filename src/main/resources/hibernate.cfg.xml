@@ -22,5 +22,6 @@
             <mapping class="entity.Exam"></mapping>
             <mapping class="entity.School"></mapping>
             <mapping class="entity.User"></mapping>
+            <mapping class="entity.SubjectAsign"></mapping>
     </session-factory>
 </hibernate-configuration>

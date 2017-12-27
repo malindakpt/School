@@ -21,14 +21,18 @@
 <script>
     function saveCourse() {
         var subList = [];
+        var subjectCountList = [];
         $("#addCourseInputs input[type=checkbox]").each(function () {
             if (this.checked) {
                 subList.push(this.id);
+                subjectCountList.push($('#cnt'+this.id).val());
             }
         });
+
         $.post('AddCourseSubjects', {
                 name: $('#addCourseName').val(),
                 subjectList: subList,
+                subjectCountList:subjectCountList,
                 grade: $('#courseGrade').val(),
                 t56: t56
             },

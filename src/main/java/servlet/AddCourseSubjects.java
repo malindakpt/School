@@ -4,10 +4,7 @@ package servlet; /**
 // Import required java libraries
 
 
-import entity.Course;
-import entity.Subject;
-import entity.Teacher;
-import entity.User;
+import entity.*;
 import entityManager.EntityManager;
 import util.Helper;
 import util.UserRoles;
@@ -36,24 +33,29 @@ public class AddCourseSubjects extends HttpServlet {
 
                 String name = request.getParameter("name");
                 String[] subjectList = request.getParameterValues("subjectList[]");
+                String[] subjectCountList = request.getParameterValues("subjectCountList[]");
                 subjectList = subjectList == null ? new String[0] : subjectList;
-                Set<Subject> subjects = new HashSet<Subject>();
-                for (String sub1 : subjectList) {
+                Set<SubjectAsign> subjectsAsignSet = new HashSet<SubjectAsign>();
+                for (int i = 0; i<subjectList.length; i++) {
+                    String sub1 = subjectList[i];
+                    int count = Integer.parseInt(subjectCountList[i]);
                     Subject subject = (Subject) EntityManager.getEntity(Subject.class, "subjectId", sub1);
-                    subjects.add(subject);
+                    SubjectAsign subjectAsign = new SubjectAsign(subject, count, user.getSchool());
+                    EntityManager.add(subjectAsign);
+                    subjectsAsignSet.add(subjectAsign);
                 }
 
                 Course course;
                 if (courseId != null) {
                     course = (Course) EntityManager.getEntity(Course.class, "courseId", courseId);
                     course.setSchool(user.getSchool());
-                    course.setSubjects(subjects);
+                    course.setSubjectAsigns(subjectsAsignSet);
                     EntityManager.update(course);
                 } else {
                     int grade = Integer.parseInt(request.getParameter("grade"));
                     course = new Course(name);
                     course.setSchool(user.getSchool());
-                    course.setSubjects(subjects);
+                    course.setSubjectAsigns(subjectsAsignSet);
                     course.setGrade(grade);
                     EntityManager.add(course);
                 }

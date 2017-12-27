@@ -1,9 +1,6 @@
 package util;
 
-import entity.ClassRoom;
-import entity.Course;
-import entity.Subject;
-import entity.User;
+import entity.*;
 import entityManager.EntityManager;
 import org.hibernate.Hibernate;
 
@@ -19,13 +16,21 @@ public class Helper {
 
 
     public boolean isCourseHaveSubject(Course course, Subject subject){
-//        Hibernate.initialize(course);
-        for(Subject subject1:course.getSubjects()){
-            if(subject1.getSubjectId()==subject.getSubjectId()){
+        for(SubjectAsign subjectAsign:course.getSubjectAsigns()){
+            if(subjectAsign.getSubject().getSubjectId()==subject.getSubjectId()){
                 return true;
             }
         }
         return false;
+    }
+
+    public int getNoOfPeriodsForClurseSubject(Course course, Subject subject){
+        for(SubjectAsign subjectAsign:course.getSubjectAsigns()){
+            if(subjectAsign.getSubject().getSubjectId()==subject.getSubjectId()){
+                return subjectAsign.getNoOfPeriods();
+            }
+        }
+        return 0;
     }
 
     public User getUser(HttpServletRequest request ){

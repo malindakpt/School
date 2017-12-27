@@ -13,7 +13,7 @@ public class Course extends Entity {
     private int courseId;
     private int grade;
     private String name;
-    private Set<Subject> subjects;
+    private Set<SubjectAsign> subjectAsigns;
     private Set<ClassRoom> classRooms;
 
 
@@ -61,13 +61,22 @@ public class Course extends Entity {
         this.name = name;
     }
 
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(name = "course_subject", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = { @JoinColumn(name = "subjectId") })
+//    public Set<Subject> getSubjects() {
+//        return subjects;
+//    }
+//    public void setSubjects(Set<Subject> subjects) {
+//        this.subjects = subjects;
+//    }
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "course_subject", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = { @JoinColumn(name = "subjectId") })
-    public Set<Subject> getSubjects() {
-        return subjects;
+    @JoinTable(name = "course_subjectAsign", joinColumns = { @JoinColumn(name = "courseId") }, inverseJoinColumns = { @JoinColumn(name = "subjectAsignId") })
+    public Set<SubjectAsign> getSubjectAsigns() {
+        return subjectAsigns;
     }
-    public void setSubjects(Set<Subject> subjects) {
-        this.subjects = subjects;
+    public void setSubjectAsigns(Set<SubjectAsign> subjectAsigns) {
+        this.subjectAsigns = subjectAsigns;
     }
 
     @Column(name = "grade", nullable = true, length = 30)

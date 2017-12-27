@@ -16,14 +16,17 @@ import java.util.List;
  */
 public class EntityManager {
     public static void add(Entity entity){
+        Session session = null;
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
 
             session.beginTransaction();
             session.save(entity);
             session.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            session.close();
         }
     }
 

@@ -14,12 +14,14 @@
     Course course = (Course) EntityManager.getEntity(Course.class,"courseId",courseId);
     List<Entity> entityList = EntityManager.getEntities(Subject.class, user.getSchool());
 %>
+    <h3><%=course.getName()%></h3>
 <%
     for (Entity subjectEntity : entityList) {
         Subject subject = (Subject) subjectEntity;
 %>
 <div style="width: 30%; float: left;">
     <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"  <%=helper.isCourseHaveSubject(course,subject)?"checked":""%>/>
+    <input id="cnt<%=subject.getSubjectId()%>" type="number" class="w3-input" value="<%=helper.getNoOfPeriodsForClurseSubject(course,subject)%>"/>
     <label><%= subject.getCode() + " " + subject.getName()%>
     </label>
 </div>
@@ -27,19 +29,23 @@
     }
 %>
 </div>
-<button class="w3-button w3-red btn-right" onclick="saveEditedCourse()">Save Course</button>
+<button class="w3-button w3-green btn-right" onclick="saveEditedCourse()">Edit Course</button>
 
 <script>
     function saveEditedCourse(){
         var subList = [];
+        var subjectCountList = [];
+
         $("#addCourseInputs input[type=checkbox]").each(function () {
             if (this.checked) {
                 subList.push(this.id);
+                subjectCountList.push($('#cnt'+this.id).val());
             }
         });
         $.post('AddCourseSubjects', {
                 name: $('#addCourseName').val(),
                 subjectList: subList,
+                subjectCountList:subjectCountList,
                 courseId:<%=courseId%>,
                 t56:t56
             },
