@@ -141,6 +141,14 @@ class PageAddMarksController {
 	}
 }
 
+@Controller
+@RequestMapping("/PageAnalize")
+class PageAnalizeController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/analize";
+	}
+}
 
 @Controller
 @RequestMapping("/PageRateStudent")
