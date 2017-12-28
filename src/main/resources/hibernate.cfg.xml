@@ -23,5 +23,7 @@
             <mapping class="entity.School"></mapping>
             <mapping class="entity.User"></mapping>
             <mapping class="entity.SubjectAsign"></mapping>
+            <mapping class="entity.Period"></mapping>
+            <mapping class="entity.TimeTable"></mapping>
     </session-factory>
 </hibernate-configuration>

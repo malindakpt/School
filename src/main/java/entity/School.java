@@ -13,6 +13,7 @@ public class School extends Entity {
 
         private int schoolId;
         private String name;
+        private int periodsPerWeek;
         private String image;
 
         @Id
@@ -38,6 +39,14 @@ public class School extends Entity {
             return image;
         }
         public void setImage(String image) {
-        this.image = image;
-    }
+            this.image = image;
+        }
+
+        @Column(name = "periodsPerWeek", nullable = true, length = 10)
+        public int getPeriodsPerWeek() {
+             return periodsPerWeek;
+        }
+        public void setPeriodsPerWeek(int periodsPerWeek) {
+            this.periodsPerWeek = periodsPerWeek;
+        }
 }

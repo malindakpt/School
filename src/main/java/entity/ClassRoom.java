@@ -16,6 +16,7 @@ public class ClassRoom extends Entity {
     private int grade;
     private boolean isAdmissionClosed; // No need
     private Teacher classTeacher;
+    private TimeTable timeTable;
     private Set<Course> courses;
 
 
@@ -46,7 +47,6 @@ public class ClassRoom extends Entity {
     public int getClassRoomId() {
         return classRoomId;
     }
-
     public void setClassRoomId(int classRoomId) {
         this.classRoomId = classRoomId;
     }
@@ -56,7 +56,6 @@ public class ClassRoom extends Entity {
     public Set<Course> getCourses() {
         return courses;
     }
-
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
     }
@@ -65,7 +64,6 @@ public class ClassRoom extends Entity {
     public boolean isAdmissionClosed() {
         return isAdmissionClosed;
     }
-
     public void setAdmissionClosed(boolean admissionClosed) {
         isAdmissionClosed = admissionClosed;
     }
@@ -74,7 +72,6 @@ public class ClassRoom extends Entity {
     public int getBatch() {
         return batch;
     }
-
     public void setBatch(int batch) {
         this.batch = batch;
     }
@@ -83,15 +80,14 @@ public class ClassRoom extends Entity {
     public String getClassRoomName() {
         return classRoomName;
     }
-
     public void setClassRoomName(String classRoomName) {
         this.classRoomName = classRoomName;
     }
+
     @Column(name = "grade", nullable = true, length = 20)
     public int getGrade() {
         return grade;
     }
-
     public void setGrade(int grade) {
         this.grade = grade;
     }
@@ -101,7 +97,6 @@ public class ClassRoom extends Entity {
     public Teacher getClassTeacher() {
         return classTeacher;
     }
-
     public void setClassTeacher(Teacher classTeacher) {
         this.classTeacher = classTeacher;
     }
@@ -110,8 +105,15 @@ public class ClassRoom extends Entity {
     public Set<Student> getStudents() {
         return students;
     }
-
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    public TimeTable getTimeTable() {
+        return timeTable;
+    }
+    public void setTimeTable(TimeTable timeTable) {
+        this.timeTable = timeTable;
     }
 }

@@ -13,7 +13,10 @@ public class Teacher extends Member {
 
     private int teacherId;
     private String nic;
+    private int availablePeriods;
     private Set<ClassRoom> classRooms;
+    private Set<Subject> subjects;
+//    private Set<Period> periods;
 
     // School Mapping start
     private School school;
@@ -33,7 +36,6 @@ public class Teacher extends Member {
     public int getTeacherId() {
         return teacherId;
     }
-
     public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
     }
@@ -42,7 +44,6 @@ public class Teacher extends Member {
     public String getNic() {
         return nic;
     }
-
     public void setNic(String nic) {
         this.nic = nic;
     }
@@ -51,19 +52,31 @@ public class Teacher extends Member {
     public Set<ClassRoom> getClassRooms() {
         return classRooms;
     }
-
     public void setClassRooms(Set<ClassRoom> classRooms) {
         this.classRooms = classRooms;
     }
 
-    public static boolean contains(Set<Teacher> teachers, Teacher teacher){
-        for(Teacher teach : teachers){
-            if(teacher.getTeacherId() == teach.getTeacherId()){
-                return true;
-            }
-        }
-        return false;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teacher")
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 
+//    @OneToMany(mappedBy="classTeacher")
+//    public Set<Period> getPeriods() {
+//        return periods;
+//    }
+//    public void setPeriods(Set<Period> periods) {
+//        this.periods = periods;
+//    }
 
+    @Column(name = "availablePeriods", nullable = true, length = 20)
+    public int getAvailablePeriods() {
+        return availablePeriods;
+    }
+    public void setAvailablePeriods(int availablePeriods) {
+        this.availablePeriods = availablePeriods;
+    }
 }
