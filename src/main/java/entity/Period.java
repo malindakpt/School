@@ -14,6 +14,7 @@ public class Period extends Entity{
     private Teacher teacher;
     private Subject subject;
     private ClassRoom classRoom;
+    private TimeTable timeTable;
 
     public Period(){}
     public Period(Teacher teacher, Subject subject, ClassRoom classRoom){
@@ -59,7 +60,9 @@ public class Period extends Entity{
     public Subject getSubject() {
         return subject;
     }
-    public void setSubject(Subject subject)
+    public void setSubject(Subject subject){
+        this.subject = subject;
+    }
 
     @ManyToOne(optional = false)
     @JoinColumn(name="classRoomId")
@@ -68,5 +71,14 @@ public class Period extends Entity{
     }
     public void setClassRoom(ClassRoom classRoom) {
         this.classRoom = classRoom;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="timeTableId", nullable=false)
+    public TimeTable getTimeTable() {
+        return timeTable;
+    }
+    public void setTimeTable(TimeTable timeTable) {
+        this.timeTable = timeTable;
     }
 }

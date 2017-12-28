@@ -14,7 +14,15 @@ public class TimeTable extends Entity{
     private int timeTableId;
     private Set<Period> periods;
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "timeTableId", unique = true, nullable = false)
+    public int getTimeTableId() {
+        return timeTableId;
+    }
+    public void setTimeTableId(int timeTableId) {
+        this.timeTableId = timeTableId;
+    }
 
     // School Mapping start
     private School school;
@@ -29,18 +37,9 @@ public class TimeTable extends Entity{
     // School Mapping end
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "timeTableId", unique = true, nullable = false)
-    public int getTimeTableId() {
-        return timeTableId;
-    }
-    public void setTimeTableId(int timeTableId) {
-        this.timeTableId = timeTableId;
-    }
 
 
-    @OneToMany(mappedBy="timeTable")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "timeTable")
     public Set<Period> getPeriods() {
         return periods;
     }

@@ -56,7 +56,7 @@ public class Teacher extends Member {
         this.classRooms = classRooms;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teacher")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teachers")
     public Set<Subject> getSubjects() {
         return subjects;
     }
