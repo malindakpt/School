@@ -5,18 +5,14 @@ import entityManager.EntityManager;
 import org.hibernate.Hibernate;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by MalindaK on 12/12/2017.
  */
 public class Helper {
-//    public static boolean contains(String prop,Set<ENt>)
-//    public static
 
-    public Set<TimeTable> createTimeTable(School school) throws Exception {
+    public Set<TimeTable> createAllocationTable(School school) throws Exception {
         Set<TimeTable> timeTableSet = new HashSet<TimeTable>();
         List<Entity> classRoomList = EntityManager.getEntities(ClassRoom.class, school);
         if(classRoomList!= null) {
@@ -69,6 +65,7 @@ public class Helper {
         }
         return null;
     }
+
     private Teacher getTeacherForSubjectPeriods(SubjectAsign subjectAsign,Set<TimeTable> timeTableSet, School school){
         Subject subject = subjectAsign.getSubject();
         int periods = subjectAsign.getNoOfPeriods();
@@ -131,5 +128,44 @@ public class Helper {
         return user;
     }
 
+    public List<HashMap<String,Period>> createTimeTable(Set<TimeTable> allocationTable){
+        int periodsPerDay = 8;
+        int daysPerWeek = 5;
+
+        List<HashMap<String,Period>> timeTableList = new ArrayList<HashMap<String, Period>>();
+
+        HashMap<String,Boolean> teacherAllocation=new HashMap<String,Boolean>();
+
+        for(TimeTable allocationTable1 : allocationTable){
+
+
+            HashMap<String,Period> classAllocation=new HashMap<String,Period>();
+            boolean allocated=false;
+
+            for(Period period : allocationTable1.getPeriods()){
+                for(int s=0;s<periodsPerDay;s++){
+                    for(int d=0;d<daysPerWeek;d++){
+                        String key = d+"-"+s;
+                        if(teacherAllocation.get(key)==null && classAllocation.get(key)==null){
+                            classAllocation.put(key,period);
+                            teacherAllocation.put(key,true);
+
+                            System.out.println(key+"   "+period.getClassRoom().getGrade()+period.getClassRoom().getClassRoomName()
+                            +" "+period.getSubject().getName()+"   "+period.getTeacher().getFirstName());
+                            allocated=true;
+                            break;
+                        }
+                    }
+                    if(allocated){
+                        allocated=false;
+                        break;
+                    }
+                }
+
+            }
+            timeTableList.add(classAllocation);
+        }
+        return timeTableList;
+    }
 
 }
