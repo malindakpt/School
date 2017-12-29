@@ -18,6 +18,8 @@
 <%
     for(HashMap<String, Period> classAllocation : classTimeTableList){
 %>
+
+
     <table class="w3-table-all">
         <tr  class="w3-blue">
             <th>Monday</th>
@@ -33,7 +35,7 @@
         <%
                 for( int d=0 ;d<5;d++){
         %>
-            <td><%=classAllocation.get(s+"-"+d)!=null?classAllocation.get(s+"-"+d).getSubject().getName()+": T"+classAllocation.get(s+"-"+d).getTeacher().getTeacherId():"--"%></td>
+            <td><%=classAllocation.get(d+"-"+s)!=null?classAllocation.get(d+"-"+s).getSubject().getName()+": T"+classAllocation.get(d+"-"+s).getTeacher().getTeacherId():"--"%></td>
         <%
                 }
         %>

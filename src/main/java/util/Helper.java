@@ -143,10 +143,16 @@ public class Helper {
             boolean allocated=false;
 
             for(Period period : allocationTable1.getPeriods()){
+
+                if(period.getSubject().getSubjectId()==2){
+                    System.out.println("En");
+                }
                 for(int s=0;s<periodsPerDay;s++){
                     for(int d=0;d<daysPerWeek;d++){
                         String key = d+"-"+s;
-                        if(teacherAllocation.get(key)==null && classAllocation.get(key)==null){
+                        Boolean teacherAllocated = teacherAllocation.get(key);
+                        Period classAllocationPeriod = classAllocation.get(key);
+                        if(teacherAllocated == null && classAllocationPeriod == null){
                             classAllocation.put(key,period);
                             teacherAllocation.put(key,true);
 
