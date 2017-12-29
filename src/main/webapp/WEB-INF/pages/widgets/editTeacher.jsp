@@ -21,6 +21,8 @@
         <input class="w3-input" type="text" id="address" value="<%=teacher.getAddress()%>">
         <label>Phone</label>
         <input class="w3-input" type="text" id="phone" value="<%=teacher.getPhone()%>">
+        <label>Available Periods</label>
+        <input class="w3-input" type="number" id="availablePeriods"  value="<%=teacher.getAvailablePeriods()%>">
 
         <label>NIC</label>
         <input class="w3-input" type="text" id="nic" value="<%=teacher.getNic()%>">
@@ -48,6 +50,7 @@
                 phone: $('#phone').val(),
                 nic: $('#nic').val(),
                 image: $('#imgPreview').attr('src'),
+                availablePeriods: $('#availablePeriods').val(),
                 t56: t56,
 
             },

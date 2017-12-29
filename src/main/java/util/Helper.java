@@ -16,40 +16,49 @@ public class Helper {
 //    public static boolean contains(String prop,Set<ENt>)
 //    public static
 
-    public boolean createTimeTable(School school){
-        List<Entity> classRoomList = EntityManager.getEntities(ClassRoom.class, school);
+    public Set<TimeTable> createTimeTable(School school) throws Exception {
         Set<TimeTable> timeTableSet = new HashSet<TimeTable>();
-        int totalPeriods = school.getPeriodsPerWeek();
+        List<Entity> classRoomList = EntityManager.getEntities(ClassRoom.class, school);
+        if(classRoomList!= null) {
 
-        for(Entity entity:classRoomList){
-            ClassRoom classRoom = (ClassRoom)entity;
-            Course currentCourse = getCurrentCourse(classRoom);
-            TimeTable timeTable = new TimeTable();
+            int totalPeriods = school.getPeriodsPerWeek();
+
+            for (Entity entity : classRoomList) {
+                ClassRoom classRoom = (ClassRoom) entity;
+                Course currentCourse = getCurrentCourse(classRoom);
+
+                if(currentCourse == null){
+                    throw new Exception("No course is assigned to: "+ classRoom.getGrade()+"-"+classRoom.getClassRoomName());
+                }
+                TimeTable timeTable = new TimeTable();
 
 //            Add timetable to set
-            timeTableSet.add(timeTable);
+                timeTableSet.add(timeTable);
 
-            int currentPrtiodCnt = 0;
+                int currentPrtiodCnt = 0;
 
-            for(SubjectAsign subjectAsign: currentCourse.getSubjectAsigns()){
+                for (SubjectAsign subjectAsign : currentCourse.getSubjectAsigns()) {
 
-                Teacher teacher = getTeacherForSubjectPeriods(subjectAsign, timeTableSet, school);
+                    Teacher teacher = getTeacherForSubjectPeriods(subjectAsign, timeTableSet, school);
+                    if(teacher == null){
+                        throw new Exception("Enough Teachers are not available for: "+subjectAsign.getSubject().getName());
+                    }else {
+                        for (int i = 0; i < subjectAsign.getNoOfPeriods(); i++) {
 
-                for(int i=0;i<subjectAsign.getNoOfPeriods();i++) {
+                            if (++currentPrtiodCnt > totalPeriods) {
+                                break;
+                            }
 
-                    if(++currentPrtiodCnt>totalPeriods){
-                        return false;
-                    }
-
-                    Period peri = new Period(teacher, subjectAsign.getSubject(), classRoom);
-                    timeTable.getPeriods().add(peri);
+                            Period peri = new Period(teacher, subjectAsign.getSubject(), classRoom);
+                            timeTable.getPeriods().add(peri);
 //                    teacher.getPeriods().add(peri);
+                        }
+                    }
                 }
+
             }
-
         }
-
-        return true;
+        return timeTableSet;
     }
 
     private Course getCurrentCourse(ClassRoom classRoom){

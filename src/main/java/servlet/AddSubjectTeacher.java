@@ -35,7 +35,6 @@ public class AddSubjectTeacher extends HttpServlet {
             }
             subject.setTeachers(teachers);
             EntityManager.update(subject);
-            out.print("Unexpected");
 
         }catch (Exception e){
             e.printStackTrace();

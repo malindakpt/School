@@ -42,6 +42,8 @@ public class AddTeacher extends HttpServlet {
                 teacher.setAddress(request.getParameter("address"));
                 teacher.setPhone(request.getParameter("phone"));
                 teacher.setNic(request.getParameter("nic"));
+                teacher.setImage(request.getParameter("image"));
+                teacher.setAvailablePeriods(Integer.parseInt(request.getParameter("availablePeriods")));
 
                 //Mandatory
                 teacher.setSchool(user.getSchool());
@@ -65,3 +67,4 @@ public class AddTeacher extends HttpServlet {
 
 
 }
+

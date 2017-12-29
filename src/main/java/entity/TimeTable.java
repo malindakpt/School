@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,6 +14,10 @@ import java.util.Set;
 public class TimeTable extends Entity{
     private int timeTableId;
     private Set<Period> periods;
+
+    public TimeTable(){
+        this.periods = new HashSet<Period>();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

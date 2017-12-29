@@ -4,6 +4,11 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entityManager.EntityManager" %>
 
+<%
+    try{
+%>
+
+
 <jsp:include page="../components/header.jsp?header=Add/Remove Subjects for Teachers"/>
 
 
@@ -38,3 +43,10 @@
 
 <p class="wid-id">subjectTeacher</p>
 
+
+
+<%
+    }catch (Exception e){
+        System.out.println("<h1>Error</h1>");
+    }
+%>

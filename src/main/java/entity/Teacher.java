@@ -56,7 +56,7 @@ public class Teacher extends Member {
         this.classRooms = classRooms;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "teachers")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "teachers")
     public Set<Subject> getSubjects() {
         return subjects;
     }
@@ -78,5 +78,15 @@ public class Teacher extends Member {
     }
     public void setAvailablePeriods(int availablePeriods) {
         this.availablePeriods = availablePeriods;
+    }
+
+
+    public static boolean contains(Set<Teacher> teachers, Teacher teacher){
+        for(Teacher teach : teachers){
+            if(teacher.getTeacherId() == teach.getTeacherId()){
+                return true;
+            }
+        }
+        return false;
     }
 }

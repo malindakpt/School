@@ -14,9 +14,13 @@
         <input class="w3-input" type="text" id="address">
         <label>Phone</label>
         <input class="w3-input" type="text" id="phone">
+        <label>Available Periods</label>
+        <input class="w3-input" type="number" id="availablePeriods">
 
         <label>NIC</label>
         <input class="w3-input" type="text" id="nic">
+
+        <jsp:include page="../components/imageUploader.jsp"/>
 
 
 
@@ -41,6 +45,8 @@
                 address: $('#address').val(),
                 phone: $('#phone').val(),
                 nic: $('#nic').val(),
+                image: $('#imgPreview').attr('src'),
+                availablePeriods: $('#availablePeriods').val(),
                 t56: t56,
 
             },

@@ -41,6 +41,7 @@ public class EditTeacher extends HttpServlet {
                 teacher.setPhone(request.getParameter("phone"));
                 teacher.setNic(request.getParameter("nic"));
                 teacher.setImage(request.getParameter("image"));
+                teacher.setAvailablePeriods(Integer.parseInt(request.getParameter("availablePeriods")));
 
                 //Mandatory
 //                teacher.setSchool(user.getSchool());

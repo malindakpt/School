@@ -244,6 +244,15 @@ class PageTeacherDashBoardController {
     }
 }
 
+@Controller
+@RequestMapping("/PageTimeTable")
+class PageTimeTableController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/timeTable";
+	}
+}
+
 
 @Controller
 @RequestMapping("/PageAddClassStudents")
