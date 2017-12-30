@@ -18,7 +18,7 @@ public class ClassRoom extends Entity {
     private Teacher classTeacher;
     private TimeTable timeTable;
     private Set<Course> courses;
-
+    private int currentCourseId;
 
     //For Mapping
     private Set<Student> students;
@@ -115,5 +115,13 @@ public class ClassRoom extends Entity {
     }
     public void setTimeTable(TimeTable timeTable) {
         this.timeTable = timeTable;
+    }
+
+    @Column(name = "currentCourseId", nullable = true, length = 20)
+    public int getCurrentCourseId() {
+        return currentCourseId;
+    }
+    public void setCurrentCourseId(int currentCourseId) {
+        this.currentCourseId = currentCourseId;
     }
 }

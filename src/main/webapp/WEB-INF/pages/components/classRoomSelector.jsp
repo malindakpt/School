@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="entity.User" %>
 <%@ page import="util.Helper" %>
+<%@ page import="entity.Course" %>
 <%
     User user = new Helper().getUser(request);
     List<Entity> classRooms = EntityManager.getEntities(ClassRoom.class, user.getSchool());
@@ -13,8 +14,10 @@
     <%
         for (Entity e1 : classRooms) {
             ClassRoom classRoom = (ClassRoom) e1;
+            int courseId = classRoom.getCurrentCourseId();
+            Course course = (Course) EntityManager.getEntity(Course.class,"courseId", courseId+"");
     %>
-    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+classRoom.getGrade()+"-"+classRoom.getClassRoomName()+"  batch:"+classRoom.getBatch()%> </option>
+    <option value="<%=classRoom.getClassRoomId()%>"><%=(course!=null ? course.getName():"Grade/Course not set")+" - "+classRoom.getClassRoomName()+"  batch:"+classRoom.getBatch()%> </option>
     <%
         }
     %>

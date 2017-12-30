@@ -20,9 +20,10 @@
     for(Entity entity : classRoomSet){
         ClassRoom classRoom = (ClassRoom)entity;
         HashMap<String,Period> classTimeTable = classTimeTableMap.get(classRoom.getClassRoomId());
+        Course course = (Course) EntityManager.getEntity(Course.class,"courseId",classRoom.getCurrentCourseId()+"");
 %>
 
-<%--<h2><%=classRoom.getGrade()+"-"+classRoom.getClassRoomName()%></h2>--%>
+<h2><%=course.getName()+"-"+classRoom.getClassRoomName()%></h2>
 
     <table class="w3-table-all">
         <tr  class="w3-blue">

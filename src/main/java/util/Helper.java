@@ -59,7 +59,7 @@ public class Helper {
 
     private Course getCurrentCourse(ClassRoom classRoom){
         for(Course course: classRoom.getCourses()){
-            if(classRoom.getGrade() == course.getGrade()){
+            if(classRoom.getCurrentCourseId() == course.getCourseId()){
                 return course;
             }
         }

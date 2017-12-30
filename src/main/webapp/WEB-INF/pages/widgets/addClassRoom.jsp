@@ -14,9 +14,9 @@
         <br>
         <label>Batch</label>
         <input class="w3-input" type="text" id="batch">
-        <label>Grade</label>
-        <input class="w3-input" type="text" id="grade">
-        <label>Class Name/ (A,B...)</label>
+        <%--<label>Grade</label>--%>
+        <%--<input class="w3-input" type="text" id="grade">--%>
+        <label>Class Name/ (A,B...Maths1, Bio2)</label>
         <input class="w3-input" type="text" id="classRoomName">
 
         <br>

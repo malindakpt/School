@@ -17,7 +17,7 @@
         <table class="w3-table-all">
             <tr>
                 <th>Couse Name</th>
-                <th>Action</th>
+                <th></th>
 
             </tr>
 

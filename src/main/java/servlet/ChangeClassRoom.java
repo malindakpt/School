@@ -53,7 +53,8 @@ public class ChangeClassRoom extends HttpServlet {
                     courseSet.add(course);
                     classRoom.setCourses(courseSet);
                 }
-                classRoom.setGrade(course.getGrade());
+//                classRoom.setGrade(course.getGrade());
+                classRoom.setCurrentCourseId(course.getCourseId());
                 classRoom.setClassTeacher(teacher);
 
             EntityManager.update(classRoom);

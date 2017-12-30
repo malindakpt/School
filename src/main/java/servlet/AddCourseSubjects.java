@@ -56,7 +56,7 @@ public class AddCourseSubjects extends HttpServlet {
                     course = new Course(name);
                     course.setSchool(user.getSchool());
                     course.setSubjectAsigns(subjectsAsignSet);
-                    course.setGrade(grade);
+//                    course.setGrade(grade);
                     EntityManager.add(course);
                 }
 

@@ -11,7 +11,7 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "courseId")})
 public class Course extends Entity {
     private int courseId;
-    private int grade;
+//    private int grade;
     private String name;
     private Set<SubjectAsign> subjectAsigns;
     private Set<ClassRoom> classRooms;
@@ -79,11 +79,11 @@ public class Course extends Entity {
         this.subjectAsigns = subjectAsigns;
     }
 
-    @Column(name = "grade", nullable = true, length = 30)
-    public int getGrade() {
-        return grade;
-    }
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
+//    @Column(name = "grade", nullable = true, length = 30)
+//    public int getGrade() {
+//        return grade;
+//    }
+//    public void setGrade(int grade) {
+//        this.grade = grade;
+//    }
 }

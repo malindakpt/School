@@ -26,6 +26,12 @@
     font-size: 10px;
 }
 
+.inputSubjectList{
+    width: 25%;
+    float: left;
+    margin-bottom: 46px;
+}
+
 .my-select-analize{
     max-width: 30%;
     float: right;

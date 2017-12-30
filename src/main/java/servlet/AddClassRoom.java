@@ -32,7 +32,7 @@ public class AddClassRoom extends HttpServlet {
 
             if(user!=null && user.getRole()>= UserRoles.TEACHER) {
                 ClassRoom classRoom = new ClassRoom();
-                classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
+//                classRoom.setGrade(Integer.parseInt(request.getParameter("grade")));
                 classRoom.setBatch(Integer.parseInt(request.getParameter("batch")));
                 classRoom.setClassRoomName(request.getParameter("classRoomName"));
 

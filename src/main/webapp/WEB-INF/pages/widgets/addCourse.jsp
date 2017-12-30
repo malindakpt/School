@@ -1,10 +1,10 @@
-<label>Course Name</label>
+<h3>Enter Course Name</h3><label>  (Eg: Grade 1, Grade 2, Maths Section, Commerce Section, etc...)</label>
 <input class="w3-input" type="text" id="addCourseName">
+<%--<br>--%>
+<%--<label>Course for Grade</label>--%>
+<%--<input class="w3-input" type="number" id="courseGrade">--%>
 <br>
-<label>Course for Grade</label>
-<input class="w3-input" type="number" id="courseGrade">
-<br>
-<h3>Subject List</h3>
+<h3>Selects Subjects List</h3>
 <br>
 <div id="addCourseInputs">
     <%

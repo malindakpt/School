@@ -12,9 +12,9 @@
     for (Entity subjectEntity : entityList) {
         Subject subject = (Subject) subjectEntity;
 %>
-<div style="width: 30%; float: left;">
-    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"/>
-    <input id="cnt<%=subject.getSubjectId()%>" type="number" class="w3-input"/>
+<div style="width: 33%; float: left;">
+    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check inputSubjectList"/>
+    <input id="cnt<%=subject.getSubjectId()%>" type="number" class="w3-input inputSubjectList"/>
     <label><%= subject.getCode() + " " + subject.getName()%>
     </label>
 </div>

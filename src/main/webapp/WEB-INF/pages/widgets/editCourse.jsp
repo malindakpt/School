@@ -19,9 +19,9 @@
     for (Entity subjectEntity : entityList) {
         Subject subject = (Subject) subjectEntity;
 %>
-<div style="width: 30%; float: left;">
-    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check"  <%=helper.isCourseHaveSubject(course,subject)?"checked":""%>/>
-    <input id="cnt<%=subject.getSubjectId()%>" type="number" class="w3-input" value="<%=helper.getNoOfPeriodsForClurseSubject(course,subject)%>"/>
+<div style="width: 33%; float: left;">
+    <input id="<%=subject.getSubjectId()%>" type="checkbox" class="w3-check inputSubjectList"  <%=helper.isCourseHaveSubject(course,subject)?"checked":""%>/>
+    <input id="cnt<%=subject.getSubjectId()%>" type="number" class="w3-input inputSubjectList" value="<%=helper.getNoOfPeriodsForClurseSubject(course,subject)%>"/>
     <label><%= subject.getCode() + " " + subject.getName()%>
     </label>
 </div>
