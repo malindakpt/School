@@ -14,8 +14,13 @@ import java.util.Set;
 public class TimeTable extends Entity{
     private int timeTableId;
     private Set<Period> periods;
+    private ClassRoom classRoom;
 
     public TimeTable(){
+        this.periods = new HashSet<Period>();
+    }
+    public TimeTable(ClassRoom classRoom){
+        this.classRoom = classRoom;
         this.periods = new HashSet<Period>();
     }
 
@@ -41,15 +46,21 @@ public class TimeTable extends Entity{
     }
     // School Mapping end
 
-
-
-
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "timeTable")
     public Set<Period> getPeriods() {
         return periods;
     }
     public void setPeriods(Set<Period> periods) {
         this.periods = periods;
+    }
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @PrimaryKeyJoinColumn
+    public ClassRoom getClassRoom() {
+        return classRoom;
+    }
+    public void setClassRoom(ClassRoom classRoom) {
+        this.classRoom = classRoom;
     }
 }
 

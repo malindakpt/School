@@ -26,7 +26,7 @@ public class Helper {
                 if(currentCourse == null){
                     throw new Exception("No course is assigned to: "+ classRoom.getGrade()+"-"+classRoom.getClassRoomName());
                 }
-                TimeTable timeTable = new TimeTable();
+                TimeTable timeTable = new TimeTable(classRoom);
 
 //            Add timetable to set
                 timeTableSet.add(timeTable);
@@ -128,33 +128,34 @@ public class Helper {
         return user;
     }
 
-    public List<HashMap<String,Period>> createTimeTable(Set<TimeTable> allocationTable){
+    public HashMap<Integer, HashMap<String,Period>> createTimeTable(Set<TimeTable> allocationTable){
         int periodsPerDay = 8;
         int daysPerWeek = 5;
 
-        List<HashMap<String,Period>> timeTableList = new ArrayList<HashMap<String, Period>>();
+        HashMap<Integer, HashMap<String,Period>> timeTableListMap = new HashMap<Integer, HashMap<String, Period>>();
 
         HashMap<String,Boolean> teacherAllocation=new HashMap<String,Boolean>();
+        HashMap<String,Period> classAllocation=new HashMap<String,Period>();
 
         for(TimeTable allocationTable1 : allocationTable){
 
-
-            HashMap<String,Period> classAllocation=new HashMap<String,Period>();
             boolean allocated=false;
 
             for(Period period : allocationTable1.getPeriods()){
 
-                if(period.getSubject().getSubjectId()==2){
-                    System.out.println("En");
-                }
                 for(int s=0;s<periodsPerDay;s++){
                     for(int d=0;d<daysPerWeek;d++){
                         String key = d+"-"+s;
-                        Boolean teacherAllocated = teacherAllocation.get(key);
-                        Period classAllocationPeriod = classAllocation.get(key);
+
+                        String teacherKey = period.getTeacher().getTeacherId()+"-"+ key;
+                        String classKey = allocationTable1.getClassRoom().getClassRoomId()+"-"+ key;
+
+                        Boolean teacherAllocated = teacherAllocation.get(teacherKey);
+                        Period classAllocationPeriod = classAllocation.get(classKey);
+
                         if(teacherAllocated == null && classAllocationPeriod == null){
-                            classAllocation.put(key,period);
-                            teacherAllocation.put(key,true);
+                            classAllocation.put(classKey,period);
+                            teacherAllocation.put(teacherKey,true);
 
                             System.out.println(key+"   "+period.getClassRoom().getGrade()+period.getClassRoom().getClassRoomName()
                             +" "+period.getSubject().getName()+"   "+period.getTeacher().getFirstName());
@@ -169,9 +170,9 @@ public class Helper {
                 }
 
             }
-            timeTableList.add(classAllocation);
+            timeTableListMap.put(allocationTable1.getClassRoom().getClassRoomId(), classAllocation);
         }
-        return timeTableList;
+        return timeTableListMap;
     }
 
 }

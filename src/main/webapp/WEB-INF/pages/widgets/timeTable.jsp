@@ -1,11 +1,9 @@
 <%@ page import="util.Helper" %>
-<%@ page import="entity.User" %>
-<%@ page import="entity.TimeTable" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="entity.Period" %>
-<%@ page import="entity.Exam" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
+<%@ page import="entity.*" %>
+<%@ page import="entityManager.EntityManager" %>
 
 
 <%
@@ -13,12 +11,18 @@
     User user = helper.getUser(request);
     try{
     Set<TimeTable> timeTableSet =  helper.createAllocationTable(user.getSchool());
-    List<HashMap<String, Period>> classTimeTableList = helper.createTimeTable(timeTableSet);
+//    List<HashMap<String, Period>> classTimeTableList = helper.createTimeTable(timeTableSet);
+    HashMap<Integer, HashMap<String,Period>> classTimeTableMap = helper.createTimeTable(timeTableSet);
+    List<Entity> classRoomSet= EntityManager.getEntities(ClassRoom.class, user.getSchool());
 %>
 <%
-    for(HashMap<String, Period> classAllocation : classTimeTableList){
+//    for(HashMap<String, Period> classAllocation : classTimeTableList){
+    for(Entity entity : classRoomSet){
+        ClassRoom classRoom = (ClassRoom)entity;
+        HashMap<String,Period> classTimeTable = classTimeTableMap.get(classRoom.getClassRoomId());
 %>
 
+<%--<h2><%=classRoom.getGrade()+"-"+classRoom.getClassRoomName()%></h2>--%>
 
     <table class="w3-table-all">
         <tr  class="w3-blue">
@@ -34,8 +38,10 @@
         <tr>
         <%
                 for( int d=0 ;d<5;d++){
+                    String key1 = classRoom.getClassRoomId()+"-"+d+"-"+s;
+                    Period classPeriod = classTimeTable.get(key1);
         %>
-            <td><%=classAllocation.get(d+"-"+s)!=null?classAllocation.get(d+"-"+s).getSubject().getName()+": T"+classAllocation.get(d+"-"+s).getTeacher().getTeacherId():"--"%></td>
+            <td><%=classPeriod != null ? classPeriod.getSubject().getName()+": T"+classPeriod.getTeacher().getTeacherId():"--"%></td>
         <%
                 }
         %>
@@ -57,24 +63,24 @@
 
 
 
-<table class="w3-table-all">
-    <tr  class="w3-black">
-        <th>Class Room</th>
-        <th>Subject</th>
-        <th>Teacher</th>
-    </tr>
-<%
-    for( TimeTable timeTable: timeTableSet){
-        for(Period period: timeTable.getPeriods()){
-%>
-    <tr><td><%=period.getClassRoom().getGrade()+"-"+period.getClassRoom().getClassRoomName()%><td> <%=period.getSubject().getName()%></td><td><%=period.getTeacher().getFirstName()%></tr>
-<%
-        }
-    }
-%>
+<%--<table class="w3-table-all">--%>
+    <%--<tr  class="w3-black">--%>
+        <%--<th>Class Room</th>--%>
+        <%--<th>Subject</th>--%>
+        <%--<th>Teacher</th>--%>
+    <%--</tr>--%>
+<%--<%--%>
+    <%--for( TimeTable timeTable: timeTableSet){--%>
+        <%--for(Period period: timeTable.getPeriods()){--%>
+<%--%>--%>
+    <%--<tr><td><%=period.getClassRoom().getGrade()+"-"+period.getClassRoom().getClassRoomName()%><td> <%=period.getSubject().getName()%></td><td><%=period.getTeacher().getFirstName()%></tr>--%>
+<%--<%--%>
+        <%--}--%>
+    <%--}--%>
+<%--%>--%>
 
 
-</table>
+<%--</table>--%>
 
 <%
     }catch (Exception e){
