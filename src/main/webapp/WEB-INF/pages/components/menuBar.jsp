@@ -21,7 +21,7 @@
             <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
                 <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageAddClassRoom?t56='+t56)">Create New Class</a>
                 <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageEditClassRoom?t56='+t56)">Change Class Room</a>
-                <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageSubjectTeacher')">Change Subjects of Teachers</a>
+                <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageSubjectTeacher')">Allocate Teachers for Subjects</a>
                 <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageAddSubject?t56='+t56)">Manage Subjects</a>
                 <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageAddTeacher?t56='+t56)">Manage Teachers</a>
             </div>

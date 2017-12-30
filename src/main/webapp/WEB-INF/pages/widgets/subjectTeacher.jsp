@@ -20,19 +20,21 @@
 <%--<div id="<%="sub"+subject.getSubjectId()%>" class="w3-container w3-card-4">--%>
             <h3><%= subject.getSubjectId()%> - <%=subject.getCode() + " " + subject.getName()%></h3>
 
-
-        <% List<Entity> teachers = EntityManager.getEntities(Teacher.class);
-                for (Entity techr : teachers) {
-                    Teacher teacher = (Teacher) techr;
-        %>
-                    <input  <% if(Teacher.contains(subject.getTeachers(),teacher)) {%> checked="checked" <% }else{} %>
-                                                                                       class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
-                    <label><%= teacher.getFirstName() + ":" + teacher.getLastName()%> </label>
-        <%
-                }
-        %>
+        <div class="w3-row">
+            <% List<Entity> teachers = EntityManager.getEntities(Teacher.class);
+                    for (Entity techr : teachers) {
+                        Teacher teacher = (Teacher) techr;
+            %>
+            <div class="allocateSubject">
+                <input  <% if(Teacher.contains(subject.getTeachers(),teacher)) {%> checked="checked" <% }else{} %> class="w3-check" type="checkbox" id="<%=teacher.getTeacherId()%>">
+                <label><%= teacher.getFirstName() + ":" + teacher.getLastName()%> </label>
+            </div>
+            <%
+                    }
+            %>
+        </div>
         <p>
-            <button id="<%=subject.getSubjectId()%>" class="w3-btn w3-teal" onclick="subjectTeacher(this)">Save</button>
+            <button id="<%=subject.getSubjectId()%>" class="w3-btn w3-green btn-right" onclick="subjectTeacher(this)">Save</button>
         </p>
 
 </div>
