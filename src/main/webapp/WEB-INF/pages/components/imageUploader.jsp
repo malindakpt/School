@@ -1,7 +1,7 @@
 <div class="profile_pic_wrapper">
     <canvas id="chat_canvas" width=200 height=200 style="display:none"></canvas>
     <input id="profPicInput" type="file" accept="image/*" onchange="changeProfPic()" />
-    <img id="imgPreview" style="float: left;"></img>
+    <img id="imgPreview" style="float: left;" src="<%=request.getParameter("prev")%>"></img>
 </div>
 
 <script>

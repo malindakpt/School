@@ -1,7 +1,12 @@
 <div>
     <jsp:include page="../components/header.jsp?header=Add/Edit Teachers"/>
+    <button onclick="showHide('adder')" class="w3-button btn-right w3-green">
+        Add Teacher</button>
     <div class="w3-container">
-        <br>
+
+
+
+        <div id="adder" class="w3-hide">
         <label>First Name</label>
         <input class="w3-input" type="text" id="firstName">
         <label>Last Name</label>
@@ -25,7 +30,7 @@
 
 
         <button onclick="saveTeacher()" type="button" class="w3-button w3-green btn-right">Add Teacher</button>
-
+        </div>
     </div>
 
     <%
@@ -62,6 +67,18 @@
                 alert("Error");
             }
         );
+    }
+</script>
+
+
+<script>
+    function showHide(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
     }
 </script>
 

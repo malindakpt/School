@@ -6,7 +6,7 @@
 <%@ page import="entity.User" %>
 <%@ page import="util.Helper" %>
 
-<jsp:include page="../components/header2.jsp?header=Existing Teachers"/>
+<%--<jsp:include page="../components/header2.jsp?header=Existing Teachers"/>--%>
 
 <div class="w3-container">
 
@@ -26,14 +26,14 @@
                 </td>
                 <td>
                     <%=
-                    teacher.getFirstName()
+                    teacher.getFirstName()+" "+teacher.getLastName()
                     %>
                 </td>
                 <td>
                    Available Today
                 </td>
                 <td>
-                    <button id="<%=teacher.getTeacherId()%>" class="w3-button" onclick="editTeacher(this)">edit</button>
+                    <button id="<%=teacher.getTeacherId()%>" class="w3-button" onclick="editTeacher(this)">view</button>
                 </td>
             </tr>
             <%
@@ -47,6 +47,7 @@
 
     function editTeacher(btn){
         getAndSetPage("PageEditTeacher?teacherId="+btn.id);
+        getAndSetPage("Profile?isTeacher=true&id="+btn.id, "profileContainer");
     }
 </script>
 <p class="wid-id">listTeachers</p>
