@@ -253,6 +253,15 @@ class PageTimeTableController {
 	}
 }
 
+@Controller
+@RequestMapping("/PageLibraryManagement")
+class PageLibraryManagementController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/libraryManagement";
+	}
+}
+
 
 @Controller
 @RequestMapping("/PageAddClassStudents")

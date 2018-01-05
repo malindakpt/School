@@ -10,7 +10,7 @@
 
 
 <jsp:include page="../components/header.jsp?header=Add/Remove Subjects for Teachers"/>
-
+<button onclick="getAndSetPage('PageAddSubject?t56='+t56)" class="w3-button w3-blue btn-right">Add Subject</button>
 
         <% List<Entity> subjects = EntityManager.getEntities(Subject.class);
             for (Entity sub : subjects) {

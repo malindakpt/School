@@ -3,9 +3,20 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="java.util.*" %>
 
-<div id="chartContainer" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
 
+<button onclick="showHide('chartContainer')" class="w3-btn w3-block w3-black w3-left-align">Show Teacher Allocation Graph</button>
+<div id="chartContainer" style="min-width: 300px; height: 400px; margin: 0 auto; display: none"></div>
 
+<script>
+    function showHide(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
 <%
     Helper helper = new Helper();
     User user = helper.getUser(request);
@@ -123,15 +134,15 @@
             type: 'column'
         },
         title: {
-            text: 'World\'s largest cities per 2014'
+            text: 'Allocated Periods of Teachers 2018'
         },
-        subtitle: {
-            text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        credits: {
+            enabled: false,
         },
         plotOptions: {
             column: {
                 zones: [{
-                    value: 10, // Values up to 10 (not including) ...
+                    value: 13, // Values up to 10 (not including) ...
                     color: 'blue' // ... have the color blue.
                 },{
                     color: 'red' // Values from 10 (including) and up have the color red
@@ -151,14 +162,14 @@
         yAxis: {
             min: 0,
             title: {
-                text: 'Population (millions)'
+                text: 'Number Of Allocated Periods'
             }
         },
         legend: {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+            pointFormat: 'Number of Allocated Periods <b>{point.y:.1f} </b>'
         },
         series: [{
             name: 'Population',

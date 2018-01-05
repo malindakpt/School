@@ -46,7 +46,7 @@
 
 <script>
     function showStudent(btn) {
-        getAndSetPage("Profile?id="+btn.id+"&t56="+t56, "profileContainer");
+        getAndSetPage("Profile?isStudent=true&id="+btn.id+"&t56="+t56, "profileContainer");
         getAndSetPage("PageStudentDashBoard?studentId="+btn.id+"&t56="+t56);
     }
 	 function editStudent(btn) {

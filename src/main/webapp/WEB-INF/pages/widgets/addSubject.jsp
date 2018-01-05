@@ -2,6 +2,8 @@
     <jsp:include page="../components/header.jsp?header=Create a New Subject"/>
 
     <div class="w3-container">
+        <button onclick="getAndSetPage('PageSubjectTeacher')" class="w3-button w3-blue btn-right">Allocate Subject Teachers</button>
+        <br>
         <br>
         <label>Code</label>
         <input class="w3-input" type="text" id="code">
