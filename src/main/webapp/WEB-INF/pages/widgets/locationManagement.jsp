@@ -66,9 +66,6 @@
     </div>
 </div>
 
-
-
-
 <script>
     function allocateLocation(e){
         getAndSetPage('PageChangeAllocation?t56='+t56+'&locationId='+e.id);

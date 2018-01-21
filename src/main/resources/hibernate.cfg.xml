@@ -26,5 +26,6 @@
             <mapping class="entity.TimeTable"></mapping>
             <mapping class="entity.Period"></mapping>
             <mapping class="entity.allocation.Location"></mapping>
+            <mapping class="entity.allocation.InventoryItem"></mapping>
     </session-factory>
 </hibernate-configuration>

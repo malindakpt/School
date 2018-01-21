@@ -1,16 +1,22 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MalindaK
-  Date: 1/21/2018
-  Time: 10:21 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page import="entity.Entity" %>
+<%@ page import="entityManager.EntityManager" %>
+<%@ page import="java.util.List" %>
+<%@ page import="entity.User" %>
+<%@ page import="util.Helper" %>
+<%@ page import="entity.allocation.Location" %>
 
-</body>
-</html>
+<%
+    User user = new Helper().getUser(request);
+%>
+
+<select class="w3-select" name="option" id="locationSelector">
+    <option value="-1"> - Select -</option>
+    <%
+        List<Entity> locations = EntityManager.getEntities(Location.class,user.getSchool());
+        for(Entity entity : locations){
+            Location location = (Location)entity;
+    %>
+    <option value="<%=location.getLocationId()%>" ><%=location.getName()%></option>
+
+    <%}%>
+</select>

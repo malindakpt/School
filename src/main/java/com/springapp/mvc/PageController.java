@@ -54,6 +54,15 @@ class PageChangeAllocationController {
 }
 
 @Controller
+@RequestMapping("/PageChangeAllocationInventory")
+class PageChangeAllocationInventoryController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/changeAllocationInventory";
+	}
+}
+
+@Controller
 @RequestMapping("/listStudentsWithClassFilter")
 class CompListStudentsWithClassFilterController {
 	@RequestMapping(method = RequestMethod.POST)

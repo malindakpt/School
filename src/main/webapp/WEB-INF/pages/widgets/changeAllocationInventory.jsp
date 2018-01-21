@@ -1,13 +1,16 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="entity.allocation.Location" %>
-<%@ page import="util.Helper" %><%
-    String locId = request.getParameter("locationId");
+<%@ page import="util.Helper" %>
+<%@ page import="entity.allocation.InventoryItem" %>
+<%
+
+    String inventoryId = request.getParameter("inventoryId");
     Helper helper = new Helper();
     HashMap<String, String> map = null;
-    Location location = (Location) EntityManager.getEntity(Location.class, "locationId", locId);
-    String placeName = location.getName();
-    String allocString = location.getAllocationMap();
+    InventoryItem inventoryItem = (InventoryItem) EntityManager.getEntity(InventoryItem.class, "inventoryId", inventoryId);
+    String placeName = inventoryItem.getName();
+    String allocString = inventoryItem.getAllocationMap();
     if( allocString != null){
         map = helper.getAllocationMap(allocString);
     }else{
@@ -16,7 +19,7 @@
 
 %>
 
-<jsp:include page="../components/header.jsp?header=Weekly allocation"/>
+<jsp:include page="../components/header.jsp?header=Weekly allocation for Inventory"/>
 
 <table class="w3-table-all">
     <tr  class="w3-indigo">
@@ -78,7 +81,7 @@
 <script>
 
 
-    var locationId = <%=locId%>;
+    var inventoryId = <%=inventoryId%>;
     var dayPeriod = '';
 
     function showAllocationPopup(dayPer){
@@ -87,9 +90,9 @@
     }
 
     function saveAllocation() {
-        $.post('SaveAllocation', {
+        $.post('SaveAllocationInventory', {
                 dayPeriod: dayPeriod,
-                locationId: locationId,
+                inventoryId: inventoryId,
                 desc: $('#desc').val(),
                 teacherId: $('#teacherSelector').val(),
                 t56: t56
@@ -98,7 +101,7 @@
                 var resArr = result.split("##");
                 if (resArr[0] === "") {
                     alert("Success");
-                    getAndSetPage('PageChangeAllocation?t56='+t56+'&locationId='+locationId);
+                    getAndSetPage('PageChangeAllocationInventory?t56='+t56+'&inventoryId='+inventoryId);
                 } else {
                     alert(resArr[1]);
                 }
