@@ -15,7 +15,6 @@ public class Exam extends Entity {
     private int year;
     private String name;
     private Course course;
-
     // Reverse mapping
     private Set<Assesment> assesment;
 

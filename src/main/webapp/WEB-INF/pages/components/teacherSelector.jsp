@@ -10,7 +10,7 @@
 %>
 
 <select class="w3-select" name="option" id="teacherSelector">
-    <option value="-1">Select a Class Teacher</option>
+    <option value="-1"> - Select -</option>
     <%
         List<Entity> teachers = EntityManager.getEntities(Teacher.class,user.getSchool());
         for(Entity entity : teachers){

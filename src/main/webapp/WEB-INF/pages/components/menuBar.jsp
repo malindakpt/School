@@ -35,9 +35,15 @@
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
            onclick="getAndSetPage('PageLibraryManagement?t56='+t56)" title="Library Management"><i
                 class="fa fa-book "></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+           onclick="getAndSetPage('PageLocationManagement?t56='+t56)" title="Location Management"><i
+                class="fa fa-trello"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+           onclick="getAndSetPage('PageInventoryManagement?t56='+t56)" title="Inventory Management"><i
+                class="fa fa-cutlery"></i></a>
 
         <div class="w3-dropdown-hover w3-hide-small">
-            <button class="w3-button w3-padding-large" title="Settings"><i class="fa fa-gears"></i>
+                <button class="w3-button w3-padding-large" title="Settings"><i class="fa fa-gears"></i></button>
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
                     <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;"
                        onclick="getAndSetPage('PageAddClassRoom?t56='+t56)">Create New Class</a>
@@ -46,17 +52,8 @@
                     <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;"
                        onclick="getAndSetPage('PageAddClassStudents?t56='+t56)">Assign
                         Students to class</a>
-                    <%--<a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddClassStudents?t56='+t56)">Assign--%>
-                        <%--Students to class</a>--%>
-                    <%--<a href="#" class="w3-bar-item w3-button" style="font-size: 15px;"--%>
-                       <%--onclick="getAndSetPage('PageAddSubject?t56='+t56)">Subjects</a>--%>
-                    <%--<a href="#" class="w3-bar-item w3-button" style="font-size: 15px;"--%>
-                       <%--onclick="getAndSetPage('PageAddTeacher?t56='+t56)">Teachers</a>--%>
                     <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;"
                        onclick="getAndSetPage('PageTimeTable?t56='+t56)">Create Time Table</a>
-                    <%--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"--%>
-                       <%--onclick="getAndSetPage('PageTimeTable?t56='+t56)" title="TIme Tables"><i--%>
-                            <%--class="fa fa-calendar"></i></a>--%>
                 </div>
         </div>
         <a href="/" class="w3-bar-item w3-button w3-right w3-padding-large w3-hover-white" title="My Account"

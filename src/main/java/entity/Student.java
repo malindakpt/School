@@ -21,6 +21,7 @@ public class Student extends Member {
     private ClassRoom classRoom;
     private Set<ParticipationDate> absentDates;
     private Set<Assesment> assesments;
+    private String lastPayment;
 
     // School Mapping start
     private School school;

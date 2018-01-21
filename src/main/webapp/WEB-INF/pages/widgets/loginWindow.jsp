@@ -177,7 +177,7 @@
                 console.log(result)
                 var resArr = result.split(",");
                 if(resArr[0]==="OK"){
-//                    window.location.replace("Home?sessionId="+resArr[1]);
+//                    window.Location.replace("Home?sessionId="+resArr[1]);
                     window.location.href = "Home?t56="+resArr[1];
                 }else{
                     alert("Invalid Username or Password")

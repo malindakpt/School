@@ -1,9 +1,6 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -18,6 +15,7 @@ public class Member extends Entity{
     private String address;
     private String phone;
     private String image;
+
 
     @Column(name = "firstName", nullable = true, length = 100)
     public String getFirstName() {
@@ -73,5 +71,10 @@ public class Member extends Entity{
     }
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Transient
+    public String displayName(){
+        return this.getFirstName()+" "+this.getLastName();
     }
 }

@@ -12,6 +12,39 @@ import java.util.*;
  */
 public class Helper {
 
+    // 0-1-2-3#
+    // dayId-periodId-userId-desc
+    public HashMap<String,String> getAllocationMap(String str) throws Exception {
+
+        HashMap<String,String> map = new HashMap<String, String>();
+        if(str == null){
+            return  map;
+        }
+        String[] strArr = str.split("#");
+
+        for(int i = 0;i<strArr.length;i++){
+            String[] strArr2 = strArr[i].split("%");
+            for(int j=0; j< strArr2.length; j++){
+                try{
+                    map.put(strArr2[0] + "%" + strArr2[1], strArr2[2] + "%" + strArr2[3]);
+                }catch (Exception e){
+                    System.out.println("");
+                }
+            }
+        }
+        return  map;
+    }
+    // 0-1-2-3#
+    // dayId-periodId-userId-desc
+    public String getAllocationString(HashMap<String, String> map){
+        String str = "";
+        Set<String> keys = map.keySet();
+        for(String key : keys){
+            str= str+"#"+key+"%"+map.get(key);
+        }
+        return str;
+    }
+
     public Set<TimeTable> createAllocationTable(School school) throws Exception {
         Set<TimeTable> timeTableSet = new HashSet<TimeTable>();
         List<Entity> classRoomList = EntityManager.getEntities(ClassRoom.class, school);

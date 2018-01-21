@@ -43,6 +43,16 @@ class ListSubjectsController {
 		return "widgets/listSubjects";
 	}
 }
+
+@Controller
+@RequestMapping("/PageChangeAllocation")
+class PageChangeAllocationController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/changeAllocation";
+	}
+}
+
 @Controller
 @RequestMapping("/listStudentsWithClassFilter")
 class CompListStudentsWithClassFilterController {
@@ -259,6 +269,25 @@ class PageLibraryManagementController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "widgets/libraryManagement";
+	}
+}
+
+
+@Controller
+@RequestMapping("/PageInventoryManagement")
+class PageInventoryManagementController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/InventoryManagement";
+	}
+}
+
+@Controller
+@RequestMapping("/PageLocationManagement")
+class PageLocationManagementController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/locationManagement";
 	}
 }
 

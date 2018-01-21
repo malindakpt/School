@@ -25,6 +25,6 @@
             <mapping class="entity.SubjectAsign"></mapping>
             <mapping class="entity.TimeTable"></mapping>
             <mapping class="entity.Period"></mapping>
-
+            <mapping class="entity.allocation.Location"></mapping>
     </session-factory>
 </hibernate-configuration>
