@@ -17,6 +17,27 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>IssueBook</servlet-name>
+		<servlet-class>servlet.IssueBook</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IssueBook</servlet-name>
+		<url-pattern>/IssueBook</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AddBook</servlet-name>
+		<servlet-class>servlet.AddBook</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddBook</servlet-name>
+		<url-pattern>/AddBook</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
 		<servlet-name>SaveAllocation</servlet-name>
 		<servlet-class>servlet.SaveAllocation</servlet-class>
 	</servlet>

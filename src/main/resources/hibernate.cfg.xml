@@ -27,5 +27,6 @@
             <mapping class="entity.Period"></mapping>
             <mapping class="entity.allocation.Location"></mapping>
             <mapping class="entity.allocation.InventoryItem"></mapping>
+            <mapping class="entity.library.Book"></mapping>
     </session-factory>
 </hibernate-configuration>
