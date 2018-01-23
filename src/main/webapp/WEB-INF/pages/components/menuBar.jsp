@@ -32,9 +32,24 @@
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
            onclick="getAndSetPage('PageAddTeacher?t56='+t56)" title="Teachers"><i
                 class="fa  fa-modx"></i></a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
-           onclick="getAndSetPage('PageLibraryManagement?t56='+t56)" title="Library Management"><i
-                class="fa fa-book "></i></a>
+        <%--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"--%>
+           <%--onclick="getAndSetPage('PageLibraryManagement?t56='+t56)" title="Library Management"><i--%>
+                <%--class="fa fa-book "></i></a>--%>
+
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-button w3-padding-large" title="Library Management"><i class="fa fa-book"></i>
+                <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+                    <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageLibraryManagement?t56='+t56)">All Books</a>
+                    <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageLibraryManagement?isAvailable=1&t56='+t56)">Available Books</a>
+                    <a href="#" class="w3-bar-item w3-button" style="font-size: 15px;" onclick="getAndSetPage('PageLibraryManagement?isIssued=1&t56='+t56)">Issued Books</a>
+
+                </div>
+            </button>
+        </div>
+
+
+
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
            onclick="getAndSetPage('PageLocationManagement?t56='+t56)" title="Location Management"><i
                 class="fa fa-trello"></i></a>

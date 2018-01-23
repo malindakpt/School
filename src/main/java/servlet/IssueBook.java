@@ -38,14 +38,27 @@ public class IssueBook extends HttpServlet {
                 Helper helper = new Helper();
                 Calendar c = Calendar.getInstance();
                 String bookId = request.getParameter("bookId");
-                String studentId = request.getParameter("studentId");
+                String isReturn = request.getParameter("isReturn");
                 Book book = (Book) EntityManager.getEntity(Book.class, "bookId", bookId);
-                Student student = (Student) EntityManager.getEntity(Student.class, "studentId", studentId);
 
-                book.setBorrowedBy(student);
-                book.setBurrowedDate(c.getTime());
+                if (isReturn == null ){
+                    String studentId = request.getParameter("studentId");
+                    Student student = (Student) EntityManager.getEntity(Student.class, "studentId", studentId);
 
-                EntityManager.update(book);
+                    book.setBorrowedBy(student);
+                    book.setBurrowedDate(c.getTime());
+                    book.setIssued(true);
+                    EntityManager.update(book);
+                }else {
+//                    String studentId = request.getParameter("studentId");
+//                    Book book = (Book) EntityManager.getEntity(Book.class, "bookId", bookId);
+//                    Student student = (Student) EntityManager.getEntity(Student.class, "studentId", studentId);
+
+                    book.setIssued(false);
+
+                    EntityManager.update(book);
+                }
+
             }
 
         }catch (Exception e){

@@ -184,6 +184,38 @@ public class EntityManager {
         }
         return null;
     }
+
+    public static List<Entity> getOrderedFilteredEntities(Class entity, School school, String col1, String val1, String orderedAttr, boolean isAsc){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+        String order = isAsc ? "asc" : "desc";
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE schoolId = :schoolId AND "+col1+"= :val1 order by "+orderedAttr+" " + order;
+//            String hql = "FROM "+entity.getSimpleName()+" WHERE schoolId = :schoolId AND "+col1+"= :val1 AND " +col2+"= :val2 order by "+orderedAttr+" " + order;
+
+            Query query = session.createQuery(hql);
+            query.setParameter("schoolId", school.getSchoolId());
+            query.setParameter("val1", val1);
+//            query.setParameter("val2", val2);
+            entities = query.list();
+
+            tx.commit();
+
+            return entities;
+
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
     public static Entity getEntity2(Class entity,String col1, String val1, String col2, String val2){
         List<Entity> entities;// = new ArrayList<Entity>();
         Session session = null;
@@ -247,9 +279,6 @@ public class EntityManager {
             Query query = session.createQuery(hql);
             query.setParameter("schoolId", school.getSchoolId());
             entities = query.list();
-
-//            entities = session.createQuery("FROM "+entity.getSimpleName() +" WHERE schoolId = :schoolId").list();
-
             tx.commit();
             return entities;
         } catch (Exception e) {
@@ -260,4 +289,29 @@ public class EntityManager {
         }
         return null;
     }
-}
+
+    public static List<Entity> getOrderedEntities(Class entity, School school, String orderedAttr, boolean isAsc){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+        String order = isAsc ? "asc" : "desc";
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM "+entity.getSimpleName()+" WHERE schoolId = :schoolId order by "+orderedAttr+" " + order;
+            Query query = session.createQuery(hql);
+            query.setParameter("schoolId", school.getSchoolId());
+            entities = query.list();
+            tx.commit();
+            return entities;
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+  }

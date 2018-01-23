@@ -22,6 +22,7 @@ public class Book extends Entity {
     private String description;
     private String publisher;
     private int category;
+    private boolean isIssued;
 
     private Date addedDate;
     private Student borrowedBy;
@@ -95,6 +96,14 @@ public class Book extends Entity {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Column(name = "isIssued", nullable = true, length = 10)
+    public boolean isIssued() {
+        return isIssued;
+    }
+    public void setIssued(boolean issued) {
+        isIssued = issued;
     }
 
     @Column(name = "publisher", nullable = true, length = 100)

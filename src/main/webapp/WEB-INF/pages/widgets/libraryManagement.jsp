@@ -35,7 +35,16 @@
             </thead>
             <%
                 User user = new Helper().getUser(request);
-                List<Entity> items = EntityManager.getEntities(Book.class, user.getSchool());
+                List<Entity> items;
+                if(request.getParameter("isIssued") != null ){
+                    items = EntityManager.getOrderedFilteredEntities(Book.class, user.getSchool(),"isIssued", "1", "burrowedDate", true);
+                } else if(request.getParameter("isAvailable") != null ){
+                    items = EntityManager.getOrderedFilteredEntities(Book.class, user.getSchool(),"isIssued", "0", "burrowedDate", true);
+                } else{
+                    items = EntityManager.getEntities(Book.class, user.getSchool());
+                }
+
+
                 for(Entity item : items){
                     Book book = (Book)item;
             %>
@@ -71,12 +80,24 @@
                     %>
                 </td>
                 <td>
-                    <%=
-                    book.getBorrowedBy()!= null ? book.getBorrowedBy().displayName() : "---"
-                    %>
+
+                    <div> <%=
+                    book.isIssued() ?  new Helper().getDateDifference(book.getBurrowedDate()) : ""
+                    %><div><%= book.isIssued() ?  book.getBorrowedBy().displayName() +":"+book.getBorrowedBy().getStudentId()+":"+book.getBurrowedDate() : ""%></div></div>
+
                 </td>
                 <td>
-                    <button id="<%=book.getBookId()%>" class="w3-button w3-amber" onclick="showIssueBook(this)">Issue</button>
+                    <%
+                        if( book.isIssued() ){
+                    %>
+                    <button id="<%=book.getBookId()%>" class="w3-button w3-red w3-block" onclick="returnBook(this)">Return</button>
+                    <%
+                        }else{
+                    %>
+                    <button id="<%=book.getBookId()%>" class="w3-button w3-green w3-block" onclick="showIssueBook(this)">Issue</button>
+
+                    <% }
+                    %>
                 </td>
             </tr>
             <%
@@ -109,9 +130,31 @@
     function showIssueBook(e){
         bookId = e.id;
         $('#bookAllocWindow').show();
-//        getAndSetPage('PageChangeAllocationInventory?t56='+t56+'&inventoryId='+e.id);
     }
 
+    function returnBook(e){
+        bookId = e.id;
+        $.post('IssueBook', {
+                isReturn: true,
+                bookId: bookId,
+                t56: t56
+            },
+            function (result) {
+                var resArr = result.split("##");
+                if (resArr[0] === "") {
+                    alert("Success");
+//                    getAndSetPage('PageLi?t56='+t56+'&inventoryId='+inventoryId);
+                } else {
+                    alert(resArr[1]);
+                }
+                getAndSetPage('PageLibraryManagement?t56='+t56);
+
+            }).fail(function () {
+                alert("Error");
+            }
+        );
+//        getAndSetPage('PageChangeAllocationInventory?t56='+t56+'&inventoryId='+e.id);
+    }
     function issueBook(){
         $.post('IssueBook', {
                 studentId: $('#studentId').val(),
@@ -127,6 +170,7 @@
                     alert(resArr[1]);
                 }
                 $('#bookAllocWindow').hide();
+                getAndSetPage('PageLibraryManagement?t56='+t56);
 
             }).fail(function () {
                 alert("Error");
