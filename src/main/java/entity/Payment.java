@@ -11,12 +11,12 @@ import java.util.Date;
         @UniqueConstraint(columnNames = "paymentId")})
 public class Payment extends Entity{
     private int paymentId;
-    private String key;
+    private String paymentKey;
     private float amount;
     private int paymentMethod;
-    private String desc;
-    private Date date;
-    private String ref;
+    private String description;
+    private Date payDate;
+    private String referance;
     private int category;
     private Student student;
 
@@ -43,12 +43,12 @@ public class Payment extends Entity{
         this.paymentId = paymentId;
     }
 
-    @Column(name = "key", nullable = false, length = 40)
-    public String getKey() {
-        return key;
+    @Column(name = "paymentKey", nullable = false, length = 40)
+    public String getPaymentKey() {
+        return paymentKey;
     }
-    public void setKey(String key) {
-        this.key = key;
+    public void setPaymentKey(String paymentKey) {
+        this.paymentKey = paymentKey;
     }
 
     @Column(name = "amount", nullable = false, length = 40)
@@ -75,32 +75,34 @@ public class Payment extends Entity{
         this.paymentMethod = paymentMethod;
     }
 
-    @Column(name = "desc", nullable = false, length = 40)
-    public String getDesc() {
-        return desc;
+    @Column(name = "description", nullable = false, length = 40)
+    public String getDescription() {
+        return description;
     }
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    @Column(name = "date", nullable = false, length = 40)
-    public Date getDate() {
-        return date;
-    }
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    @Column(name = "ref", nullable = false, length = 40)
-    public String getRef() {
-        return ref;
+    @Column(name = "payDate", nullable = false, length = 40)
+    public Date getPayDate() {
+        return payDate;
     }
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void setPayDate(Date payDate) {
+        this.payDate = payDate;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "studentId", nullable = false)
+    @Column(name = "referance", nullable = false, length = 40)
+    public String getReferance() {
+        return referance;
+    }
+    public void setReferance(String referance) {
+        this.referance = referance;
+    }
+
+
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name="studentId")
     public Student getStudent() {
         return student;
     }

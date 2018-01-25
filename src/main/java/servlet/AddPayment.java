@@ -35,21 +35,19 @@ public class AddPayment extends HttpServlet {
 
                 Calendar c = Calendar.getInstance();
                 String studId = request.getParameter("studId");
-             //   Student student = (Student) EntityManager.getEntity(Student.class,"studentId", studId);
-                Student student = new Student();
-                student.setStudentId(1);
+              Student student = (Student) EntityManager.getEntity(Student.class,"studentId", studId);
+//                Student student = new Student();
+//                student.setStudentId(1);
                 Payment payment = new Payment();
                 payment.setStudent(student);
-                payment.setKey(request.getParameter("year")+ "-" +request.getParameter("term"));
+                payment.setPaymentKey(request.getParameter("year")+ "-" +request.getParameter("term"));
                 payment.setCategory(Integer.parseInt(request.getParameter("cat")));
                 payment.setAmount(Integer.parseInt(request.getParameter("amount")));
                 payment.setPaymentMethod(Integer.parseInt(request.getParameter("payMethod")));
-                payment.setRef(request.getParameter("ref"));
-                payment.setDesc(request.getParameter("desc"));
-                payment.setDate(c.getTime());
-
+                payment.setReferance(request.getParameter("ref"));
+                payment.setDescription(request.getParameter("desc"));
+                payment.setPayDate(c.getTime());
                 payment.setSchool(user.getSchool());
-
                 EntityManager.add(payment);
             }else{
                 out.write("NO##Unauthorized Access");
