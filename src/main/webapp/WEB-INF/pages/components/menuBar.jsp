@@ -57,6 +57,10 @@
            onclick="getAndSetPage('PageInventoryManagement?t56='+t56)" title="Inventory Management"><i
                 class="fa fa-cutlery"></i></a>
 
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+           onclick="getAndSetPage('PagePaymentManager?t56='+t56)" title="Payment Management"><i
+                class="fa fa-credit-card"></i></a>
+
         <div class="w3-dropdown-hover w3-hide-small">
                 <button class="w3-button w3-padding-large" title="Settings"><i class="fa fa-gears"></i></button>
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">

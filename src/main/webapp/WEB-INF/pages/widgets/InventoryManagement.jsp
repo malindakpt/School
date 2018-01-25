@@ -9,7 +9,8 @@
 <div class="w3-container">
     <div>
         <jsp:include page="../components/header.jsp?header=Inventory Management"/>
-        <button onclick="showAddLocation()" class="w3-btn btn-right w3-green">Add Inventory Item</button>
+        <%--<button onclick="showAddLocation()" class="w3-btn btn-right w3-green">Add Inventory Item</button>--%>
+        <button onclick="showInventoryItem()" class="w3-btn btn-right w3-circle w3-green"><b>+</b></button>
     </div>
 
     <div id="addInventory" class="w3-container w3-hide">
@@ -71,7 +72,7 @@
     function allocateInventoryItem(e){
         getAndSetPage('PageChangeAllocationInventory?t56='+t56+'&inventoryId='+e.id);
     }
-    function showAddLocation() {
+    function showInventoryItem() {
         var x = document.getElementById("addInventory");
         if (x.className.indexOf("w3-show") == -1) {
             x.className += " w3-show";

@@ -8,7 +8,8 @@
 <div class="w3-container">
     <div>
         <jsp:include page="../components/header.jsp?header=Location/Places Management"/>
-        <button onclick="showAddLocation()" class="w3-btn btn-right w3-green">Add Location</button>
+        <%--<button onclick="showAddLocation()" class="w3-btn btn-right w3-green">Add Location</button>--%>
+        <button onclick="showAddLocation()" class="w3-btn btn-right w3-circle w3-green"><b>+</b></button>
     </div>
 
     <div id="addInventory" class="w3-container w3-hide">

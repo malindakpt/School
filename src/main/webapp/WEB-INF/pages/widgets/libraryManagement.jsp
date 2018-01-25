@@ -10,7 +10,7 @@
 <div class="w3-container">
     <div>
         <jsp:include page="../components/header.jsp?header=Library Management"/>
-        <button onclick="showAddBook()" class="w3-btn btn-right w3-green">Add Books</button>
+        <button onclick="showAddBook()" class="w3-btn btn-right w3-circle w3-green"><b>+</b></button>
     </div>
 
     <div id="addBook" class="w3-container w3-hide">

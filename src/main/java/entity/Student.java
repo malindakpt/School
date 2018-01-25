@@ -21,6 +21,7 @@ public class Student extends Member {
     private ClassRoom classRoom;
     private Set<ParticipationDate> absentDates;
     private Set<Assesment> assesments;
+    private Set<Payment> payments;
     private String lastPayment;
 
     // School Mapping start
@@ -60,6 +61,22 @@ public class Student extends Member {
     }
     public void setAbsentDates(Set<ParticipationDate> absentDates) {
         this.absentDates = absentDates;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student")
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
+
+    @Column(name = "lastPayment", nullable = true, length = 20)
+    public String getLastPayment() {
+        return lastPayment;
+    }
+    public void setLastPayment(String lastPayment) {
+        this.lastPayment = lastPayment;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

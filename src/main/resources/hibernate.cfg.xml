@@ -25,6 +25,7 @@
             <mapping class="entity.SubjectAsign"></mapping>
             <mapping class="entity.TimeTable"></mapping>
             <mapping class="entity.Period"></mapping>
+            <mapping class="entity.Payment"></mapping>
             <mapping class="entity.allocation.Location"></mapping>
             <mapping class="entity.allocation.InventoryItem"></mapping>
             <mapping class="entity.library.Book"></mapping>

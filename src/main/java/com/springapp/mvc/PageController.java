@@ -208,6 +208,15 @@ class PageAddClassRoomController {
 }
 
 @Controller
+@RequestMapping("/PagePaymentManager")
+class PagePaymentManagerController {
+	@RequestMapping(method = RequestMethod.POST)
+	public String printWelcome(ModelMap model) {
+		return "widgets/paymentManager";
+	}
+}
+
+@Controller
 @RequestMapping("/PageListStudents4Teacher")
 class PageListStudents4TeacherController {
 	@RequestMapping(method = RequestMethod.POST)
