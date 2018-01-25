@@ -10,16 +10,17 @@
         <label><b>Subscription</b></label>
         <select class="w3-select" id="yearSelector">
             <option value="-1" selected disabled>- Select Year -</option>
-            <option value="0" >2017</option>
-            <option value="1" >2018</option>
-            <option value="2" >2019</option>
+            <option value="2017" >2017</option>
+            <option value="2018" >2018</option>
+            <option value="2019" >2019</option>
         </select>
         <select class="w3-select" id="termSelector">
             <option value="-1" selected disabled>- Select Term-</option>
-            <option value="0" >1 Term</option>
-            <option value="1" >2 Term</option>
-            <option value="2" >3 Term</option>
-            <option value="2" >Registration Fee</option>
+            <option value="0" >Registration Fee</option>
+            <option value="1" >1 Term</option>
+            <option value="2" >2 Term</option>
+            <option value="3" >3 Term</option>
+
         </select>
         <br><br>
         <br>
@@ -56,20 +57,22 @@
 
 
 
-        <button onclick="saveInventoryItem()" type="button" class="w3-button w3-green btn-right">Save</button>
+        <button onclick="savePayment()" type="button" class="w3-button w3-green btn-right">Save</button>
     </div>
 </div>
 
 
 <script>
-    function saveInventoryItem() {
-        $.post('AddInventoryItem', {
-                name: $('#name').val(),
-                description: $('#description').val(),
-                category: $('#categorySelector').val(),
-                owner: $('#teacherSelector').val(),
-                locationId: $('#locationSelector').val(),
-
+    function savePayment() {
+        $.post('AddPayment', {
+                studId: $('#studId').val(),
+                year: $('#yearSelector').val(),
+                term: $('#termSelector').val(),
+                cat: $('#categorySelector').val(),
+                amount: $('#amount').val(),
+                payMethod: $('#paymentMethodSelector').val(),
+                ref: $('#ref').val(),
+                desc: $('#desc').val(),
                 t56: t56
             },
             function (result) {

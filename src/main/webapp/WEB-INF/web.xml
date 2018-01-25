@@ -27,6 +27,16 @@
 
 
 	<servlet>
+		<servlet-name>AddPayment</servlet-name>
+		<servlet-class>servlet.AddPayment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddPayment</servlet-name>
+		<url-pattern>/AddPayment</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>AddBook</servlet-name>
 		<servlet-class>servlet.AddBook</servlet-class>
 	</servlet>

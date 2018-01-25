@@ -17,6 +17,7 @@ public class Payment extends Entity{
     private String desc;
     private Date date;
     private String ref;
+    private int category;
     private Student student;
 
 
@@ -56,6 +57,14 @@ public class Payment extends Entity{
     }
     public void setAmount(float amount) {
         this.amount = amount;
+    }
+
+    @Column(name = "category", nullable = false, length = 10)
+    public int getCategory() {
+        return category;
+    }
+    public void setCategory(int category) {
+        this.category = category;
     }
 
     @Column(name = "paymentMethod", nullable = false, length = 10)
