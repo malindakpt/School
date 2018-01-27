@@ -41,7 +41,7 @@ public class AddPayment extends HttpServlet {
                 Payment payment = new Payment();
                 payment.setStudent(student);
                 payment.setPaymentKey(request.getParameter("year")+ "-" +request.getParameter("term"));
-                payment.setCategory(Integer.parseInt(request.getParameter("cat")));
+//                payment.setCategory(Integer.parseInt(request.getParameter("cat")));
                 payment.setAmount(Integer.parseInt(request.getParameter("amount")));
                 payment.setPaymentMethod(Integer.parseInt(request.getParameter("payMethod")));
                 payment.setReferance(request.getParameter("ref"));

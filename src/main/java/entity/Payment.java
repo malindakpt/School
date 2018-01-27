@@ -59,7 +59,7 @@ public class Payment extends Entity{
         this.amount = amount;
     }
 
-    @Column(name = "category", nullable = false, length = 10)
+    @Column(name = "category", nullable = true, length = 10)
     public int getCategory() {
         return category;
     }

@@ -30,7 +30,7 @@
             <th>Method</th>
             <th>Date</th>
             <th>Ref</th>
-            <th>Categoty</th>
+            <th>Student ID</th>
             </thead>
             <%
                 User user = new Helper().getUser(request);
@@ -76,7 +76,7 @@
                 </td>
                 <td>
                     <%=
-                    payment.getCategory()
+                    payment.getStudent().getStudentId()
                     %>
                 </td>
             </tr>

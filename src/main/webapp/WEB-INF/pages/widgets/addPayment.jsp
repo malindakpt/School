@@ -24,14 +24,14 @@
         </select>
         <br><br>
         <br>
-        <label><b>Select Category</b></label>
-        <select class="w3-select" id="categorySelector">
-            <option value="-1" selected disabled>- Select -</option>
-            <option value="0" >Sport Item</option>
-            <option value="1" >Chemistry Lab Item</option>
-            <option value="2" >Other</option>
-        </select>
-        <br><br>
+        <%--<label><b>Select Category</b></label>--%>
+        <%--<select class="w3-select" id="categorySelector">--%>
+            <%--<option value="-1" selected disabled>- Select -</option>--%>
+            <%--<option value="0" >Sport Item</option>--%>
+            <%--<option value="1" >Chemistry Lab Item</option>--%>
+            <%--<option value="2" >Other</option>--%>
+        <%--</select>--%>
+        <%--<br><br>--%>
         <label>Amount</label>
         <input class="w3-input" type="number" id="amount">
 
