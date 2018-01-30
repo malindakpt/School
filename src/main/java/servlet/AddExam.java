@@ -4,6 +4,7 @@ package servlet; /**
 // Import required java libraries
 
 import entity.*;
+import entity.examination.Exam;
 import entityManager.EntityManager;
 import util.Helper;
 import util.UserRoles;

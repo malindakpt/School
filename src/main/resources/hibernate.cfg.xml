@@ -15,12 +15,12 @@
             <mapping class="entity.Teacher"></mapping>
             <mapping class="entity.ParticipationDate"></mapping>
             <mapping class="entity.Course"></mapping>
-            <mapping class="entity.Assesment"></mapping>
+            <mapping class="entity.examination.Assesment"></mapping>
 
             <mapping class="entity.Student"></mapping>
             <mapping class="entity.ClassRoom"></mapping>
             <mapping class="entity.Subject"></mapping>
-            <mapping class="entity.Exam"></mapping>
+            <mapping class="entity.examination.Exam"></mapping>
             <mapping class="entity.School"></mapping>
             <mapping class="entity.User"></mapping>
             <mapping class="entity.SubjectAsign"></mapping>
@@ -31,5 +31,6 @@
             <mapping class="entity.allocation.InventoryItem"></mapping>
             <mapping class="entity.library.Book"></mapping>
             <mapping class="entity.Payment"></mapping>
+            <mapping class="entity.examination.Lesson"></mapping>
     </session-factory>
 </hibernate-configuration>

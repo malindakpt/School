@@ -1,7 +1,12 @@
-package entity;
+package entity.examination;
+
+import entity.*;
+import entity.examination.Exam;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by MalindaK on 12/12/2017.
@@ -9,7 +14,7 @@ import java.util.Date;
 @javax.persistence.Entity
 @Table(name = "assesment", catalog = "school", uniqueConstraints = {
         @UniqueConstraint(columnNames = "assesmentId")})
-public class Assesment extends Entity{
+public class Assesment extends entity.Entity {
 //    Students may have many assesments, But some of them are only for exams. so stuudent have assesments and Some assesments only have exam
     private int assesmentId;
     private int marks;
@@ -19,7 +24,7 @@ public class Assesment extends Entity{
     private int type;
     private Student student;
     private Exam exam;
-
+    private Set<Lesson> lessons;
 
     // School Mapping start
     private School school;
@@ -50,6 +55,14 @@ public class Assesment extends Entity{
     }
     public void setAssesmentId(int assesmentId) {
         this.assesmentId = assesmentId;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "assesment")
+    public Set<Lesson> getLessons() {
+        return lessons;
+    }
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
     @ManyToOne(optional = false)

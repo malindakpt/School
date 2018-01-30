@@ -4,6 +4,8 @@ package servlet; /**
 // Import required java libraries
 
 import entity.*;
+import entity.examination.Assesment;
+import entity.examination.Exam;
 import entityManager.EntityManager;
 
 import javax.servlet.ServletException;

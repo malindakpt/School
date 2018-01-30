@@ -1,9 +1,9 @@
 <%@ page import="entity.Entity" %>
 <%@ page import="entityManager.EntityManager" %>
-<%@ page import="entity.Exam" %>
+<%@ page import="entity.examination.Exam" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Student" %>
-<%@ page import="entity.Assesment" %>
+<%@ page import="entity.examination.Assesment" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.util.HashSet" %>
 <%

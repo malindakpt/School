@@ -1,5 +1,7 @@
 package entity;
 
+import entity.examination.Assesment;
+
 import javax.persistence.*;
 import java.util.Set;
 

@@ -1,4 +1,6 @@
-package entity;
+package entity.examination;
+
+import entity.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,7 +12,7 @@ import java.util.Set;
 @javax.persistence.Entity
 @Table(name = "exam", catalog = "school", uniqueConstraints = {
         @UniqueConstraint(columnNames = "examId")})
-public class Exam extends Entity {
+public class Exam extends entity.Entity {
     private int examId;
     private int year;
     private String name;

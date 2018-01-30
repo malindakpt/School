@@ -1,6 +1,6 @@
 <%@ page import="entity.Student" %>
 <%@ page import="entityManager.EntityManager" %>
-<%@ page import="entity.Assesment" %>
+<%@ page import="entity.examination.Assesment" %>
 <h3>Student ID = <%=request.getParameter("id")%></h3>
 
 <br>

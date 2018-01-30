@@ -3,10 +3,8 @@ package servlet; /**
  */
 // Import required java libraries
 
-import entity.Assesment;
+import entity.examination.Assesment;
 import entity.Student;
-import entity.Subject;
-import entity.Teacher;
 import entityManager.EntityManager;
 
 import javax.servlet.ServletException;
@@ -15,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashSet;
-import java.util.Set;
 
 public class GetMarksForAssessment extends HttpServlet {
 

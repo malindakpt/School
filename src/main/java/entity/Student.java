@@ -1,7 +1,8 @@
 package entity;
 
+import entity.examination.Assesment;
+
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Set;
 
 /**

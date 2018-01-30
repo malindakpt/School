@@ -1,6 +1,6 @@
 <%@ page import="entity.Entity" %>
 <%@ page import="entityManager.EntityManager" %>
-<%@ page import="entity.Exam" %>
+<%@ page import="entity.examination.Exam" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.User" %>
 <%@ page import="util.Helper" %>

@@ -2,7 +2,7 @@
 <%@ page import="entity.Entity" %>
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="entity.Course" %>
-<%@ page import="entity.Exam" %>
+<%@ page import="entity.examination.Exam" %>
 <%
     String examId = request.getParameter("examId");
     Exam exam = (Exam) EntityManager.getEntity(Exam.class,"examId",examId);

@@ -4,7 +4,20 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="entity.Payment" %>
 <%@ page import="java.util.List" %>
-<h3>Payments</h3>
+
+
+
+<div class="w3-container">
+    <div>
+        <jsp:include page="../components/header.jsp?header=Payment Manager"/>
+        <button onclick="showHideElement('addPaymentContainer')" class="w3-btn btn-right w3-circle w3-green"><b>+</b></button>
+    </div>
+
+    <div id="addPaymentContainer" class="w3-container w3-hide">
+        <jsp:include page="addPayment.jsp"/>
+    </div>
+
+</div>
 
 
 
@@ -88,4 +101,4 @@
 </div>
 
 
-<jsp:include page="addPayment.jsp"/>
+

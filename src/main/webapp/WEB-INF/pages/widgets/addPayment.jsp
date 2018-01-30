@@ -4,7 +4,7 @@
     <%--</div>--%>
     <div class="w3-container">
         <br>
-        <label>Student Id</label>
+        <label><b>Student Id</b></label>
         <input class="w3-input" type="text" id="studId">
         <br>
         <label><b>Subscription</b></label>
@@ -23,19 +23,10 @@
 
         </select>
         <br><br>
-        <br>
-        <%--<label><b>Select Category</b></label>--%>
-        <%--<select class="w3-select" id="categorySelector">--%>
-            <%--<option value="-1" selected disabled>- Select -</option>--%>
-            <%--<option value="0" >Sport Item</option>--%>
-            <%--<option value="1" >Chemistry Lab Item</option>--%>
-            <%--<option value="2" >Other</option>--%>
-        <%--</select>--%>
-        <%--<br><br>--%>
-        <label>Amount</label>
+        <label><b>Amount</b></label>
         <input class="w3-input" type="number" id="amount">
 
-        <br><br>
+        <br>
         <label><b>Payment Method</b></label>
         <select class="w3-select" id="paymentMethodSelector">
             <option value="-1" selected disabled>- Select -</option>
@@ -44,14 +35,11 @@
             <option value="2" >Credit Card</option>
         </select>
         <br><br>
-
-        <br>
-        <label>Reference</label>
+        <label><b>Reference</b></label>
         <input class="w3-input" type="number" id="ref">
         <br>
 
-        <br>
-        <label>Description</label>
+        <label><b>Description</b></label>
         <input class="w3-input" type="text" id="desc">
         <br>
 

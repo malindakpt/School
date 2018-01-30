@@ -52,11 +52,11 @@ public class Course extends Entity {
     public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
+
     @Column(name = "name", nullable = true, length = 30)
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
