@@ -36,7 +36,7 @@
                 batch: $('#batch').val(),
                 grade: $('#grade').val(),
                 classRoomName: $('#classRoomName').val(),
-                classTeacher: $('#classTeacher').val(),
+                classTeacher: $('#teacherSelector').val(),
                 t56:t56
             },
             function (result) {

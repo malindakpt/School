@@ -25,6 +25,16 @@ public class Assesment extends entity.Entity {
     private Student student;
     private Exam exam;
     private Set<Lesson> lessons;
+    private int mark1;
+    private int mark2;
+    private int mark3;
+    private int mark4;
+    private int mark5;
+    private int mark6;
+    private int mark7;
+    private int mark8;
+    private int mark9;
+    private int mark10;
 
     // School Mapping start
     private School school;
@@ -39,12 +49,27 @@ public class Assesment extends entity.Entity {
     // School Mapping end
 
     public Assesment(){}
-    public Assesment(Student student, Subject subject, Teacher teacher, int marks, Date date){
+    public Assesment(Student student, Subject subject, Teacher teacher, int marks, Date date,
+                     int mark1, int mark2, int mark3, int mark4, int mark5, int mark6, int mark7, int mark8, int mark9, int mark10, School school
+    ){
         this.student = student;
         this.subject = subject;
         this.teacher = teacher;
         this.marks = marks;
         this.date = date;
+
+        this.mark1 = mark1;
+        this.mark2 = mark2;
+        this.mark3 = mark3;
+        this.mark4 = mark4;
+        this.mark5 = mark5;
+        this.mark6 = mark6;
+        this.mark7 = mark7;
+        this.mark8 = mark8;
+        this.mark9 = mark9;
+        this.mark10 = mark10;
+
+        this.school = school;
     }
 
     @Id
@@ -121,8 +146,87 @@ public class Assesment extends entity.Entity {
     public Exam getExam() {
         return exam;
     }
-
     public void setExam(Exam exam) {
         this.exam = exam;
+    }
+
+    @Column(name = "mark1", nullable = true, length = 20)
+    public int getMark1() {
+        return mark1;
+    }
+    public void setMark1(int mark1) {
+        this.mark1 = mark1;
+    }
+
+    @Column(name = "mark2", nullable = true, length = 20)
+    public int getMark2() {
+        return mark2;
+    }
+    public void setMark2(int mark2) {
+        this.mark2 = mark2;
+    }
+
+    @Column(name = "mark3", nullable = true, length = 20)
+    public int getMark3() {
+        return mark3;
+    }
+    public void setMark3(int mark3) {
+        this.mark3 = mark3;
+    }
+
+    @Column(name = "mark4", nullable = true, length = 20)
+    public int getMark4() {
+        return mark4;
+    }
+    public void setMark4(int mark4) {
+        this.mark4 = mark4;
+    }
+
+    @Column(name = "mark5", nullable = true, length = 20)
+    public int getMark5() {
+        return mark5;
+    }
+    public void setMark5(int mark5) {
+        this.mark5 = mark5;
+    }
+
+    @Column(name = "mark6", nullable = true, length = 20)
+    public int getMark6() {
+        return mark6;
+    }
+    public void setMark6(int mark6) {
+        this.mark6 = mark6;
+    }
+
+    @Column(name = "mark7", nullable = true, length = 20)
+    public int getMark7() {
+        return mark7;
+    }
+    public void setMark7(int mark7) {
+        this.mark7 = mark7;
+    }
+
+    @Column(name = "mark8", nullable = true, length = 20)
+    public int getMark8() {
+        return mark8;
+    }
+    public void setMark8(int mark8) {
+        this.mark8 = mark8;
+    }
+
+    @Column(name = "mark9", nullable = true, length = 20)
+    public int getMark9() {
+        return mark9;
+    }
+    public void setMark9(int mark9) {
+        this.mark9 = mark9;
+    }
+
+    @Column(name = "mark10", nullable = true, length = 20)
+    public int getMark10() {
+        return mark10;
+    }
+    public void setMark10(int mark10) {
+        this.mark10 = mark10;
     }
 }
