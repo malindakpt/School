@@ -49,7 +49,7 @@ public class AddMarks extends HttpServlet {
                 String subjectId = request.getParameter("subjectId");
                 String examId = request.getParameter("examId");
                 String teacherId = request.getParameter("teacherId");
-                Date date = formatter.parse(request.getParameter("assDate"));
+//                Date date = formatter.parse(request.getParameter("assDate"));
 
                 Subject subject = (Subject) EntityManager.getEntity(Subject.class, "subjectId", subjectId);
                 Teacher teacher = (Teacher) EntityManager.getEntity(Teacher.class, "teacherId", teacherId);
@@ -58,7 +58,7 @@ public class AddMarks extends HttpServlet {
                 for (int i = 0; i < studArr.length; i++) {
                     Student student = (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
                     Set<Assesment> assesments = student.getAssesments();
-                    Assesment assesment = new Assesment(student, subject, teacher, Integer.parseInt(marksArr[i]), date,
+                    Assesment assesment = new Assesment(student, subject, teacher, Integer.parseInt(marksArr[i]), null,
                             Integer.parseInt(q1Arr[i]),
                             Integer.parseInt(q2Arr[i]),
                             Integer.parseInt(q3Arr[i]),

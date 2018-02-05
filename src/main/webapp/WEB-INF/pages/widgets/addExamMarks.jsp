@@ -6,10 +6,10 @@
 
 <div id="classSelectContainer"></div>
 
-<h3>Get teacher id from logged in teacher</h3>
+<p>Get teacher id from logged in teacher</p>
 
-<label>Date</label>
-<input class="w3-input" type="date" id="assDate">
+<%--<label>Date</label>--%>
+<%--<input class="w3-input" type="date" id="assDate">--%>
 <br>
 
 <div id="subjectList">
@@ -92,10 +92,10 @@
         );
     }
     function onSubjectChange () {
-
+        getAndSetPage('CompStudentsInClassWithInput?t56='+t56+'&examId='+$('#examSelector').val()+'&subjectId='+$('#subjectSelector').val()+'&classId='+$('#classSelector').val(),'studentList');
     }
     function onClassRoomChange(){
-        getAndSetPage('CompStudentsInClassWithInput?t56='+t56+'&classId='+$('#classSelector').val(),'studentList');
+        getAndSetPage('CompStudentsInClassWithInput?t56='+t56+'&examId='+$('#examSelector').val()+'&subjectId='+$('#subjectSelector').val()+'&classId='+$('#classSelector').val(),'studentList');
     }
 
 </script>

@@ -43,3 +43,8 @@
     width: 33%;
     float: left;
 }
+
+
+th{
+    min-width: 108px;
+}

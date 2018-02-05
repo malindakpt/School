@@ -314,4 +314,30 @@ public class EntityManager {
         return null;
     }
 
-  }
+    public static List<Entity> getExamMarks(int examId, int classId, int subjectId, int schoolId){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String hql = "FROM Assesment ass WHERE examId = :examId and ass.student.classRoom.classRoomId= :classId and subjectId = :subjectId and ass.school.schoolId = :schoolId";
+            Query query = session.createQuery(hql);
+            query.setParameter("examId", examId);
+            query.setParameter("classId", classId);
+            query.setParameter("subjectId", subjectId);
+            query.setParameter("schoolId", schoolId);
+            entities = query.list();
+            tx.commit();
+            return entities;
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+}
