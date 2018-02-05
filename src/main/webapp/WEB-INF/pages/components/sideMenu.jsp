@@ -30,7 +30,7 @@
         <button class="w3-button">Examinations<i class="fa fa-caret-down" style="margin-left: 10px;"></i></button>
         <div class="w3-dropdown-content w3-bar-block">
             <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExam?t56='+t56)">Add Exam for Course</a>
-            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExamMarks?t56='+t56)">Add Exam Marks</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageAddExamMarks?t56='+t56)">Exam Marks</a>
             <%--<a href="#" class="w3-bar-item w3-button" onclick="getAndSetPage('PageViewExamMarks?t56='+t56)">View Exam Marks</a>--%>
         </div>
     </div>
