@@ -59,7 +59,7 @@
 
         $("#studentList input[rel=mainMarks]").each(function () {
             // this.id is the student Id
-            marksArr.push(this.value);
+            marksArr.push(this.value || 0);
             studArr.push(this.id);
             q1Arr.push($('#q1-'+this.id).val() || 0);
             q2Arr.push($('#q2-'+this.id).val() || 0);
@@ -100,7 +100,7 @@
             },
             function (result) {
                 if (result === "") {
-                    alert("Success " + result);
+//                    alert("Success " + result);
                     getAndSetPage('PageAddExamMarks?t56='+t56);
                 } else {
                     console.log("Error response");
