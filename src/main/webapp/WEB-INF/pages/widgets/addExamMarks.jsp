@@ -6,7 +6,7 @@
 
 <div id="classSelectContainer"></div>
 
-<p>Get teacher id from logged in teacher</p>
+<%--<p>Get teacher id from logged in teacher</p>--%>
 
 <%--<label>Date</label>--%>
 <%--<input class="w3-input" type="date" id="assDate">--%>
@@ -30,6 +30,7 @@
     }
     function addExamSaveMarks() {
         var marksArr = [];
+        var marksNameArr = [];
         var studArr = [];
         var q1Arr = [];
         var q2Arr = [];
@@ -41,8 +42,23 @@
         var q8Arr = [];
         var q9Arr = [];
         var q10Arr = [];
+        var assIdArr = [];
+
+        marksNameArr.push($('#marks1Name').val());
+        marksNameArr.push($('#marks2Name').val());
+        marksNameArr.push($('#marks3Name').val());
+        marksNameArr.push($('#marks4Name').val());
+        marksNameArr.push($('#marks5Name').val());
+        marksNameArr.push($('#marks6Name').val());
+        marksNameArr.push($('#marks7Name').val());
+        marksNameArr.push($('#marks8Name').val());
+        marksNameArr.push($('#marks9Name').val());
+        marksNameArr.push($('#marks10Name').val());
+
+
 
         $("#studentList input[rel=mainMarks]").each(function () {
+            // this.id is the student Id
             marksArr.push(this.value);
             studArr.push(this.id);
             q1Arr.push($('#q1-'+this.id).val() || 0);
@@ -55,6 +71,7 @@
             q8Arr.push($('#q8-'+this.id).val() || 0);
             q9Arr.push($('#q9-'+this.id).val() || 0);
             q10Arr.push($('#q10-'+this.id).val() || 0);
+            assIdArr.push($('#assID-'+this.id).val() || -1);
         });
 
         console.log(q2Arr);
@@ -62,6 +79,7 @@
         $.post('AddMarks', {
                 marksArr: marksArr,
                 studArr: studArr,
+                marksNameArr: marksNameArr,
                 q1Arr: q1Arr,
                 q2Arr: q2Arr,
                 q3Arr: q3Arr,
@@ -72,16 +90,18 @@
                 q8Arr: q8Arr,
                 q9Arr: q9Arr,
                 q10Arr: q10Arr,
+                assIdArr: assIdArr,
 
                 examId: $('#examSelector').val(),
                 subjectId: $('#subjectSelector').val(),
-                teacherId: 1,//$('#teacherSelector').val(),
+//                teacherId: 1,//$('#teacherSelector').val(),
                 assDate: $('#assDate').val(),
                 t56: t56
             },
             function (result) {
                 if (result === "") {
                     alert("Success " + result);
+                    getAndSetPage('PageAddExamMarks?t56='+t56);
                 } else {
                     console.log("Error response");
                 }

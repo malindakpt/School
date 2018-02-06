@@ -35,6 +35,7 @@ public class AddMarks extends HttpServlet {
 
                 String[] marksArr = request.getParameterValues("marksArr[]");
                 String[] studArr = request.getParameterValues("studArr[]");
+                String[] marksNameArr = request.getParameterValues("marksNameArr[]");
                 String[] q1Arr = request.getParameterValues("q1Arr[]");
                 String[] q2Arr = request.getParameterValues("q2Arr[]");
                 String[] q3Arr = request.getParameterValues("q3Arr[]");
@@ -45,10 +46,12 @@ public class AddMarks extends HttpServlet {
                 String[] q8Arr = request.getParameterValues("q8Arr[]");
                 String[] q9Arr = request.getParameterValues("q9Arr[]");
                 String[] q10Arr = request.getParameterValues("q10Arr[]");
+                String[] assIdArr = request.getParameterValues("assIdArr[]");
+
 
                 String subjectId = request.getParameter("subjectId");
                 String examId = request.getParameter("examId");
-                String teacherId = request.getParameter("teacherId");
+                String teacherId = user.getMemberId()+"";//request.getParameter("teacherId");
 //                Date date = formatter.parse(request.getParameter("assDate"));
 
                 Subject subject = (Subject) EntityManager.getEntity(Subject.class, "subjectId", subjectId);
@@ -58,21 +61,61 @@ public class AddMarks extends HttpServlet {
                 for (int i = 0; i < studArr.length; i++) {
                     Student student = (Student) EntityManager.getEntity(Student.class, "studentId", studArr[i]);
                     Set<Assesment> assesments = student.getAssesments();
-                    Assesment assesment = new Assesment(student, subject, teacher, Integer.parseInt(marksArr[i]), null,
-                            Integer.parseInt(q1Arr[i]),
-                            Integer.parseInt(q2Arr[i]),
-                            Integer.parseInt(q3Arr[i]),
-                            Integer.parseInt(q4Arr[i]),
-                            Integer.parseInt(q5Arr[i]),
-                            Integer.parseInt(q6Arr[i]),
-                            Integer.parseInt(q7Arr[i]),
-                            Integer.parseInt(q8Arr[i]),
-                            Integer.parseInt(q9Arr[i]),
-                            Integer.parseInt(q10Arr[i]),
-                            user.getSchool()
-                    );
-                    assesment.setExam(exam);
-                    EntityManager.add(assesment);
+
+                    Assesment assesment;
+                    assesment = (Assesment) EntityManager.getEntity(Assesment.class, "assesmentId", assIdArr[i]);
+                    if(assesment != null ) {
+                        assesment.updateAssesment(student, subject, teacher, Integer.parseInt(marksArr[i]), null,
+                                Integer.parseInt(q1Arr[i]),
+                                Integer.parseInt(q2Arr[i]),
+                                Integer.parseInt(q3Arr[i]),
+                                Integer.parseInt(q4Arr[i]),
+                                Integer.parseInt(q5Arr[i]),
+                                Integer.parseInt(q6Arr[i]),
+                                Integer.parseInt(q7Arr[i]),
+                                Integer.parseInt(q8Arr[i]),
+                                Integer.parseInt(q9Arr[i]),
+                                Integer.parseInt(q10Arr[i]),
+                                marksNameArr[0],
+                                marksNameArr[1],
+                                marksNameArr[2],
+                                marksNameArr[3],
+                                marksNameArr[4],
+                                marksNameArr[5],
+                                marksNameArr[6],
+                                marksNameArr[7],
+                                marksNameArr[8],
+                                marksNameArr[9],
+                                user.getSchool()
+                        );
+                        EntityManager.update(assesment);
+                    } else {
+                        assesment = new Assesment(student, subject, teacher, Integer.parseInt(marksArr[i]), null,
+                                Integer.parseInt(q1Arr[i]),
+                                Integer.parseInt(q2Arr[i]),
+                                Integer.parseInt(q3Arr[i]),
+                                Integer.parseInt(q4Arr[i]),
+                                Integer.parseInt(q5Arr[i]),
+                                Integer.parseInt(q6Arr[i]),
+                                Integer.parseInt(q7Arr[i]),
+                                Integer.parseInt(q8Arr[i]),
+                                Integer.parseInt(q9Arr[i]),
+                                Integer.parseInt(q10Arr[i]),
+                                marksNameArr[0],
+                                marksNameArr[1],
+                                marksNameArr[2],
+                                marksNameArr[3],
+                                marksNameArr[4],
+                                marksNameArr[5],
+                                marksNameArr[6],
+                                marksNameArr[7],
+                                marksNameArr[8],
+                                marksNameArr[9],
+                                user.getSchool()
+                        );
+                        assesment.setExam(exam);
+                        EntityManager.add(assesment);
+                    }
 
                     if (student.getAssesments().size() > 0) {
                         assesments.add(assesment);

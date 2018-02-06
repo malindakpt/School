@@ -25,6 +25,16 @@ public class Assesment extends entity.Entity {
     private Student student;
     private Exam exam;
     private Set<Lesson> lessons;
+    private String mark1Name;
+    private String mark2Name;
+    private String mark3Name;
+    private String mark4Name;
+    private String mark5Name;
+    private String mark6Name;
+    private String mark7Name;
+    private String mark8Name;
+    private String mark9Name;
+    private String mark10Name;
     private int mark1;
     private int mark2;
     private int mark3;
@@ -50,7 +60,8 @@ public class Assesment extends entity.Entity {
 
     public Assesment(){}
     public Assesment(Student student, Subject subject, Teacher teacher, int marks, Date date,
-                     int mark1, int mark2, int mark3, int mark4, int mark5, int mark6, int mark7, int mark8, int mark9, int mark10, School school
+                     int mark1, int mark2, int mark3, int mark4, int mark5, int mark6, int mark7, int mark8, int mark9, int mark10,
+                     String mark1Name, String mark2Name, String mark3Name, String mark4Name, String mark5Name, String mark6Name, String mark7Name, String mark8Name, String mark9Name, String mark10Name,School school
     ){
         this.student = student;
         this.subject = subject;
@@ -68,6 +79,52 @@ public class Assesment extends entity.Entity {
         this.mark8 = mark8;
         this.mark9 = mark9;
         this.mark10 = mark10;
+
+        this.mark1Name = mark1Name;
+        this.mark2Name = mark2Name;
+        this.mark3Name = mark3Name;
+        this.mark4Name = mark4Name;
+        this.mark5Name = mark5Name;
+        this.mark6Name = mark6Name;
+        this.mark7Name = mark7Name;
+        this.mark8Name = mark8Name;
+        this.mark9Name = mark9Name;
+        this.mark10Name = mark10Name;
+
+        this.school = school;
+    }
+
+    public void updateAssesment(Student student, Subject subject, Teacher teacher, int marks, Date date,
+                     int mark1, int mark2, int mark3, int mark4, int mark5, int mark6, int mark7, int mark8, int mark9, int mark10,
+                     String mark1Name, String mark2Name, String mark3Name, String mark4Name, String mark5Name, String mark6Name, String mark7Name, String mark8Name, String mark9Name, String mark10Name,School school
+    ){
+        this.student = student;
+        this.subject = subject;
+        this.teacher = teacher;
+        this.marks = marks;
+        this.date = date;
+
+        this.mark1 = mark1;
+        this.mark2 = mark2;
+        this.mark3 = mark3;
+        this.mark4 = mark4;
+        this.mark5 = mark5;
+        this.mark6 = mark6;
+        this.mark7 = mark7;
+        this.mark8 = mark8;
+        this.mark9 = mark9;
+        this.mark10 = mark10;
+
+        this.mark1Name = mark1Name;
+        this.mark2Name = mark2Name;
+        this.mark3Name = mark3Name;
+        this.mark4Name = mark4Name;
+        this.mark5Name = mark5Name;
+        this.mark6Name = mark6Name;
+        this.mark7Name = mark7Name;
+        this.mark8Name = mark8Name;
+        this.mark9Name = mark9Name;
+        this.mark10Name = mark10Name;
 
         this.school = school;
     }
@@ -228,5 +285,85 @@ public class Assesment extends entity.Entity {
     }
     public void setMark10(int mark10) {
         this.mark10 = mark10;
+    }
+
+    @Column(name = "mark1Name", nullable = true, length = 20)
+    public String getMark1Name() {
+        return mark1Name;
+    }
+    public void setMark1Name(String mark1Name) {
+        this.mark1Name = mark1Name;
+    }
+
+    @Column(name = "mark2Name", nullable = true, length = 20)
+    public String getMark2Name() {
+        return mark2Name;
+    }
+    public void setMark2Name(String mark2Name) {
+        this.mark2Name = mark2Name;
+    }
+
+    @Column(name = "mark3Name", nullable = true, length = 20)
+    public String getMark3Name() {
+        return mark3Name;
+    }
+    public void setMark3Name(String mark3Name) {
+        this.mark3Name = mark3Name;
+    }
+
+    @Column(name = "mark4Name", nullable = true, length = 20)
+    public String getMark4Name() {
+        return mark4Name;
+    }
+    public void setMark4Name(String mark4Name) {
+        this.mark4Name = mark4Name;
+    }
+
+    @Column(name = "mark5Name", nullable = true, length = 20)
+    public String getMark5Name() {
+        return mark5Name;
+    }
+    public void setMark5Name(String mark5Name) {
+        this.mark5Name = mark5Name;
+    }
+
+    @Column(name = "mark6Name", nullable = true, length = 20)
+    public String getMark6Name() {
+        return mark6Name;
+    }
+    public void setMark6Name(String mark6Name) {
+        this.mark6Name = mark6Name;
+    }
+
+    @Column(name = "mark7Name", nullable = true, length = 20)
+    public String getMark7Name() {
+        return mark7Name;
+    }
+    public void setMark7Name(String mark7Name) {
+        this.mark7Name = mark7Name;
+    }
+
+    @Column(name = "mark8Name", nullable = true, length = 20)
+    public String getMark8Name() {
+        return mark8Name;
+    }
+    public void setMark8Name(String mark8Name) {
+        this.mark8Name = mark8Name;
+    }
+
+    @Column(name = "mark9Name", nullable = true, length = 20)
+    public String getMark9Name() {
+        return mark9Name;
+    }
+    public void setMark9Name(String mark9Name) {
+        this.mark9Name = mark9Name;
+    }
+
+    @Column(name = "mark10Name", nullable = true, length = 20)
+    public String getMark10Name() {
+        return mark10Name;
+    }
+    public void setMark10Name(String mark10Name) {
+        this.mark10Name = mark10Name;
     }
 }
