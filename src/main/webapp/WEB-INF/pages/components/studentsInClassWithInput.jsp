@@ -49,6 +49,7 @@
             }
         }
 %>
+
 <%
     if(!headersCreated){
 %>
@@ -66,7 +67,7 @@
         <th><input id="marks8Name" value=<%= assesment.getMark8Name() != null ? assesment.getMark8Name() : "Question8" %> ></th>
         <th><input id="marks9Name" value=<%= assesment.getMark9Name() != null ? assesment.getMark9Name() : "Question9" %> ></th>
         <th><input id="marks10Name" value=<%= assesment.getMark10Name() != null ? assesment.getMark10Name() : "Question10" %> ></th>
-        <th></th>
+        <th  style="display: none"></th>
 
     </tr>
 
@@ -143,19 +144,26 @@
         %>
         <input value="<%=assesment.getMark10() == 0 ? "" : assesment.getMark10()%>"  class="w3-input" type="number" id="q10-<%=student.getStudentId()%>">
     </td>
-    <td>
+    <td style="display: none">
         <input disabled value="<%=assesment.getAssesmentId()%>" id="assID-<%=student.getStudentId()%>">
     </td>
 </tr>
 <%
     }
 %>
+ <script> var dataArr = []; </script>
+
  <tr>
      <td>Average Marks</td>
      <td></td>
      <%
          for( int m=0;  m<totalArr.length ; m++){
      %>
+     <script>
+         var name = $('#marks<%=m+1%>Name').val();
+         dataArr.push([name,<%=totalArr[m]/students.size()%>]);
+     </script>
+
      <td style="font-weight: bold"><%=totalArr[m]/students.size()%>%</td>
      <%
          }
@@ -164,5 +172,70 @@
  </tr>
 </table>
 </div>
+<div id="chartContainer"/>
+
+<script>
+
+    Highcharts.chart('chartContainer', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Performance for the lessons'
+        },
+        credits: {
+            enabled: false,
+        },
+        plotOptions: {
+            column: {
+                zones: [{
+                    value: 13, // Values up to 10 (not including) ...
+                    color: 'blue' // ... have the color blue.
+                },{
+                    color: 'red' // Values from 10 (including) and up have the color red
+                }]
+            }
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number Of Allocated Periods'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Average Marks<b>{point.y:.1f} </b>'
+        },
+        series: [{
+            name: 'Population',
+            data: dataArr,
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+</script>
+
 
 
