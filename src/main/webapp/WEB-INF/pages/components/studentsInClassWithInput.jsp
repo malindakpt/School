@@ -157,7 +157,7 @@
      <td>Average Marks</td>
      <td></td>
      <%
-         for( int m=0;  m<totalArr.length ; m++){
+         for( int m=0;  m<totalArr.length && students.size()>0 ; m++){
      %>
      <script>
          var name = $('#marks<%=m+1%>Name').val();

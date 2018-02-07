@@ -47,7 +47,7 @@
 
     function editTeacher(btn){
         getAndSetPage("PageEditTeacher?teacherId="+btn.id);
-        getAndSetPage("Profile?isTeacher=true&id="+btn.id, "profileContainer");
+//        getAndSetPage("Profile?isTeacher=true&id="+btn.id, "profileContainer");
     }
 </script>
 <p class="wid-id">listTeachers</p>

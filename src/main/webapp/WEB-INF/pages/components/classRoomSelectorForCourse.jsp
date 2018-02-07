@@ -3,7 +3,10 @@
 <%@ page import="entityManager.EntityManager" %>
 <%@ page import="entity.Course" %>
 <%@ page import="entity.examination.Exam" %>
+<%@ page import="util.Helper" %>
 <%
+
+    Helper helper = new Helper();
     String examId = request.getParameter("examId");
     Exam exam = (Exam) EntityManager.getEntity(Exam.class,"examId",examId);
     Course course = exam.getCourse();
@@ -13,7 +16,7 @@
     <%
         for (ClassRoom classRoom : course.getClassRooms()) {
     %>
-    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+classRoom.getGrade()+"-"+classRoom.getClassRoomName()+"-"+classRoom.getBatch()%></option>
+    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+helper.getCurrentCourse(classRoom).getName()+"-"+classRoom.getClassRoomName()+"-"+classRoom.getBatch()%></option>
     <%
         }
     %>

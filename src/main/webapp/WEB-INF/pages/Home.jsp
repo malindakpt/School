@@ -107,7 +107,7 @@
                 %>
                 <jsp:include page='widgets/profile.jsp'>
                     <jsp:param name="id" value="<%=user.getSchool().getSchoolId()%>" />
-                    <jsp:param name="isStudent" value="false" />
+                    <jsp:param name="isTeacher" value="true" />
                 </jsp:include>
                 <%
                 }else if(user.getRole() == UserRoles.STUDENT){
@@ -123,9 +123,9 @@
             </div>
             <br>
             <!-- Accordion -->
-            <div class=" w3-hide-small">
-            <jsp:include page="components/accordion.jsp"/>
-            </div>
+            <%--<div class=" w3-hide-small">--%>
+            <%--<jsp:include page="components/accordion.jsp"/>--%>
+            <%--</div>--%>
 
 
 
@@ -172,18 +172,19 @@
         <div class="w3-col m2">
 
             <!-- Interests -->
-            <div class="w3-card w3-round w3-white w3-hide-small">
-                <div class="w3-container">
-                    <p>Logged as : <%=user.getName()%></p>
-                </div>
-            </div>
-            <br>
+            <%--<div class="w3-card w3-round w3-white w3-hide-small">--%>
+                <%--<div class="w3-container">--%>
+                    <%--<p>Logged as : <%=user.getName()%></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<br>--%>
 
            <%--<jsp:include page="widgets/searchBox.jsp"/>--%>
             <%--<br>--%>
             <%--<jsp:include page="components/interests.jsp"/>--%>
 
             <div class="w3-card w3-round w3-white w3-center">
+
                 <div class="w3-container">
                     <p>Upcoming Events:</p>
                     <img src="img/sportmeet.jpg" alt="Forest" style="width:100%;">
@@ -193,25 +194,28 @@
                         <button class="w3-button w3-block w3-theme-l4"><strong>Sports Meet 2018</strong></button>
                     </p>
                 </div>
+
+
+
             </div>
             <br>
-
-            <div class="w3-card w3-round w3-white w3-center">
-                <div class="w3-container">
-                    <p>Class Teacher</p>
-                    <img src="img/teacher.PNG" alt="Avatar" style="width:50%"><br>
-
-                    <div class="w3-row w3-opacity">
-                        <div class="w3-full">
-                            <button class="w3-button w3-block w3-green w3-section" title="Accept"><span style="color: black">Nadeeka Herath</span></button>
-                        </div>
-                        <%--<div class="w3-half">--%>
-                            <%--<button class="w3-button w3-block w3-red w3-section" title="Decline"><i--%>
-                                    <%--class="fa fa-remove"></i></button>--%>
-                        <%--</div>--%>
-                    </div>
-                </div>
+            <div class=" w3-hide-small">
+                <jsp:include page="components/accordion.jsp"/>
             </div>
+
+
+            <%--<div class="w3-card w3-round w3-white w3-center">--%>
+                <%--<div class="w3-container">--%>
+                    <%--<p>Class Teacher</p>--%>
+                    <%--<img src="img/teacher.PNG" alt="Avatar" style="width:50%"><br>--%>
+
+                    <%--<div class="w3-row w3-opacity">--%>
+                        <%--<div class="w3-full">--%>
+                            <%--<button class="w3-button w3-block w3-green w3-section" title="Accept"><span style="color: black">Nadeeka Herath</span></button>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
             <br>
 
             <%--Removing adds--%>

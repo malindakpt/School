@@ -124,7 +124,7 @@ public class Helper {
         return timeTableSet;
     }
 
-    private Course getCurrentCourse(ClassRoom classRoom){
+    public Course getCurrentCourse(ClassRoom classRoom){
         for(Course course: classRoom.getCourses()){
             if(classRoom.getCurrentCourseId() == course.getCourseId()){
                 return course;
