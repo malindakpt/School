@@ -45,6 +45,9 @@
 }
 
 
-th{
+
+th {
     min-width: 108px;
+    background-color: #cdcdcd;
+    color: #010101;
 }

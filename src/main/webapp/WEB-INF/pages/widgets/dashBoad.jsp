@@ -2,16 +2,16 @@
     String studentId = request.getParameter("studentId");
     String t56 = request.getParameter("t56");
 %>
-<jsp:include page="../components/courseSelector4Student.jsp?studentId=<%=studentId%>&t56=<%=t56%>"/>
+<%--<jsp:include page="../components/courseSelector4Student.jsp?studentId=<%=studentId%>&t56=<%=t56%>"/>--%>
 
 <div class="w3-row">
-
+<br><br>
     <div class="w3-container w3-twothird">
         <div id="chartContainer2" style="display: block"></div>
     </div>
     <div class="w3-container w3-third">
-        <span class="w3-badge w3-large w3-padding w3-red">3rd</span>
-        <span>place of last term test</span>
+        <%--<span class="w3-badge w3-large w3-padding w3-red">3rd</span>--%>
+        <%--<span>place of last term test</span>--%>
 
         <span style="float: right;">
             <span class="fa fa-star checked"></span>
@@ -23,6 +23,7 @@
         </span>
         <div class="w3-container">
             <%--<h2>Avatar List</h2>--%>
+            <br><br>
             <p>Recent comments from teachers</p>
                 <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
                     <p>continues absent for last 3 sports practice sessions</p>
@@ -37,7 +38,83 @@
 
     </div>
 </div>
+<br><br><br>
+<div class="w3-row">
+    <div class="w3-container w3-third">
+        <jsp:include page="../components/examSelector.jsp?t56=<%=t56%>"/>
+    </div>
+</div>
+<br><br>
+<div class="w3-row">
+    <div class="w3-container w3-twothird">
+        <div class="w3-responsive">
+        <table class="w3-table w3-striped">
+            <tr>
+                <th>Subject Name</th>
 
+                <th>Highest Marks</th>
+                <th>Marks</th>
+            </tr>
+        <tr>
+            <td>Mathematics</td>
+            <td>90</td>
+            <td>79</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td>99</td>
+            <td>87</td>
+        </tr>
+        <tr>
+            <td>Sinhala</td>
+            <td>100</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>100</td>
+            <td>79</td>
+        </tr>
+        <tr>
+            <td>Social Science</td>
+            <td>85</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <td>Music</td>
+            <td>95</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>Mathematics</td>
+            <td>100</td>
+            <td>98</td>
+        </tr>
+            <tr>
+                <th></th>
+                <th>Total</th>
+                <th>589</th>
+            </tr>
+
+
+
+    </table>
+    </div>
+    </div>
+    <div class="w3-container w3-third">
+        <br>
+        <br>
+        <br>
+        <br>
+       <br>
+        <h3 class="w3-blue" style="padding-left: 60px; margin: auto">
+            Rank: 7
+        </h3>
+        <h7>
+            Average: 84.14
+        </h7>
+    </div>
+</div>
 <script>
 
 
