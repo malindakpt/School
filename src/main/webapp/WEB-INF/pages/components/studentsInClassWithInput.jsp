@@ -79,7 +79,7 @@
 
     <tr>
     <td>
-        <%= student.getFirstName() + " " + student.getLastName()%>
+        <%= student.getFirstName() + " " + student.getLastName()+"("+student.getStudentId()+")"%>
     </td>
     <td>
         <input value="<%=assesment.getMarks() == 0 ? "" : assesment.getMarks()%>"  class="w3-input" type="number" rel="mainMarks" id="<%=student.getStudentId()%>">

@@ -4,11 +4,8 @@ import AppConfig.HibernateUtil;
 import entity.Entity;
 import entity.School;
 import entity.Student;
-import entity.User;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+
 import java.util.List;
 
 /**
@@ -302,6 +299,34 @@ public class EntityManager {
             String hql = "FROM "+entity.getSimpleName()+" WHERE schoolId = :schoolId order by "+orderedAttr+" " + order;
             Query query = session.createQuery(hql);
             query.setParameter("schoolId", school.getSchoolId());
+            entities = query.list();
+            tx.commit();
+            return entities;
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+    public static List<Entity> getRankList(int examId, int schoolId){
+        List<Entity> entities;// = new ArrayList<Entity>();
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            String sql = "SELECT studentId,sum(marks) as total FROM assesment WHERE examId=1 group by studentId order by total desc";//" WHERE examId=1 group by studentId order by total desc";
+            SQLQuery query = session.createSQLQuery(sql);
+            query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+
+//            query.setParameter("examId", examId);
+//            query.setParameter("classId", classId);
+//            query.setParameter("subjectId", subjectId);
+//            query.setParameter("schoolId", schoolId);
             entities = query.list();
             tx.commit();
             return entities;
