@@ -5,7 +5,8 @@
 <%@ page import="entity.User" %>
 <%@ page import="util.Helper" %>
 <%
-    User user = new Helper().getUser(request);
+    Helper helper = new Helper();
+    User user = helper.getUser(request);
     int teacherId = user.getUserId();
     List<Entity> classRooms = EntityManager.getEntities(ClassRoom.class, user.getSchool());
 %>
@@ -16,7 +17,7 @@
             ClassRoom classRoom = (ClassRoom) e1;
             if(classRoom.getClassTeacher()!=null && classRoom.getClassTeacher().getTeacherId()== teacherId){
     %>
-    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+classRoom.getGrade()+"-"+classRoom.getClassRoomName()+"  "+classRoom.getBatch()%></option>
+    <option value="<%=classRoom.getClassRoomId()%>"><%="Grade "+helper.getCurrentCourse(classRoom).getName()+"-"+classRoom.getClassRoomName()+"  "+classRoom.getBatch()%></option>
     <%
             } }
     %>

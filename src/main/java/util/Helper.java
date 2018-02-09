@@ -91,7 +91,7 @@ public class Helper {
                 Course currentCourse = getCurrentCourse(classRoom);
 
                 if(currentCourse == null){
-                    throw new Exception("No course is assigned to: "+ classRoom.getGrade()+"-"+classRoom.getClassRoomName());
+                    throw new Exception("No course is assigned to: "+ classRoom.getClassRoomName()+"-"+classRoom.getClassRoomName());
                 }
                 TimeTable timeTable = new TimeTable(classRoom);
 
@@ -224,8 +224,8 @@ public class Helper {
                             classAllocation.put(classKey,period);
                             teacherAllocation.put(teacherKey,true);
 
-                            System.out.println(key+"   "+period.getClassRoom().getGrade()+period.getClassRoom().getClassRoomName()
-                            +" "+period.getSubject().getName()+"   "+period.getTeacher().getFirstName());
+//                            System.out.println(key+"   "+period.getClassRoom().getGrade()+period.getClassRoom().getClassRoomName()
+//                            +" "+period.getSubject().getName()+"   "+period.getTeacher().getFirstName());
                             allocated=true;
                             break;
                         }

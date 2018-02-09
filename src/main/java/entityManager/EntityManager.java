@@ -6,6 +6,7 @@ import entity.School;
 import entity.Student;
 import org.hibernate.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -311,22 +312,19 @@ public class EntityManager {
         return null;
     }
 
-    public static List<Entity> getRankList(int examId, int schoolId){
-        List<Entity> entities;// = new ArrayList<Entity>();
+    public static List<HashMap> getRankList(int examId, int schoolId){
+        List<HashMap> entities;
         Session session = null;
         Transaction tx = null;
 
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            String sql = "SELECT studentId,sum(marks) as total FROM assesment WHERE examId=1 group by studentId order by total desc";//" WHERE examId=1 group by studentId order by total desc";
+            String sql = "SELECT studentId,sum(marks) as total FROM assesment WHERE examId= :examId and schoolId= :schoolId  group by studentId order by total desc";//" WHERE examId=1 group by studentId order by total desc";
             SQLQuery query = session.createSQLQuery(sql);
             query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
-
-//            query.setParameter("examId", examId);
-//            query.setParameter("classId", classId);
-//            query.setParameter("subjectId", subjectId);
-//            query.setParameter("schoolId", schoolId);
+            query.setParameter("examId", examId);
+            query.setParameter("schoolId", schoolId);
             entities = query.list();
             tx.commit();
             return entities;

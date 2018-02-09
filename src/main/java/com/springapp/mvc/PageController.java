@@ -181,7 +181,7 @@ class PageRateStudentController {
 
 @Controller
 @RequestMapping("/PageReportCard")
-class PageReportCaardController {
+class PageReportCardController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String printWelcome(ModelMap model) {
 		return "widgets/reportCard";

@@ -13,11 +13,12 @@ public class ClassRoom extends Entity {
     private int classRoomId;
     private int batch;
     private String classRoomName;
-    private int grade;
+//    private int grade;
     private boolean isAdmissionClosed; // No need
     private Teacher classTeacher;
     private TimeTable timeTable;
     private Set<Course> courses;
+    // Use helper to access this
     private int currentCourseId;
 
     //For Mapping
@@ -84,13 +85,13 @@ public class ClassRoom extends Entity {
         this.classRoomName = classRoomName;
     }
 
-    @Column(name = "grade", nullable = true, length = 20)
-    public int getGrade() {
-        return grade;
-    }
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
+//    @Column(name = "grade", nullable = true, length = 20)
+//    public int getGrade() {
+//        return grade;
+//    }
+//    public void setGrade(int grade) {
+//        this.grade = grade;
+//    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "teacherId", nullable = true)
